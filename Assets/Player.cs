@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : Entity
 {
     public static Player instance;
+    
+    [SerializeReference]RunStats runStats;
+    
     [SerializeField]protected int maxHealth = 100;
     [SerializeField]protected uint experience = 0;
     [SerializeField]protected uint experienceToNextLevel = 100;
@@ -43,6 +47,7 @@ public class Player : Entity
 
     public void TakeDamage(int damage)
     {
+        spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(2, LoopType.Yoyo);
         transform.DOShakeScale(1f, 0.5f);
         health -= damage;
         if (health <= 0)
@@ -75,4 +80,41 @@ public class Player : Entity
         OnCollisionEnter2D(col);
         base.OnCollisionStay2D(col);
     }
+
+    public void AddEnemyKill()
+    {
+        runStats.enemiesKilled++;
+    }
+
+    public void AddResource(ResourceDrop.Resource resource, uint amount)
+    {
+        runStats.resourcesCollected += amount;
+        switch (resource)
+        {
+            case ResourceDrop.Resource.Stone:
+                runStats.stoneCollected += amount;
+                break;
+            case ResourceDrop.Resource.Wood:
+                runStats.woodCollected += amount;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
+        }
+    }
+
+    public void AddNodeHarvest(ResourceNode.Resource resource)
+    {
+        switch (resource)
+        {
+            case ResourceNode.Resource.Stone:
+                runStats.stoneNodesHarvested++;
+                break;
+            case ResourceNode.Resource.Wood:
+                runStats.woodNodesHarvested++;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
+        }
+    }
 }
+

@@ -43,6 +43,7 @@ public class Enemy : Entity, IDamageable
     private void Kill()
     {
         ExplosionManager.instance.SpawnExplosion(transform.position);
+        Player.instance.AddEnemyKill();
         EnemyManager.instance.ReleaseEnemy(this);
     }
 }

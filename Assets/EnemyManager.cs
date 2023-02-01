@@ -35,13 +35,21 @@ public class EnemyManager : MonoBehaviour
     //TODO replace this entire thing with a wave manager that tells the manager what to spawn and when
     private void Start()
     {
-        TimerManager.instance.onOneSecond += SpawnEnemy;
+        TimerManager.instance.onOneSecond += CheckForRoomAndSpawnResourceNode;
     }
     private void OnDestroy()
     {
-        TimerManager.instance.onOneSecond -= SpawnEnemy;
+        TimerManager.instance.onOneSecond -= CheckForRoomAndSpawnResourceNode;
     }
 
+    private void CheckForRoomAndSpawnResourceNode()
+    {
+        if (activeEnemies.Count < 10)
+        {
+            SpawnEnemy();
+        }
+    }
+    
     public void SpawnEnemy()
     {
         var enemy = enemies.Get();

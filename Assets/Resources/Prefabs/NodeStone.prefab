@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1053179282637734466}
   - component: {fileID: 1053179282637734469}
   m_Layer: 8
-  m_Name: StoneNode
+  m_Name: NodeStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,10 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1988456765, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
+  spriteRenderer: {fileID: 1053179282637734471}
   Rb: {fileID: 1053179282637734469}
-  health: 1
-  resourcePool: 00000000
-  resourceAmount: 10
+  health: 2
+  resourcePool: 01000000
+  resourceNode: 0
+  resourceAmount: 3
   experienceReward: 5
 --- !u!58 &1053179282637734466
 CircleCollider2D:

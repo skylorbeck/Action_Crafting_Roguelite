@@ -5,12 +5,14 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [SerializeField] protected Sprite[] sprites;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
     public Rigidbody2D Rb;
     [SerializeField]protected int health = 1;
 
     protected virtual void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponent<SpriteAnimator>()?.SetSprites(sprites);
     }
 

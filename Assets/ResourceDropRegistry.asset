@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb830127a963a87418efa2c70f18f866, type: 3}
+  m_Name: ResourceDropRegistry
+  m_EditorClassIdentifier: 
+  resourceList: 0100000000000000
+  resourceNameList:
+  - Stone Chunk
+  - Wood Log
+  resourceDescriptionList:
+  - A simple building material
+  - Yep, it's wood
+  resourceNodePrefabList:
+  - {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
+  - {fileID: 3039213380506703702, guid: 916457a2168c21749ad854fa8fcf543a, type: 3}
+  resourceDropPrefabList:
+  - {fileID: 689346706200705857, guid: 7bddb0fef5f6e1d4c9fca7d0d6138f8c, type: 3}
+  - {fileID: 9110901050853174995, guid: 4f170326d751cb64884c25667e1e6e93, type: 3}
+  resourceValueList: 0300000004000000

@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 
 public class ResourceNode : Entity, IDamageable, IExperienceReward
 {
-    public Resource[] resourcePool;
+    public ResourceDrop.Resource[] resourcePool;
+    public Resource resourceNode;
     public uint resourceAmount = 10;
     public int experienceReward = 5;
 
@@ -21,7 +22,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
     }
     
-    public void SetResourcePool(Resource[] resourcePool)
+    public void SetResourcePool(ResourceDrop.Resource[] resourcePool)
     {
         this.resourcePool = resourcePool;
     }
@@ -43,7 +44,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
 
     public void SetSprite(Sprite sprite)
     {
-        GetComponent<SpriteRenderer>().sprite = sprite;
+        spriteRenderer.sprite = sprite;
     }
     
     public void SetResource(ResourceNode newNode)
@@ -78,19 +79,11 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     {
         for (int i = 0; i < resourceAmount; i++)
         {
-            Resource resource = resourcePool[Random.Range(0, resourcePool.Length)];
-            switch (resource)
-            {
-                case Resource.Stone:
-                    //TODO ResourceManager.instance.SpawnStone();
-                    break;
-                case Resource.Wood:
-                    //TODO ResourceManager.instance.SpawnWood();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            ResourceDrop.Resource resource = resourcePool[Random.Range(0, resourcePool.Length)];
+            ResourceManager.instance.SpawnResourceDrop(transform.position, resource);
         }
+
+        Player.instance.AddNodeHarvest(resourceNode);
         //TODO ResourceManager.instance.SpawnExperience(experienceReward);
         ResourceManager.instance.ReleaseResourceNode(this);
     }

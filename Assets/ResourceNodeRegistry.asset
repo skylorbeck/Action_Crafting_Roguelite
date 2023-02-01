@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01fb411f6234f359fa44f24fed0f645, type: 3}
+  m_Name: ResourceNodeRegistry
+  m_EditorClassIdentifier: 
+  resourceList: 0000000001000000
+  resourceNameList:
+  - Stone Node
+  - Wood Node
+  resourceDescriptionList:
+  - Spawns Stone
+  - Spawns Wood
+  resourceNodePrefabList:
+  - {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
+  - {fileID: 3039213380506703702, guid: 916457a2168c21749ad854fa8fcf543a, type: 3}

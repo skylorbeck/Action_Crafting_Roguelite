@@ -8,6 +8,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
+      propertyPath: resourceNode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
+      propertyPath: resourceAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -520974208, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
@@ -17,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: resourcePool.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734468, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: m_RootOrder
@@ -65,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734470, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: m_Name
-      value: TreeNode
+      value: NodeTree
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734471, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: m_Sprite
