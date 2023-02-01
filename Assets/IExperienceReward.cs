@@ -4,5 +4,5 @@ using UnityEngine;
 
     public interface IExperienceReward
     {
-        int GetExperienceReward();
+        uint GetExperienceReward();
     }

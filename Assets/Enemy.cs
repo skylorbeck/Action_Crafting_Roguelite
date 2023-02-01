@@ -6,6 +6,7 @@ public class Enemy : Entity, IDamageable
 {
     [SerializeField]protected float speed = 2.5f;
     [SerializeField]protected int power = 10;
+    [SerializeField]protected uint goldReward = 1;
 
     protected override void Start()
     {
@@ -42,8 +43,19 @@ public class Enemy : Entity, IDamageable
     }
     private void Kill()
     {
-        ExplosionManager.instance.SpawnExplosion(transform.position);
+        var position = transform.position;
+        ExplosionManager.instance.SpawnExplosion(position);
+        ResourceManager.instance.SpawnCoin(position, goldReward);
         Player.instance.AddEnemyKill();
         EnemyManager.instance.ReleaseEnemy(this);
+    }
+
+    protected override void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            TakeDamage(1);
+        }
+        base.OnCollisionEnter2D(col);
     }
 }

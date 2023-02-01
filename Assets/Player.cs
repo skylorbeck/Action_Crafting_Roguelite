@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
@@ -13,12 +15,17 @@ public class Player : Entity
     
     [SerializeField]protected int maxHealth = 100;
     [SerializeField]protected uint experience = 0;
+    [SerializeField]protected uint goldCoins = 0;
     [SerializeField]protected uint experienceToNextLevel = 100;
     [SerializeField]protected uint level = 1;
 
     [SerializeField]protected float invincibleTime = 1f;
     [SerializeField]protected float invincibleTimer = 0f;
 
+    [SerializeField] protected Image experienceBar;
+[SerializeField] protected TextMeshProUGUI levelText;
+[SerializeField] protected TextMeshProUGUI goldText;
+    
     protected override void Start()
     {
         instance = this;
@@ -42,11 +49,14 @@ public class Player : Entity
         {
             invincibleTimer -= Time.deltaTime;
         }
+        experienceBar.rectTransform.sizeDelta = new Vector2((experience / (float) experienceToNextLevel)*1820, 64);
+
         base.FixedUpdate();
     }
 
     public void TakeDamage(int damage)
     {
+        //TODO Hearts on Screen to show how much health you have left
         spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(2, LoopType.Yoyo);
         transform.DOShakeScale(1f, 0.5f);
         health -= damage;
@@ -60,6 +70,7 @@ public class Player : Entity
     {
         ExplosionManager.instance.SpawnExplosion(transform.position);
         EnemyManager.instance.ReleaseAllEnemies();
+        ResourceManager.instance.ReleaseAllAll();
         gameObject.SetActive(false); //TODO replace this
     }
 
@@ -92,7 +103,8 @@ public class Player : Entity
         switch (resource)
         {
             case ResourceDrop.Resource.Stone:
-                runStats.stoneCollected += amount;
+                runStats.stoneCollected += amount;//TODO display on screen?
+                //TODO add to inventory at end of run
                 break;
             case ResourceDrop.Resource.Wood:
                 runStats.woodCollected += amount;
@@ -115,6 +127,28 @@ public class Player : Entity
             default:
                 throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
         }
+    }
+
+    public void AddExperience(uint experienceValue)
+    {
+        experience += experienceValue;
+        if (experience >= experienceToNextLevel)
+        {
+            experience -= experienceToNextLevel;
+            level++;
+            experienceToNextLevel = (uint) (experienceToNextLevel * 1.5f);
+            maxHealth += 10;
+            health = maxHealth;
+            levelText.text = "Lv. " + level;
+            //TODO level up effects
+        }
+    }
+
+
+    public void AddCoin(uint goldValue)
+    {
+        goldCoins += goldValue;
+        goldText.text = "x" + goldCoins;
     }
 }
 

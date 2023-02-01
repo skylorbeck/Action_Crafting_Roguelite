@@ -9,7 +9,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     public ResourceDrop.Resource[] resourcePool;
     public Resource resourceNode;
     public uint resourceAmount = 10;
-    public int experienceReward = 5;
+    public uint experienceReward = 5;
 
     protected override void Start()
     {
@@ -32,7 +32,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         this.resourceAmount = resourceAmount;
     }
     
-    public void SetExperienceReward(int experienceReward)
+    public void SetExperienceReward(uint experienceReward)
     {
         this.experienceReward = experienceReward;
     }
@@ -84,11 +84,11 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         }
 
         Player.instance.AddNodeHarvest(resourceNode);
-        //TODO ResourceManager.instance.SpawnExperience(experienceReward);
+        ResourceManager.instance.SpawnExperienceOrb(transform.position, experienceReward);
         ResourceManager.instance.ReleaseResourceNode(this);
     }
 
-    public int GetExperienceReward()
+    public uint GetExperienceReward()
     {
         return experienceReward;
     }

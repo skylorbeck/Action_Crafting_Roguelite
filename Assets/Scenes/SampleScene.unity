@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &58603631
 Transform:
   m_ObjectHideFlags: 0
@@ -107629,7 +107629,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1820, y: 64}
+  m_SizeDelta: {x: 0, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1638486066
 MonoBehaviour:
@@ -107871,7 +107871,11 @@ MonoBehaviour:
   resourceNodeRegistry: {fileID: 11400000, guid: f996bd0305e3897489f605bfdf7ae4fa, type: 2}
   activeNodes: []
   activeDrops: []
-  resourceNodeSpawnRadius: 3
+  resourceNodeSpawnRadius: 5
+  activeExperienceOrbs: []
+  experienceOrbPrefab: {fileID: 3688525277379565146, guid: 85648e629acfc7d40bf672f843a7e9fb, type: 3}
+  activeCoins: []
+  coinPrefab: {fileID: 680674065685295588, guid: 8d056b375da78bd4ca62d2773fe13e47, type: 3}
 --- !u!1001 &4777040365247200355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107879,17 +107883,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2658640984177907184, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4433631032065783146, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4433631032065783146, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4433631032065783146, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4433631032065783146, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -107897,7 +107905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777040365247200357, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4777040365247200357, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_IsTrigger
@@ -107906,6 +107914,10 @@ PrefabInstance:
     - target: {fileID: 4777040365876319625, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777040365876319625, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4777040365876319630, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: m_RootOrder
@@ -107951,6 +107963,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4777040365876319633, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
+      propertyPath: goldText
+      value: 
+      objectReference: {fileID: 1555049423}
+    - target: {fileID: 4777040365876319633, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 829695295}
+    - target: {fileID: 4777040365876319633, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
+      propertyPath: experienceBar
+      value: 
+      objectReference: {fileID: 1638486066}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
 --- !u!1 &4777040365247200356 stripped

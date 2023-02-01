@@ -19,21 +19,30 @@ public class ResourceManager : MonoBehaviour
 
     public ObjectPool<ResourceDrop> resourceDrops;
     public List<ResourceDrop> activeDrops = new List<ResourceDrop>();
-    
     public float resourceNodeSpawnRadius = 10f;
 
+    public ObjectPool<ExperienceOrb> experienceOrbs;
+    public List<ExperienceOrb> activeExperienceOrbs = new List<ExperienceOrb>();
+    public ExperienceOrb experienceOrbPrefab;
+
+    public ObjectPool<GoldCoin> coins;
+    public List<GoldCoin> activeCoins = new List<GoldCoin>();
+    public GoldCoin coinPrefab;
+    
     private async void Awake()
     {
         instance = this;
         resourceNodes = new ObjectPool<ResourceNode>(
             () =>
             {
-                ResourceNode resourceNode = Instantiate(resourceDropRegistry.GetResourceNodePrefab(Random.value > 0.5f ?ResourceDrop.Resource.Wood : ResourceDrop.Resource.Stone)); 
+                ResourceNode resourceNode = Instantiate(resourceDropRegistry.GetResourceNodePrefab(Random.value > 0.5f ?ResourceDrop.Resource.Wood : ResourceDrop.Resource.Stone),transform); 
                 return resourceNode;
             },
             resourceNode =>
             {
                 resourceNode.gameObject.SetActive(true);
+                resourceNode.transform.DOKill();
+                resourceNode.transform.localScale = Vector3.one;
                 activeNodes.Add(resourceNode);
             },
             resourceNode =>
@@ -45,12 +54,14 @@ public class ResourceManager : MonoBehaviour
         resourceDrops = new ObjectPool<ResourceDrop>(
             () =>
             {
-                ResourceDrop resourceDrop = Instantiate(resourceDropRegistry.GetResourceDropPrefab(ResourceDrop.Resource.Stone)); 
+                ResourceDrop resourceDrop = Instantiate(resourceDropRegistry.GetResourceDropPrefab(ResourceDrop.Resource.Stone),transform); 
                 return resourceDrop;
             },
             resourceDrop =>
             {
                 resourceDrop.gameObject.SetActive(true);
+                resourceDrop.transform.DOKill();
+                resourceDrop.transform.localScale = Vector3.one;
                 activeDrops.Add(resourceDrop);
             },
             resourceDrop =>
@@ -59,7 +70,46 @@ public class ResourceManager : MonoBehaviour
                 resourceDrop.gameObject.SetActive(false);
             }
         );
-        await Task.Delay(1);
+        experienceOrbs = new ObjectPool<ExperienceOrb>(
+            () =>
+            {
+                ExperienceOrb experienceOrb = Instantiate(experienceOrbPrefab,transform); 
+                return experienceOrb;
+            },
+            experienceOrb =>
+            {
+                experienceOrb.gameObject.SetActive(true);
+                experienceOrb.transform.DOKill();
+                experienceOrb.transform.localScale = Vector3.one;
+                activeExperienceOrbs.Add(experienceOrb);
+            },
+            experienceOrb =>
+            {
+                activeExperienceOrbs.Remove(experienceOrb);
+                experienceOrb.gameObject.SetActive(false);
+            }
+        );
+        coins = new ObjectPool<GoldCoin>(
+            () =>
+            {
+                GoldCoin coin = Instantiate(coinPrefab,transform); 
+                return coin;
+            },
+            coin =>
+            {
+                coin.gameObject.SetActive(true);
+                coin.transform.DOKill();
+                coin.transform.localScale = Vector3.one;
+                activeCoins.Add(coin);
+            },
+            coin =>
+            {
+                activeCoins.Remove(coin);
+                coin.gameObject.SetActive(false);
+            }
+        );
+            
+            await Task.Delay(1);
         TimerManager.instance.onOneSecond += CheckForRoomAndSpawnResourceNode;
     }
 
@@ -103,7 +153,7 @@ public class ResourceManager : MonoBehaviour
 
     public void SpawnResourceDrop(Vector2 position, ResourceDrop.Resource resource = ResourceDrop.Resource.Stone)
     {
-        ResourceDrop resourceDrop = Instantiate(resourceDropRegistry.GetResourceDropPrefab(resource));
+        ResourceDrop resourceDrop = resourceDrops.Get();
         resourceDrop.SetResource(resource);
         resourceDrop.SetAmount(1);//TODO perk influence
         resourceDrop.transform.position = position;
@@ -128,9 +178,79 @@ public class ResourceManager : MonoBehaviour
             resourceDrops.Release(resourceDrop);
         }
     }
-
+    
     public void CleanupDrops()
     {
         //TODO merge old drops with new drops for more value
+    }
+    
+    public void SpawnExperienceOrb(Vector2 position, uint amount)
+    {
+        ExperienceOrb experienceOrb = experienceOrbs.Get();
+        experienceOrb.SetAmount(amount);
+        experienceOrb.transform.position = position;
+        experienceOrb.transform.DOJump(position + (Random.insideUnitCircle*resourceNodeSpawnRadius), 0.5f, 1, 0.25f).onComplete += () =>
+        {
+            experienceOrb.collider.enabled = true;
+            experienceOrb.transform.DOScale(1.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+        };
+    }
+    
+    public void ReleaseExperienceOrb(ExperienceOrb experienceOrb)
+    {
+        experienceOrbs.Release(experienceOrb);
+    }
+    
+    public void ReleaseAllExperienceOrbs()
+    {
+        List<ExperienceOrb> activeExperienceOrbs = new List<ExperienceOrb>(this.activeExperienceOrbs);
+        foreach (var experienceOrb in activeExperienceOrbs)
+        {
+            experienceOrbs.Release(experienceOrb);
+        }
+    }
+
+    public void CleanupExperienceOrbs()
+    {
+        //TODO merge old experience orbs with new experience orbs for more value
+    }
+    
+    public void SpawnCoin(Vector2 position, uint amount)
+    {
+        GoldCoin coin = coins.Get();
+        coin.SetAmount(amount);
+        coin.transform.position = position;
+        coin.transform.DOJump(position + (Random.insideUnitCircle*resourceNodeSpawnRadius), 0.5f, 1, 0.25f).onComplete += () =>
+        {
+            coin.collider.enabled = true;
+            coin.transform.DOScale(1.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+        };
+    }
+    
+    public void ReleaseCoin(GoldCoin coin)
+    {
+        coins.Release(coin);
+    }
+    
+    public void ReleaseAllCoins()
+    {
+        List<GoldCoin> activeCoins = new List<GoldCoin>(this.activeCoins);
+        foreach (var coin in activeCoins)
+        {
+            coins.Release(coin);
+        }
+    }
+
+    public void CleanupCoins()
+    {
+        //TODO merge old coins with new coins for more value
+    }
+
+    public void ReleaseAllAll()
+    {
+        ReleaseAllCoins();
+        ReleaseAllExperienceOrbs();
+        ReleaseAllResourceDrops();
+        ReleaseAllResourceNodes();
     }
 }
