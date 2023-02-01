@@ -107,7 +107,8 @@ MonoBehaviour:
   Rb: {fileID: 6440035285943207891}
   health: 1
   speed: 2.5
-  power: 10
+  power: 1
+  goldReward: 1
 --- !u!58 &6440035285943207888
 CircleCollider2D:
   m_ObjectHideFlags: 0

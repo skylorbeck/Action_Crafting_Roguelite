@@ -35,11 +35,11 @@ public class ResourceDrop : Entity
     private void Awake()
     {
         Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
-        collider.enabled = false;
     }
 
     protected override void OnTriggerEnter2D(Collider2D col)
     {
+        collider.enabled = false;
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Player.instance.AddResource(resource, amount);

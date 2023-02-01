@@ -36,7 +36,13 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
-        // rb.velocity = move * speed;
+        transform.localScale = move.x switch
+        {
+            //flip sprite if moving right
+            > 0 => new Vector3(-1, 1, 1),
+            < 0 => new Vector3(1, 1, 1),
+            _ => transform.localScale
+        };
     }
     
     public void OnLook(InputAction.CallbackContext context)

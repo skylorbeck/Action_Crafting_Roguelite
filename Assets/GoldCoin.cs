@@ -6,12 +6,12 @@ public class GoldCoin:Entity
     public Collider2D collider;
     public void Awake()
     {
-        collider.enabled = false;
         Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
     }
 
     protected override void OnTriggerEnter2D(Collider2D col)
     {
+        collider.enabled = false;
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Player.instance.AddCoin(goldValue);

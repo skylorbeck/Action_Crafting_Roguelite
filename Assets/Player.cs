@@ -10,22 +10,23 @@ using UnityEngine.UI;
 public class Player : Entity
 {
     public static Player instance;
-    
-    [SerializeReference]RunStats runStats;
-    
-    [SerializeField]protected int maxHealth = 100;
-    [SerializeField]protected uint experience = 0;
-    [SerializeField]protected uint goldCoins = 0;
-    [SerializeField]protected uint experienceToNextLevel = 100;
-    [SerializeField]protected uint level = 1;
 
-    [SerializeField]protected float invincibleTime = 1f;
-    [SerializeField]protected float invincibleTimer = 0f;
+    [SerializeReference] RunStats runStats;
+
+    [SerializeField] protected int maxHealth = 100;
+    [SerializeField] protected uint experience = 0;
+    [SerializeField] protected uint goldCoins = 0;
+    [SerializeField] protected uint experienceToNextLevel = 100;
+    [SerializeField] protected uint level = 0;
+
+    [SerializeField] protected float invincibleTime = 1f;
+    [SerializeField] protected float invincibleTimer = 0f;
 
     [SerializeField] protected Image experienceBar;
-[SerializeField] protected TextMeshProUGUI levelText;
-[SerializeField] protected TextMeshProUGUI goldText;
+    [SerializeField] protected TextMeshProUGUI levelText;
+    [SerializeField] protected TextMeshProUGUI goldText;
     
+    [SerializeField] protected Button resumeButton;//TODO move this somewhere else
     protected override void Start()
     {
         instance = this;
@@ -35,6 +36,8 @@ public class Player : Entity
     private void Awake()
     {
         health = maxHealth;
+        HealthDisplay.instance.SetMaxHealth(maxHealth);
+        HealthDisplay.instance.SetHealth(health);
         Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
     }
 
@@ -45,21 +48,22 @@ public class Player : Entity
 
     protected override void FixedUpdate()
     {
-        if (invincibleTimer >0)
+        if (invincibleTimer > 0)
         {
-            invincibleTimer -= Time.deltaTime;
+            invincibleTimer -= Time.fixedDeltaTime;
         }
-        experienceBar.rectTransform.sizeDelta = new Vector2((experience / (float) experienceToNextLevel)*1820, 64);
+
+        experienceBar.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(experienceBar.rectTransform.sizeDelta.x,(experience / (float)experienceToNextLevel) * 1820,Time.fixedDeltaTime), 64);
 
         base.FixedUpdate();
     }
 
     public void TakeDamage(int damage)
     {
-        //TODO Hearts on Screen to show how much health you have left
-        spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(2, LoopType.Yoyo);
-        transform.DOShakeScale(1f, 0.5f);
+        spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(8, LoopType.Yoyo).onComplete += () => spriteRenderer.DOColor(Color.white, 0.1f);
+        // transform.DOShakeScale(1f, 0.5f);
         health -= damage;
+        HealthDisplay.instance.SetHealth(health);
         if (health <= 0)
         {
             Kill();
@@ -71,7 +75,7 @@ public class Player : Entity
         ExplosionManager.instance.SpawnExplosion(transform.position);
         EnemyManager.instance.ReleaseAllEnemies();
         ResourceManager.instance.ReleaseAllAll();
-        gameObject.SetActive(false); //TODO replace this
+        gameObject.SetActive(false); //TODO replace this 
     }
 
 
@@ -83,6 +87,7 @@ public class Player : Entity
             TakeDamage(enemy.GetPower());
             invincibleTimer = invincibleTime;
         }
+
         base.OnCollisionEnter2D(col);
     }
 
@@ -103,7 +108,7 @@ public class Player : Entity
         switch (resource)
         {
             case ResourceDrop.Resource.Stone:
-                runStats.stoneCollected += amount;//TODO display on screen?
+                runStats.stoneCollected += amount; //TODO display on screen?
                 //TODO add to inventory at end of run
                 break;
             case ResourceDrop.Resource.Wood:
@@ -132,18 +137,40 @@ public class Player : Entity
     public void AddExperience(uint experienceValue)
     {
         experience += experienceValue;
+        CheckForLevelUp();
+    }
+
+    private void CheckForLevelUp()
+    {
         if (experience >= experienceToNextLevel)
         {
             experience -= experienceToNextLevel;
             level++;
-            experienceToNextLevel = (uint) (experienceToNextLevel * 1.5f);
+            experienceToNextLevel = (uint)(experienceToNextLevel * 1.5f);
             maxHealth += 10;
             health = maxHealth;
             levelText.text = "Lv. " + level;
-            //TODO level up effects
+            
+            //TODO hand off to level up system
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0f, 0.5f).SetUpdate(true).onComplete += () =>
+            {
+                resumeButton.interactable = true;
+            };
+            resumeButton.gameObject.SetActive(true);
+            resumeButton.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
         }
     }
 
+    public void ResumeGame()//TODO move this to the level up system
+    {
+        resumeButton.interactable = false;
+        Time.timeScale = 1f;
+        resumeButton.transform.DOLocalMove(new Vector3(0, -1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).onComplete += () =>
+            {
+                resumeButton.gameObject.SetActive(false);
+                CheckForLevelUp();
+            };
+    }
 
     public void AddCoin(uint goldValue)
     {

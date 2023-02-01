@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 689346706200705857}
   - component: {fileID: 399212921313119045}
   - component: {fileID: 9064460375482689377}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DropStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

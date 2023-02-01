@@ -59,6 +59,7 @@ public class ResourceManager : MonoBehaviour
             },
             resourceDrop =>
             {
+                resourceDrop.collider.enabled = false;
                 resourceDrop.gameObject.SetActive(true);
                 resourceDrop.transform.DOKill();
                 resourceDrop.transform.localScale = Vector3.one;
@@ -66,6 +67,7 @@ public class ResourceManager : MonoBehaviour
             },
             resourceDrop =>
             {
+                resourceDrop.collider.enabled = false;
                 activeDrops.Remove(resourceDrop);
                 resourceDrop.gameObject.SetActive(false);
             }
@@ -78,6 +80,7 @@ public class ResourceManager : MonoBehaviour
             },
             experienceOrb =>
             {
+                experienceOrb.collider.enabled = false;
                 experienceOrb.gameObject.SetActive(true);
                 experienceOrb.transform.DOKill();
                 experienceOrb.transform.localScale = Vector3.one;
@@ -85,6 +88,7 @@ public class ResourceManager : MonoBehaviour
             },
             experienceOrb =>
             {
+                experienceOrb.collider.enabled = false;
                 activeExperienceOrbs.Remove(experienceOrb);
                 experienceOrb.gameObject.SetActive(false);
             }
@@ -97,6 +101,7 @@ public class ResourceManager : MonoBehaviour
             },
             coin =>
             {
+                coin.collider.enabled = false;
                 coin.gameObject.SetActive(true);
                 coin.transform.DOKill();
                 coin.transform.localScale = Vector3.one;
@@ -104,6 +109,7 @@ public class ResourceManager : MonoBehaviour
             },
             coin =>
             {
+                coin.collider.enabled = false;
                 activeCoins.Remove(coin);
                 coin.gameObject.SetActive(false);
             }
@@ -157,7 +163,7 @@ public class ResourceManager : MonoBehaviour
         resourceDrop.SetResource(resource);
         resourceDrop.SetAmount(1);//TODO perk influence
         resourceDrop.transform.position = position;
-        resourceDrop.transform.DOJump(position + (Random.insideUnitCircle*resourceNodeSpawnRadius), 0.5f, 1, 0.25f).onComplete += () =>
+        resourceDrop.transform.DOJump(position + (Random.insideUnitCircle*resourceNodeSpawnRadius), 0.5f, 2, 0.5f).onComplete += () =>
         {
             resourceDrop.collider.enabled = true;
             resourceDrop.transform.DOScale(0.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
@@ -189,7 +195,7 @@ public class ResourceManager : MonoBehaviour
         ExperienceOrb experienceOrb = experienceOrbs.Get();
         experienceOrb.SetAmount(amount);
         experienceOrb.transform.position = position;
-        experienceOrb.transform.DOJump(position + (Random.insideUnitCircle*resourceNodeSpawnRadius), 0.5f, 1, 0.25f).onComplete += () =>
+        experienceOrb.transform.DOJump(position + (Random.insideUnitCircle*resourceNodeSpawnRadius), 0.5f, 2, 0.5f).onComplete += () =>
         {
             experienceOrb.collider.enabled = true;
             experienceOrb.transform.DOScale(1.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);

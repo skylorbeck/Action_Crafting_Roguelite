@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : Entity, IDamageable
 {
     [SerializeField]protected float speed = 2.5f;
-    [SerializeField]protected int power = 10;
+    [SerializeField]protected int power = 1;
     [SerializeField]protected uint goldReward = 1;
 
     protected override void Start()

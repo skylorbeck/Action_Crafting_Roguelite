@@ -1904,7 +1904,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_items_trans_84
+      name: Heart Full
       rect:
         serializedVersion: 2
         x: 304
@@ -1925,7 +1925,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_items_trans_85
+      name: Heart Half
       rect:
         serializedVersion: 2
         x: 320
@@ -1946,7 +1946,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_items_trans_86
+      name: Heart Empty
       rect:
         serializedVersion: 2
         x: 336
@@ -1967,7 +1967,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_items_trans_87
+      name: Heart Broken
       rect:
         serializedVersion: 2
         x: 352
@@ -6636,7 +6636,6 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_279: -2113340301
       oryx_16bit_fantasy_items_trans_11: -1497965151
       oryx_16bit_fantasy_items_trans_210: -382959997
-      oryx_16bit_fantasy_items_trans_85: -318604894
       oryx_16bit_fantasy_items_trans_20: -1199754448
       oryx_16bit_fantasy_items_trans_283: 1827660420
       oryx_16bit_fantasy_items_trans_19: 365279930
@@ -6729,6 +6728,7 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_4: 1762120784
       oryx_16bit_fantasy_items_trans_28: -100167699
       oryx_16bit_fantasy_items_trans_310: -1520433829
+      Heart Full: -1547448382
       oryx_16bit_fantasy_items_trans_80: -1623470665
       oryx_16bit_fantasy_items_trans_150: -597042024
       oryx_16bit_fantasy_items_trans_194: 948474094
@@ -6742,7 +6742,6 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_38: 455794353
       oryx_16bit_fantasy_items_trans_302: -353951536
       oryx_16bit_fantasy_items_trans_311: -1567892484
-      oryx_16bit_fantasy_items_trans_87: -1327876677
       oryx_16bit_fantasy_items_trans_266: 654695118
       oryx_16bit_fantasy_items_trans_211: 1990270442
       oryx_16bit_fantasy_items_trans_248: -2111793780
@@ -6782,6 +6781,7 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_89: -1233868592
       oryx_16bit_fantasy_items_trans_178: 628290091
       oryx_16bit_fantasy_items_trans_151: 842263047
+      Heart Empty: 692104337
       oryx_16bit_fantasy_items_trans_216: 2136082428
       oryx_16bit_fantasy_items_trans_42: 1214675519
       oryx_16bit_fantasy_items_trans_270: -1632825416
@@ -6812,7 +6812,6 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_134: -857635720
       oryx_16bit_fantasy_items_trans_338: 90038261
       oryx_16bit_fantasy_items_trans_18: 2097127366
-      oryx_16bit_fantasy_items_trans_86: 692104337
       oryx_16bit_fantasy_items_trans_159: 901253447
       oryx_16bit_fantasy_items_trans_71: -1980540583
       oryx_16bit_fantasy_items_trans_94: -1452714572
@@ -6873,7 +6872,6 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_318: -834898882
       oryx_16bit_fantasy_items_trans_79: -420638414
       oryx_16bit_fantasy_items_trans_99: 1983437088
-      oryx_16bit_fantasy_items_trans_84: -1547448382
       oryx_16bit_fantasy_items_trans_91: 26637613
       oryx_16bit_fantasy_items_trans_256: 1498305149
       oryx_16bit_fantasy_items_trans_7: -763842434
@@ -6915,6 +6913,7 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_289: 1674700673
       oryx_16bit_fantasy_items_trans_73: 1768577720
       oryx_16bit_fantasy_items_trans_41: 1715728445
+      Heart Half: -318604894
       oryx_16bit_fantasy_items_trans_63: 810325253
       oryx_16bit_fantasy_items_trans_78: -751148566
       oryx_16bit_fantasy_items_trans_27: -1752856669
@@ -6940,6 +6939,7 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_340: 1577835389
       oryx_16bit_fantasy_items_trans_245: 89308454
       oryx_16bit_fantasy_items_trans_77: 1225915033
+      Heart Broken: -1327876677
       oryx_16bit_fantasy_items_trans_281: -1652004598
       oryx_16bit_fantasy_items_trans_108: -1469030275
       oryx_16bit_fantasy_items_trans_230: 1019049028

@@ -10,13 +10,13 @@ public class ExperienceOrb : Entity
    public void Awake()
    {
       UpdateSprite();
-      collider.enabled = false;
       Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
 
    }
 
    protected override void OnTriggerEnter2D(Collider2D col)
    {
+      collider.enabled = false;
       if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
       {
          Player.instance.AddExperience(experienceValue);
