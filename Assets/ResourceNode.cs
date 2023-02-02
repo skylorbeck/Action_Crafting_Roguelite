@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class ResourceNode : Entity, IDamageable, IExperienceReward
 {
+    public Collider2D collider;
     public ResourceDrop.Resource[] resourcePool;
     public Resource resourceNode;
     public uint resourceAmount = 10;
@@ -13,7 +14,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
 
     protected override void Start()
     {
-        
+        collider = GetComponent<Collider2D>();
         base.Start();
     }
 
@@ -49,6 +50,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     
     public void SetResource(ResourceNode newNode)
     {
+        resourceNode = newNode.resourceNode;
         SetResourcePool(newNode.resourcePool);
         SetResourceAmount(newNode.resourceAmount);
         SetExperienceReward(newNode.experienceReward);
@@ -98,8 +100,22 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f, col.GetContact(0).point);
-            TakeDamage(1);
+            // TakeDamage(1);
         }
+
+        if (col.gameObject.layer == LayerMask.NameToLayer("PlayerWeapons"))
+        {
+            Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f, col.GetContact(0).point);
+            if (col.gameObject.GetComponent<Projectile>().targetResource == resourceNode)
+            {
+                TakeDamage(2);//TODO perks modify this
+            }
+            else
+            {
+                TakeDamage(1);//TODO perks modify this
+            }
+        }
+        
         base.OnCollisionEnter2D(col);
     }
 

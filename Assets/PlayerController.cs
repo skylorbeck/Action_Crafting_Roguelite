@@ -8,11 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     public float speed = 5f;
-    public float lookSpeed = 5f;
-    public float fireRate = 0.5f;
-    public float nextFire = 0f;
     
     Vector2 move;
+
     
     void Start()
     {
@@ -26,12 +24,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        nextFire += Time.fixedDeltaTime;
-        if (nextFire >= fireRate)
-        {
-            // Fire();
-        }
     }
+
 
     public void OnMove(InputAction.CallbackContext context)
     {

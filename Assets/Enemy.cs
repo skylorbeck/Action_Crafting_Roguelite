@@ -52,7 +52,7 @@ public class Enemy : Entity, IDamageable
 
     protected override void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") || col.gameObject.layer == LayerMask.NameToLayer("PlayerWeapons"))
         {
             TakeDamage(1);
         }

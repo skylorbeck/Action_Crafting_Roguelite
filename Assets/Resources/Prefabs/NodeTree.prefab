@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: health
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: resourceNode
