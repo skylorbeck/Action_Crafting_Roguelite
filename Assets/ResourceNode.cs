@@ -12,6 +12,9 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     public uint resourceAmount = 10;
     public uint experienceReward = 5;
 
+    
+    [SerializeField] float knockbackPlayer = 0.5f;
+    [SerializeField] float knockbackWeapon = 0.5f;
     protected override void Start()
     {
         collider = GetComponent<Collider2D>();
@@ -99,13 +102,13 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f, col.GetContact(0).point);
+            Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f*knockbackPlayer, col.GetContact(0).point);
             // TakeDamage(1);
         }
 
         if (col.gameObject.layer == LayerMask.NameToLayer("PlayerWeapons"))
         {
-            Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f, col.GetContact(0).point);
+            Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f * knockbackWeapon, col.GetContact(0).point);
             if (col.gameObject.GetComponent<Projectile>().targetResource == resourceNode)
             {
                 TakeDamage(2);//TODO perks modify this

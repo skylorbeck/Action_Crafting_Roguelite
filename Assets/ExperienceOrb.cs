@@ -35,8 +35,7 @@ public class ExperienceOrb : Entity
          > 32 and < 64 => sprites[5],
          > 64 and < 128 => sprites[6],
          > 128 and < 256 => sprites[7],
-         > 256 and < 512 => sprites[8],
-         >512 => sprites[9],
+         > 256 => sprites[8],
          _ => sprites[0],
       };
    }
@@ -45,5 +44,10 @@ public class ExperienceOrb : Entity
    {
       experienceValue = amount;
       UpdateSprite();
+   }
+   
+   public uint GetAmount()
+   {
+      return experienceValue;
    }
 }

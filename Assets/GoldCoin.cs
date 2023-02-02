@@ -23,4 +23,9 @@ public class GoldCoin:Entity
     {
         goldValue = amount;
     }
+    
+    public uint GetAmount()
+    {
+        return goldValue;
+    }
 }

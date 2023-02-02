@@ -29,9 +29,11 @@ public class ThrowingTool : Tool
             throwable =>
             {
                 throwable.gameObject.SetActive(true);
-                throwable.transform.localScale = Vector3.one;//TODO stats modify this
-                throwable.transform.position = transform.position;
-                throwable.transform.rotation = transform.rotation;
+                var transform1 = throwable.transform;
+                transform1.localScale = Vector3.one;//TODO stats modify this
+                var transform2 = transform;
+                transform1.position = transform2.position;
+                transform1.rotation = transform2.rotation;
                 throwable.velocity = Vector2.zero;
             },
             throwable =>
@@ -44,11 +46,12 @@ public class ThrowingTool : Tool
 
     public override async void Fire()
     {
-        var playerTransform = Player.instance.transform;
-        this.transform.position = playerTransform.position;
-        primaryTargets.Sort((a, b) => Vector3.Distance(playerTransform.position, a.transform.position)
+        Transform playerTransform = Player.instance.transform;
+        Vector3 playerPosition = playerTransform.position;
+        this.transform.position = playerPosition;
+        primaryTargets.Sort((a, b) => Vector3.Distance(playerPosition, a.transform.position)
             .CompareTo(Vector3.Distance(playerTransform.position, b.transform.position)));
-        secondaryTargets.Sort((a, b) => Vector3.Distance(playerTransform.position, a.transform.position)
+        secondaryTargets.Sort((a, b) => Vector3.Distance(playerPosition, a.transform.position)
             .CompareTo(Vector3.Distance(playerTransform.position, b.transform.position)));
         
         var throwable = throwables.Get();

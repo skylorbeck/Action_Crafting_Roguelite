@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8999593085323237557}
+  - component: {fileID: 8999593085323237553}
   - component: {fileID: 8999593085323237556}
   - component: {fileID: 8999593085323237554}
   - component: {fileID: 8999593085323237555}
-  - component: {fileID: 8999593085323237553}
   - component: {fileID: -1372195469949275231}
   m_Layer: 10
-  m_Name: OrbitingProjectile
+  m_Name: AxeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +36,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8999593085323237553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8999593085323237558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1468c671f7c188a4da4988ec2dd3728a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetResource: 1
+  spriteRenderer: {fileID: 8999593085323237556}
+  Rb: {fileID: 8999593085323237554}
+  trailRenderer: {fileID: -1372195469949275231}
 --- !u!212 &8999593085323237556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -125,19 +141,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &8999593085323237553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8999593085323237558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1468c671f7c188a4da4988ec2dd3728a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetResource: 1
 --- !u!96 &-1372195469949275231
 TrailRenderer:
   serializedVersion: 2

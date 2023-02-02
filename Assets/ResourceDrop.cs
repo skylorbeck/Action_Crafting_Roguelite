@@ -8,7 +8,7 @@ public class ResourceDrop : Entity
     [SerializeField] Resource resource;
     public Collider2D collider;
 
-    uint amount;
+    [SerializeField] uint amount;
 
     public void SetResource(Resource resource)
     {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4213555600138669609}
   - component: {fileID: 4213555600138669608}
   m_Layer: 10
-  m_Name: PickAxeTool
+  m_Name: PickTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
