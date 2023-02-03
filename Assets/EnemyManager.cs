@@ -1,19 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
+    private Camera mainCamera;
     public static EnemyManager instance;
     private ObjectPool<Enemy> enemies;
     public List<Enemy> activeEnemies = new List<Enemy>();
-    public Enemy enemyPrefab;
+    public List<Enemy> visibleEnemies = new List<Enemy>();
+    [SerializeField] private int maxEnemies = 25;
+    [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private RoundObject round;
+    [SerializeField] private bool spawnEnemies = false;
     void Awake()
     {
         instance = this;
+        mainCamera = Camera.main;
         enemies = new ObjectPool<Enemy>(
             () =>
             {
@@ -33,18 +40,19 @@ public class EnemyManager : MonoBehaviour
         );
     }
     //TODO replace this entire thing with a wave manager that tells the manager what to spawn and when
-    private void Start()
+    private async void OnEnable()
     {
-        TimerManager.instance.onOneSecond += CheckForRoomAndSpawnResourceNode;
+        await Task.Delay(1);
+        TimerManager.instance.onOneSecond += CheckForRoomAndSpawnEnemy;
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
-        TimerManager.instance.onOneSecond -= CheckForRoomAndSpawnResourceNode;
+        TimerManager.instance.onOneSecond -= CheckForRoomAndSpawnEnemy;
     }
 
-    private void CheckForRoomAndSpawnResourceNode()
+    private void CheckForRoomAndSpawnEnemy()
     {
-        if (activeEnemies.Count < 10)
+        if (activeEnemies.Count < maxEnemies && spawnEnemies)
         {
             SpawnEnemy();
         }
@@ -53,8 +61,29 @@ public class EnemyManager : MonoBehaviour
     public void SpawnEnemy()
     {
         var enemy = enemies.Get();
-        Vector3 playerPos = Player.instance.transform.position;
-        enemy.transform.position = new Vector3(Random.Range(playerPos.x - 10, playerPos.x + 10), Random.Range(playerPos.y - 10, playerPos.y + 10), 0);
+        enemy.SetPrefab(round.GetRandomEnemy());
+        //place the enemy off the screen in a random direction
+        int randomDirection = Random.Range(0, 4);
+        Vector3 position = Vector3.zero;
+        float orthographicSize = mainCamera.orthographicSize+1;
+        float aspect = mainCamera.aspect;
+        switch (randomDirection)
+        {
+            case 0:
+                position = new Vector3(mainCamera.transform.position.x + orthographicSize * aspect, Random.Range(-orthographicSize, orthographicSize), 0);
+                break;
+            case 1:
+                position = new Vector3(mainCamera.transform.position.x - orthographicSize * aspect, Random.Range(-orthographicSize, orthographicSize), 0);
+                break;
+            case 2:
+                position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect), mainCamera.transform.position.y + orthographicSize, 0);
+                break;
+            case 3:
+                position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect), mainCamera.transform.position.y - orthographicSize, 0);
+                break;
+        }
+
+        enemy.transform.position = position;
     }
 
     public void SpawnEnemy(Vector3 position)
@@ -75,5 +104,11 @@ public class EnemyManager : MonoBehaviour
         {
             enemies.Release(enemy);
         }
+    }
+
+    public void StartRound(RoundObject round)
+    {
+        this.round = round;
+        spawnEnemies = true;
     }
 }

@@ -75,4 +75,9 @@ public class TimerManager : MonoBehaviour
         thirtyMinutes = 0;
         hours++;
     }
+
+    public string GetElapsedTime()
+    {
+        return $"{hours:00}:{(thirtyMinutes*30)+(tenMinutes*10)+(fiveMinutes*5)+(minutes):00}:{seconds:00}";
+    }
 }

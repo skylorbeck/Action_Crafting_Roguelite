@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Entity, IDamageable
@@ -7,7 +8,7 @@ public class Enemy : Entity, IDamageable
     [SerializeField]protected float speed = 2.5f;
     [SerializeField]protected int power = 1;
     [SerializeField]protected uint goldReward = 1;
-
+    [SerializeField]protected SpriteAnimator spriteAnimator;
     protected override void Start()
     {
         base.Start();
@@ -15,7 +16,7 @@ public class Enemy : Entity, IDamageable
 
     protected override void Update()
     {
-        Rb.velocity = (Player.instance.transform.position - transform.position).normalized * speed;
+        
         base.Update();
     }
     private void Awake()
@@ -25,6 +26,9 @@ public class Enemy : Entity, IDamageable
 
     protected override void FixedUpdate()
     {
+        var direction = (Player.instance.transform.position - transform.position).normalized;
+        Rb.velocity = direction * speed;
+
         base.FixedUpdate();
     }
 
@@ -57,5 +61,26 @@ public class Enemy : Entity, IDamageable
             TakeDamage(1);
         }
         base.OnCollisionEnter2D(col);
+    }
+    
+    public void OnBecameVisible()
+    {
+        EnemyManager.instance.visibleEnemies.Add(this);
+    }
+    
+    public void OnBecameInvisible()
+    {
+        EnemyManager.instance.visibleEnemies.Remove(this);
+    }
+
+    public void SetPrefab(Enemy getRandomEnemy)
+    {
+        health = getRandomEnemy.health;
+        speed = getRandomEnemy.speed;
+        power = getRandomEnemy.power;
+        goldReward = getRandomEnemy.goldReward;
+        sprites = getRandomEnemy.sprites;
+        spriteAnimator.SetSprites(sprites);
+        spriteRenderer.sprite = sprites[0];
     }
 }
