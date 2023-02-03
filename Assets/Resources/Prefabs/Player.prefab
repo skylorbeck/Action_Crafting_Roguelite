@@ -229,6 +229,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4777040365876319631}
   Rb: {fileID: 4777040365876319634}
   health: 1
+  classRegistry: {fileID: 11400000, guid: eb3c888df1dcb5643839337541b4b08a, type: 2}
+  classIndex: 0
   runStats: {fileID: 5572477842209469821}
   maxHealth: 6
   experience: 0
@@ -240,6 +242,8 @@ MonoBehaviour:
   experienceBar: {fileID: 0}
   levelText: {fileID: 0}
   goldText: {fileID: 0}
+  spriteAnimator: {fileID: 4777040365876319624}
+  playerInput: {fileID: 0}
   resumeButton: {fileID: 0}
 --- !u!114 &5572477842209469821
 MonoBehaviour:

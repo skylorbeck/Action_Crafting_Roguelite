@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -71,13 +72,17 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         base.FixedUpdate();
     }
 
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         health -= damage;
+        this.spriteRenderer.DOColor(Color.red, 0.1f).OnComplete(() => this.spriteRenderer.DOColor(Color.white, 0.1f));
+        this.transform.DOShakePosition(0.1f, 0.1f);
         if (health <= 0)
         {
             GiveResources();
+            return true;
         }
+        return false;
     }
 
     private void GiveResources()

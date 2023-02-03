@@ -11,6 +11,11 @@ using UnityEngine.UI;
 public class Player : Entity
 {
     public static Player instance;
+    [SerializeField] protected ClassRegistry classRegistry;
+    [SerializeField] protected int classIndex = 0;
+    [SerializeField] protected int weaponIndex = 0;
+    [SerializeField] protected bool spawnWithWeapons = true;
+    [SerializeField] protected Transform weaponHolder;
     //TODO value owned perks more than new perks
     [SerializeReference] RunStats runStats;//TODO meta save this
 
@@ -26,14 +31,29 @@ public class Player : Entity
     [SerializeField] protected Image experienceBar;
     [SerializeField] protected TextMeshProUGUI levelText;
     [SerializeField] protected TextMeshProUGUI goldText;
-    
+    [SerializeField]protected SpriteAnimator spriteAnimator;
+
     [SerializeField] protected PlayerInput playerInput;
     
     [SerializeField] protected Button resumeButton;//TODO move this somewhere else
     protected override void Start()
     {
         instance = this;
+        classIndex = PlayerPrefs.GetInt("classIndex", 0);
+        weaponIndex = PlayerPrefs.GetInt("weaponIndex", 0);
+        SetClass(classRegistry.GetClass(classIndex));
+        if (spawnWithWeapons)
+        {
+            Instantiate(classRegistry.GetToolsOfClass(classIndex)[weaponIndex], weaponHolder);
+        }
         base.Start();
+    }
+
+    private void SetClass(ClassObject classObject)
+    {
+        sprites = classObject.classSprites;
+        spriteAnimator.SetSprites(sprites);
+        spriteRenderer.sprite = sprites[0];
     }
 
     private void Awake()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour
 {
-    [SerializeField] protected ResourceNode.Resource targetResource = ResourceNode.Resource.Stone;
+    [SerializeField] public ResourceNode.Resource targetResource = ResourceNode.Resource.Stone;
 
     public float fireTimer = 0f;
     public float fireRate = 1f;
@@ -24,5 +24,10 @@ public class Tool : MonoBehaviour
     public virtual void Fire()
     {
         //do stuff here
+    }
+
+    public virtual void RemoveTarget(Entity enemy)
+    {
+        
     }
 }

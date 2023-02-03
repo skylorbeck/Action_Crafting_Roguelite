@@ -24,6 +24,7 @@ public class ThrowingTool : Tool
             () =>
             {
                 Rigidbody2D throwable = Instantiate(throwablePrefab, transform.position, transform.rotation).GetComponent<Rigidbody2D>();
+                throwable.GetComponent<Projectile>().parent = this;
                 return throwable;
             },
             throwable =>
@@ -35,6 +36,7 @@ public class ThrowingTool : Tool
                 transform1.position = transform2.position;
                 transform1.rotation = transform2.rotation;
                 throwable.velocity = Vector2.zero;
+                
             },
             throwable =>
             {
@@ -64,7 +66,7 @@ public class ThrowingTool : Tool
         Vector3 direction = (target - playerTransform.position).normalized;
         throwable.AddForce(direction * throwForce, ForceMode2D.Impulse);
         throwable.AddTorque(throwTorque, ForceMode2D.Impulse);
-
+        
         await Task.Delay(1000);
         
         throwables.Release(throwable);
@@ -85,10 +87,10 @@ public class ThrowingTool : Tool
 
         }
 
-        if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            secondaryTargets.Add(col.gameObject);
-        }
+        // if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        // {
+        //     secondaryTargets.Add(col.gameObject);
+        // }
     }
     
     private void OnTriggerExit2D(Collider2D col)
@@ -98,6 +100,12 @@ public class ThrowingTool : Tool
             primaryTargets.Remove(col.gameObject);
             secondaryTargets.Remove(col.gameObject);
         }
+    }
+    
+    public override void RemoveTarget(Entity target)
+    {
+        primaryTargets.Remove(target.gameObject);
+        secondaryTargets.Remove(target.gameObject);
     }
 }
 

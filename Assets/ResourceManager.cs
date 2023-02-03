@@ -266,7 +266,7 @@ public class ResourceManager : MonoBehaviour
                 () =>
                 {
                     experienceOrb.collider.enabled = true;
-                    experienceOrb.transform.DOScale(1.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+                    experienceOrb.transform.DOScale(0.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
                 };
         }
 

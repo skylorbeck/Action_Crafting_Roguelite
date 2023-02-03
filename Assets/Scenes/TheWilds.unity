@@ -108866,6 +108866,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1002834330}
     - target: {fileID: 4777040365876319633, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
+      propertyPath: weaponHolder
+      value: 
+      objectReference: {fileID: 1387756160}
+    - target: {fileID: 4777040365876319633, guid: 407d9732904912e47a29fed1ad38df34, type: 3}
       propertyPath: experienceBar
       value: 
       objectReference: {fileID: 1638486066}
