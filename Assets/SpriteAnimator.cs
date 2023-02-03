@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class SpriteAnimator : MonoBehaviour
 {
     [SerializeField] protected Sprite[] sprites;
     protected SpriteRenderer spriteRenderer;
     [SerializeField] protected int currentSpriteIndex = 0;
-
+    [SerializeField] protected bool localTime = false;
+    [SerializeField] protected float timeBetweenSprites = 1f;
+    [SerializeField] protected float timeSinceLastSprite = 0f;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -18,8 +21,19 @@ public class SpriteAnimator : MonoBehaviour
 
     protected virtual async void OnEnable()
     {
+        if (localTime) return;
         await Task.Delay(1);
         TimerManager.instance.onOneSecond += NextSprite;
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!localTime)return;
+        timeSinceLastSprite += Time.fixedDeltaTime;
+        if (timeSinceLastSprite < timeBetweenSprites) return;
+        timeSinceLastSprite = 0f;
+        NextSprite();
     }
 
     protected virtual void NextSprite()
@@ -32,7 +46,7 @@ public class SpriteAnimator : MonoBehaviour
             spriteRenderer.sprite = sprites[currentSpriteIndex];
     }
 
-    private void PreviousSprite()
+    protected virtual void PreviousSprite()
     {
         currentSpriteIndex--;
         if (currentSpriteIndex < 0)

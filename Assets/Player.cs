@@ -5,13 +5,14 @@ using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Player : Entity
 {
     public static Player instance;
-
-    [SerializeReference] RunStats runStats;
+    //TODO value owned perks more than new perks
+    [SerializeReference] RunStats runStats;//TODO meta save this
 
     [SerializeField] protected int maxHealth = 100;
     [SerializeField] protected uint experience = 0;
@@ -25,6 +26,8 @@ public class Player : Entity
     [SerializeField] protected Image experienceBar;
     [SerializeField] protected TextMeshProUGUI levelText;
     [SerializeField] protected TextMeshProUGUI goldText;
+    
+    [SerializeField] protected PlayerInput playerInput;
     
     [SerializeField] protected Button resumeButton;//TODO move this somewhere else
     protected override void Start()
@@ -74,8 +77,10 @@ public class Player : Entity
     {
         ExplosionManager.instance.SpawnExplosion(transform.position);
         EnemyManager.instance.ReleaseAllEnemies();
+        EnemyManager.instance.SetSpawnEnemies(false);
         ResourceManager.instance.ReleaseAllAll();
-        gameObject.SetActive(false); //TODO replace this 
+        ResourceManager.instance.SetSpawnResources(false);
+        gameObject.SetActive(false); //TODO replace this with a proper end screen
     }
 
 
@@ -176,6 +181,11 @@ public class Player : Entity
     {
         goldCoins += goldValue;
         goldText.text = "x" + goldCoins;
+    }
+
+    public void SetCanMove(bool b)
+    {
+        playerInput.enabled = b;
     }
 }
 

@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -10231,7 +10231,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       bronze-weapons_276: -2097160999
-      bronze-weapons_347: 2128712071
       bronze-weapons_405: -1513332754
       bronze-weapons_314: -94342824
       bronze-weapons_108: -238423609
@@ -10312,14 +10311,14 @@ TextureImporter:
       bronze-weapons_42: 151659194
       bronze-weapons_68: -1224224668
       bronze-weapons_190: 1805868839
-      bronze-weapons_102: 258431499
-      bronze-weapons_92: 1322724791
       bronze-weapons_438: 131791684
-      bronze-weapons_7: -2131894489
+      bronze-weapons_92: 1322724791
       bronze-weapons_462: -1956192201
+      bronze-weapons_102: 258431499
+      bronze-weapons_7: -2131894489
+      bronze-weapons_476: -1632335930
       bronze-weapons_93: -470746043
       bronze-weapons_412: 2068818460
-      bronze-weapons_476: -1632335930
       bronze-weapons_37: -1893247499
       bronze-weapons_368: 1643074106
       bronze-weapons_143: -456410282
@@ -10485,11 +10484,11 @@ TextureImporter:
       bronze-weapons_116: 1104356883
       bronze-weapons_229: -1552152589
       bronze-weapons_222: -1512043685
-      bronze-weapons_253: -851951584
       bronze-weapons_367: -1544208571
+      bronze-weapons_253: -851951584
+      bronze-weapons_449: 413226132
       bronze-weapons_172: 708902758
       bronze-weapons_195: 1678480111
-      bronze-weapons_449: 413226132
       bronze-weapons_65: -2139340453
       bronze-weapons_300: -740843594
       bronze-weapons_442: 1187804793
@@ -10499,11 +10498,11 @@ TextureImporter:
       bronze-weapons_278: -1451525033
       bronze-weapons_439: 194965672
       bronze-weapons_258: 1027251674
-      bronze-weapons_91: -1664578209
       bronze-weapons_274: -225778767
+      bronze-weapons_91: -1664578209
+      bronze-weapons_392: 916729429
       bronze-weapons_175: 2012091080
       bronze-weapons_415: 1635350471
-      bronze-weapons_392: 916729429
       bronze-weapons_478: 21103453
       bronze-weapons_430: 408471356
       bronze-weapons_411: 1547197251
@@ -10520,8 +10519,8 @@ TextureImporter:
       bronze-weapons_128: 1751174284
       bronze-weapons_177: -1526741366
       bronze-weapons_129: 157073958
-      bronze-weapons_427: 1702990334
       bronze-weapons_435: 324216393
+      bronze-weapons_427: 1702990334
       bronze-weapons_441: -113462883
       bronze-weapons_299: -1461156765
       bronze-weapons_179: -1171201010
@@ -10533,9 +10532,9 @@ TextureImporter:
       bronze-weapons_25: -882336506
       bronze-weapons_434: 1644816436
       bronze-weapons_56: 484128600
+      bronze-weapons_311: 1731468789
       bronze-weapons_126: -367171835
       bronze-weapons_155: 464802408
-      bronze-weapons_311: 1731468789
       bronze-weapons_238: 268280517
       bronze-weapons_316: -1403303471
       bronze-weapons_52: 1216399197
@@ -10705,10 +10704,11 @@ TextureImporter:
       bronze-weapons_283: 778797662
       bronze-weapons_312: -1416875439
       bronze-weapons_217: 1739535210
+      bronze-weapons_347: 2128712071
       bronze-weapons_112: 751276201
       bronze-weapons_167: -1097863508
-      bronze-weapons_170: -507646739
       bronze-weapons_46: -669606322
+      bronze-weapons_170: -507646739
       bronze-weapons_218: -1197486344
   spritePackingTag: 
   pSDRemoveMatte: 0

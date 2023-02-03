@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -40,6 +41,7 @@ public class Enemy : Entity, IDamageable
     public void TakeDamage(int damage)
     {
         health -= damage;
+        this.spriteRenderer.DOColor(Color.red, 0.1f).OnComplete(() => this.spriteRenderer.DOColor(Color.white, 0.1f));
         if (health <= 0)
         {
             Kill();

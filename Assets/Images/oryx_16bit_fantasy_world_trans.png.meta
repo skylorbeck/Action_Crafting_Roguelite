@@ -2933,7 +2933,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_133
+      name: Door
       rect:
         serializedVersion: 2
         x: 696
@@ -2954,7 +2954,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_134
+      name: Door Open
       rect:
         serializedVersion: 2
         x: 720
@@ -2975,7 +2975,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_135
+      name: Door Locked
       rect:
         serializedVersion: 2
         x: 744
@@ -2996,7 +2996,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_136
+      name: Door No Handle
       rect:
         serializedVersion: 2
         x: 768
@@ -3017,7 +3017,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_137
+      name: Door One Way
       rect:
         serializedVersion: 2
         x: 792
@@ -3038,7 +3038,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_138
+      name: Door Broken
       rect:
         serializedVersion: 2
         x: 816
@@ -3059,7 +3059,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_139
+      name: Door Ajar
       rect:
         serializedVersion: 2
         x: 840
@@ -3080,7 +3080,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_140
+      name: Iron Door
       rect:
         serializedVersion: 2
         x: 864
@@ -3101,7 +3101,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_141
+      name: Iron Door Open
       rect:
         serializedVersion: 2
         x: 888
@@ -3164,7 +3164,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_144
+      name: Door Boarded
       rect:
         serializedVersion: 2
         x: 960
@@ -3185,7 +3185,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_145
+      name: Door Open Boarded
       rect:
         serializedVersion: 2
         x: 984
@@ -3206,7 +3206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_146
+      name: Door Portal
       rect:
         serializedVersion: 2
         x: 1008
@@ -3248,7 +3248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_148
+      name: Rock Desert
       rect:
         serializedVersion: 2
         x: 1080
@@ -3374,7 +3374,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_154
+      name: Cactus
       rect:
         serializedVersion: 2
         x: 1224
@@ -4466,7 +4466,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_206
+      name: Tree Snowy
       rect:
         serializedVersion: 2
         x: 1200
@@ -6314,7 +6314,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_294
+      name: Town Statue Broken
       rect:
         serializedVersion: 2
         x: 816
@@ -6356,7 +6356,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_296
+      name: Town Statu
       rect:
         serializedVersion: 2
         x: 864
@@ -7343,7 +7343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_343
+      name: Sigil Circle
       rect:
         serializedVersion: 2
         x: 720
@@ -7364,7 +7364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_344
+      name: Sigil Penta
       rect:
         serializedVersion: 2
         x: 744
@@ -7385,7 +7385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_345
+      name: Sigil Skull
       rect:
         serializedVersion: 2
         x: 768
@@ -8435,7 +8435,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_395
+      name: Town Center D
       rect:
         serializedVersion: 2
         x: 696
@@ -8456,7 +8456,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_396
+      name: Town Center C
       rect:
         serializedVersion: 2
         x: 720
@@ -9632,7 +9632,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_452
+      name: Town Center A
       rect:
         serializedVersion: 2
         x: 792
@@ -9653,7 +9653,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_453
+      name: Town Center B
       rect:
         serializedVersion: 2
         x: 816
@@ -9800,7 +9800,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_460
+      name: Skull A
       rect:
         serializedVersion: 2
         x: 984
@@ -10913,7 +10913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_513
+      name: Skull B
       rect:
         serializedVersion: 2
         x: 984
@@ -21875,7 +21875,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1035
+      name: Stone 0
       rect:
         serializedVersion: 2
         x: 24
@@ -21896,7 +21896,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1036
+      name: Stone 1
       rect:
         serializedVersion: 2
         x: 48
@@ -21917,7 +21917,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1037
+      name: Stone 2
       rect:
         serializedVersion: 2
         x: 72
@@ -21938,7 +21938,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1038
+      name: Stone 3
       rect:
         serializedVersion: 2
         x: 96
@@ -21959,7 +21959,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1039
+      name: Stone 4
       rect:
         serializedVersion: 2
         x: 120
@@ -21980,7 +21980,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1040
+      name: Stone 5
       rect:
         serializedVersion: 2
         x: 144
@@ -22005,7 +22005,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 455
+        y: 456
         width: 24
         height: 24
       alignment: 0
@@ -24206,7 +24206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1146
+      name: Paved 0
       rect:
         serializedVersion: 2
         x: 360
@@ -24227,7 +24227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1147
+      name: Paved 1
       rect:
         serializedVersion: 2
         x: 384
@@ -24248,7 +24248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1148
+      name: Paved 2
       rect:
         serializedVersion: 2
         x: 408
@@ -25298,7 +25298,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1198
+      name: Paved 3
       rect:
         serializedVersion: 2
         x: 360
@@ -25319,7 +25319,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1199
+      name: Paved 4
       rect:
         serializedVersion: 2
         x: 384
@@ -25340,7 +25340,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1200
+      name: Paved 5
       rect:
         serializedVersion: 2
         x: 408
@@ -26306,7 +26306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1246
+      name: Town Brick
       rect:
         serializedVersion: 2
         x: 432
@@ -26327,7 +26327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1247
+      name: Town Brick 2
       rect:
         serializedVersion: 2
         x: 456
@@ -26348,7 +26348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1248
+      name: Town Brick 3
       rect:
         serializedVersion: 2
         x: 480
@@ -27377,7 +27377,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1297
+      name: Town Brick 4
       rect:
         serializedVersion: 2
         x: 432
@@ -27398,7 +27398,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1298
+      name: Town Brick 5
       rect:
         serializedVersion: 2
         x: 456
@@ -27419,7 +27419,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_world_trans_1299
+      name: Town Brick 6
       rect:
         serializedVersion: 2
         x: 480
@@ -37635,9 +37635,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      oryx_16bit_fantasy_world_trans_567: -1125608526
-      oryx_16bit_fantasy_world_trans_331: 1735544693
-      oryx_16bit_fantasy_world_trans_308: -1682022377
+      oryx_16bit_fantasy_world_trans_1086: 2099945671
+      oryx_16bit_fantasy_world_trans_760: -1130135845
+      oryx_16bit_fantasy_world_trans_581: -1191368353
       oryx_16bit_fantasy_world_trans_1357: 1552492549
       oryx_16bit_fantasy_world_trans_1059: -1490258984
       oryx_16bit_fantasy_world_trans_798: -265782801
@@ -37653,6 +37653,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_157: 294803640
       oryx_16bit_fantasy_world_trans_871: -415190088
       oryx_16bit_fantasy_world_trans_260: -1998081287
+      Rock Desert: 786630955
       oryx_16bit_fantasy_world_trans_120: 336535339
       oryx_16bit_fantasy_world_trans_1370: -533289867
       oryx_16bit_fantasy_world_trans_623: 1553213474
@@ -37662,9 +37663,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_511: -1680501571
       oryx_16bit_fantasy_world_trans_1240: -588600558
       oryx_16bit_fantasy_world_trans_1139: -1928422379
-      oryx_16bit_fantasy_world_trans_396: 1386741889
       oryx_16bit_fantasy_world_trans_1219: 2093099615
-      oryx_16bit_fantasy_world_trans_137: 1447797568
       oryx_16bit_fantasy_world_trans_721: -1740323092
       oryx_16bit_fantasy_world_trans_49: 434254618
       oryx_16bit_fantasy_world_trans_885: -841998022
@@ -37693,6 +37692,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1445: 1019879862
       oryx_16bit_fantasy_world_trans_941: -1264505779
       oryx_16bit_fantasy_world_trans_1051: 268006726
+      Door: 207596807
       oryx_16bit_fantasy_world_trans_159: -1837412899
       oryx_16bit_fantasy_world_trans_149: 1263726872
       oryx_16bit_fantasy_world_trans_105: 666172966
@@ -37704,7 +37704,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1033: 148158767
       oryx_16bit_fantasy_world_trans_1135: -331267381
       oryx_16bit_fantasy_world_trans_1257: -1116092310
-      oryx_16bit_fantasy_world_trans_1246: -552632527
       oryx_16bit_fantasy_world_trans_1700: -501891271
       oryx_16bit_fantasy_world_trans_1551: -727790159
       oryx_16bit_fantasy_world_trans_1143: 767166152
@@ -37720,6 +37719,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1367: 1226689106
       oryx_16bit_fantasy_world_trans_1016: 1060893583
       oryx_16bit_fantasy_world_trans_903: -148154005
+      Stone 5: 1096507584
       oryx_16bit_fantasy_world_trans_131: -880008845
       oryx_16bit_fantasy_world_trans_1231: -187746441
       oryx_16bit_fantasy_world_trans_1506: 1856305360
@@ -37755,10 +37755,10 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_436: 1315958857
       oryx_16bit_fantasy_world_trans_101: 2144346556
       oryx_16bit_fantasy_world_trans_235: -1955301381
-      oryx_16bit_fantasy_world_trans_300: -586238260
-      oryx_16bit_fantasy_world_trans_555: 1704210245
       oryx_16bit_fantasy_world_trans_286: 365385419
+      oryx_16bit_fantasy_world_trans_300: -586238260
       oryx_16bit_fantasy_world_trans_207: -1859255016
+      oryx_16bit_fantasy_world_trans_555: 1704210245
       oryx_16bit_fantasy_world_trans_23: -535293864
       oryx_16bit_fantasy_world_trans_684: 1116123412
       oryx_16bit_fantasy_world_trans_1676: 1292385249
@@ -37806,6 +37806,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1573: -645655068
       oryx_16bit_fantasy_world_trans_565: -882509550
       oryx_16bit_fantasy_world_trans_1359: -1355387623
+      Door Portal: -982100262
       oryx_16bit_fantasy_world_trans_628: 1585534610
       oryx_16bit_fantasy_world_trans_1639: 1056058578
       oryx_16bit_fantasy_world_trans_441: -566883367
@@ -37820,6 +37821,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_959: -934568654
       oryx_16bit_fantasy_world_trans_1349: 21152916
       oryx_16bit_fantasy_world_trans_1056: -597791707
+      Stone 4: -1468055774
       oryx_16bit_fantasy_world_trans_514: 1198655958
       oryx_16bit_fantasy_world_trans_381: -609036420
       oryx_16bit_fantasy_world_trans_1048: 1904821870
@@ -37863,7 +37865,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_66: 454375500
       oryx_16bit_fantasy_world_trans_1077: -361893361
       oryx_16bit_fantasy_world_trans_1105: 707025699
-      oryx_16bit_fantasy_world_trans_460: 1261143213
       oryx_16bit_fantasy_world_trans_467: 1149693871
       oryx_16bit_fantasy_world_trans_580: 2008477489
       oryx_16bit_fantasy_world_trans_1760: 245281684
@@ -37917,37 +37918,35 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_952: -155523065
       oryx_16bit_fantasy_world_trans_464: 1032584783
       oryx_16bit_fantasy_world_trans_86: -903062805
+      Town Brick 3: 1969628894
       oryx_16bit_fantasy_world_trans_1461: -1053948671
       oryx_16bit_fantasy_world_trans_1267: 1764384489
-      oryx_16bit_fantasy_world_trans_296: 1616068089
       oryx_16bit_fantasy_world_trans_749: 638304416
-      oryx_16bit_fantasy_world_trans_31: 1133209855
       oryx_16bit_fantasy_world_trans_1437: -575227838
+      oryx_16bit_fantasy_world_trans_31: 1133209855
       oryx_16bit_fantasy_world_trans_1803: -535687851
+      oryx_16bit_fantasy_world_trans_1793: 1941346867
       oryx_16bit_fantasy_world_trans_247: -844090444
       oryx_16bit_fantasy_world_trans_1494: 624081133
       oryx_16bit_fantasy_world_trans_1477: -2112066884
       oryx_16bit_fantasy_world_trans_1024: -1971795917
       oryx_16bit_fantasy_world_trans_1131: 225471179
-      oryx_16bit_fantasy_world_trans_1069: 1526947795
-      oryx_16bit_fantasy_world_trans_1020: -386611608
       oryx_16bit_fantasy_world_trans_1160: 404778588
+      oryx_16bit_fantasy_world_trans_1020: -386611608
+      oryx_16bit_fantasy_world_trans_1222: -479449852
+      oryx_16bit_fantasy_world_trans_1069: 1526947795
       oryx_16bit_fantasy_world_trans_29: 1563823027
-      oryx_16bit_fantasy_world_trans_1793: 1941346867
       oryx_16bit_fantasy_world_trans_929: -2046105901
       oryx_16bit_fantasy_world_trans_649: -358279862
       oryx_16bit_fantasy_world_trans_1682: 1294487851
-      oryx_16bit_fantasy_world_trans_1222: -479449852
       oryx_16bit_fantasy_world_trans_244: -939689479
       oryx_16bit_fantasy_world_trans_1421: -721553588
       oryx_16bit_fantasy_world_trans_1202: 291135391
       oryx_16bit_fantasy_world_trans_841: -228438843
-      oryx_16bit_fantasy_world_trans_145: 1862608975
       oryx_16bit_fantasy_world_trans_1001: 911710409
       oryx_16bit_fantasy_world_trans_482: 311293402
       oryx_16bit_fantasy_world_trans_390: -1239077939
       oryx_16bit_fantasy_world_trans_342: 1169808360
-      oryx_16bit_fantasy_world_trans_136: -1236064475
       oryx_16bit_fantasy_world_trans_1499: 1576939422
       oryx_16bit_fantasy_world_trans_322: -646330881
       oryx_16bit_fantasy_world_trans_1490: 1534395790
@@ -37979,6 +37978,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_769: 905826175
       oryx_16bit_fantasy_world_trans_1515: 836074122
       oryx_16bit_fantasy_world_trans_427: -1298304216
+      Sigil Skull: 1380765190
       oryx_16bit_fantasy_world_trans_848: 1491061782
       oryx_16bit_fantasy_world_trans_823: -386938329
       oryx_16bit_fantasy_world_trans_1621: -1369908391
@@ -37998,6 +37998,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_341: -1891614726
       oryx_16bit_fantasy_world_trans_1617: 1608400711
       oryx_16bit_fantasy_world_trans_1777: -1198108950
+      Cactus: 480043242
       oryx_16bit_fantasy_world_trans_1653: -684090000
       oryx_16bit_fantasy_world_trans_470: 2007834799
       oryx_16bit_fantasy_world_trans_1327: 1194851640
@@ -38013,7 +38014,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1401: 1862023904
       oryx_16bit_fantasy_world_trans_1634: -1893052016
       oryx_16bit_fantasy_world_trans_1589: -812541827
-      oryx_16bit_fantasy_world_trans_1037: 1830203025
       oryx_16bit_fantasy_world_trans_275: 172048447
       oryx_16bit_fantasy_world_trans_1318: 882142054
       oryx_16bit_fantasy_world_trans_1176: -1838335558
@@ -38022,12 +38022,14 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_533: 909219800
       oryx_16bit_fantasy_world_trans_1428: -2123115501
       Stone Single: 1988456765
+      Door No Handle: -1236064475
       oryx_16bit_fantasy_world_trans_1678: 1025354809
       oryx_16bit_fantasy_world_trans_1243: -1746163586
       oryx_16bit_fantasy_world_trans_98: 2032099926
       oryx_16bit_fantasy_world_trans_1261: 1281478437
       oryx_16bit_fantasy_world_trans_1696: -1767061130
       oryx_16bit_fantasy_world_trans_237: 198821193
+      Paved 0: -1418948576
       oryx_16bit_fantasy_world_trans_517: 513128429
       oryx_16bit_fantasy_world_trans_389: -1025331180
       oryx_16bit_fantasy_world_trans_1567: -645486701
@@ -38055,9 +38057,9 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_220: -1513039486
       oryx_16bit_fantasy_world_trans_1224: 669507081
       oryx_16bit_fantasy_world_trans_1316: 1995588896
+      Paved 2: -110074160
       oryx_16bit_fantasy_world_trans_1688: 95842738
       oryx_16bit_fantasy_world_trans_103: -859991961
-      oryx_16bit_fantasy_world_trans_1146: -1418948576
       oryx_16bit_fantasy_world_trans_1514: -1280189610
       oryx_16bit_fantasy_world_trans_989: -54756839
       oryx_16bit_fantasy_world_trans_1205: 1342958190
@@ -38105,7 +38107,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_601: -1943518499
       oryx_16bit_fantasy_world_trans_626: -251469386
       oryx_16bit_fantasy_world_trans_208: 1911402525
-      oryx_16bit_fantasy_world_trans_1035: -1226979626
       oryx_16bit_fantasy_world_trans_67: 1567228928
       oryx_16bit_fantasy_world_trans_231: -1587111927
       oryx_16bit_fantasy_world_trans_1526: 2104049578
@@ -38133,6 +38134,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1404: 822699750
       oryx_16bit_fantasy_world_trans_653: -1888840728
       oryx_16bit_fantasy_world_trans_638: 1102206721
+      Stone 1: -1573802539
       oryx_16bit_fantasy_world_trans_1317: 1411682027
       oryx_16bit_fantasy_world_trans_422: 1518388222
       oryx_16bit_fantasy_world_trans_544: 1118221715
@@ -38146,6 +38148,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1432: -882469084
       oryx_16bit_fantasy_world_trans_1683: 158972690
       oryx_16bit_fantasy_world_trans_1352: -528127514
+      Town Center D: 1901672278
       oryx_16bit_fantasy_world_trans_1116: 652481582
       oryx_16bit_fantasy_world_trans_1375: 2134951982
       oryx_16bit_fantasy_world_trans_327: -1787709879
@@ -38171,7 +38174,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_738: 442077765
       oryx_16bit_fantasy_world_trans_142: -239271402
       oryx_16bit_fantasy_world_trans_691: 269130626
-      oryx_16bit_fantasy_world_trans_1039: -1468055774
       oryx_16bit_fantasy_world_trans_1307: -1499451708
       oryx_16bit_fantasy_world_trans_1320: 887055165
       oryx_16bit_fantasy_world_trans_761: -1983822846
@@ -38192,6 +38194,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_359: -282842002
       oryx_16bit_fantasy_world_trans_181: 1211648306
       oryx_16bit_fantasy_world_trans_620: 1013404664
+      Sigil Penta: 595278093
       oryx_16bit_fantasy_world_trans_672: 804478129
       oryx_16bit_fantasy_world_trans_748: -921680369
       oryx_16bit_fantasy_world_trans_72: -658225871
@@ -38228,7 +38231,9 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1229: 457011850
       oryx_16bit_fantasy_world_trans_439: -1148538248
       oryx_16bit_fantasy_world_trans_1546: 732694163
+      Skull B: -856282004
       oryx_16bit_fantasy_world_trans_651: 1859290166
+      Town Brick 6: -1839653538
       oryx_16bit_fantasy_world_trans_528: -530564279
       oryx_16bit_fantasy_world_trans_985: -1822492301
       oryx_16bit_fantasy_world_trans_1374: -535877579
@@ -38247,7 +38252,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1253: -1323895095
       oryx_16bit_fantasy_world_trans_538: 1570841201
       oryx_16bit_fantasy_world_trans_1493: 275105708
-      oryx_16bit_fantasy_world_trans_452: 954529779
       oryx_16bit_fantasy_world_trans_1249: 1738593703
       oryx_16bit_fantasy_world_trans_1431: 27247619
       oryx_16bit_fantasy_world_trans_1648: -654323969
@@ -38260,7 +38264,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1743: 1708483278
       oryx_16bit_fantasy_world_trans_1591: 909342669
       oryx_16bit_fantasy_world_trans_838: 348660723
-      oryx_16bit_fantasy_world_trans_1298: -1168647709
       oryx_16bit_fantasy_world_trans_1328: 817892915
       oryx_16bit_fantasy_world_trans_1381: -584836237
       oryx_16bit_fantasy_world_trans_1513: 401325007
@@ -38268,7 +38271,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1558: -299453538
       oryx_16bit_fantasy_world_trans_869: -1148952921
       oryx_16bit_fantasy_world_trans_372: -1048568079
-      oryx_16bit_fantasy_world_trans_1040: 1096507584
       oryx_16bit_fantasy_world_trans_1758: -706421139
       oryx_16bit_fantasy_world_trans_719: -536025786
       oryx_16bit_fantasy_world_trans_1402: -766939018
@@ -38294,9 +38296,9 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1618: -905052394
       oryx_16bit_fantasy_world_trans_1756: -1379286508
       oryx_16bit_fantasy_world_trans_256: -1512012195
-      oryx_16bit_fantasy_world_trans_1237: 986159660
       oryx_16bit_fantasy_world_trans_931: -1724512244
       oryx_16bit_fantasy_world_trans_1179: 2086529169
+      oryx_16bit_fantasy_world_trans_1237: 986159660
       oryx_16bit_fantasy_world_trans_232: 501448272
       oryx_16bit_fantasy_world_trans_1053: -2091802550
       oryx_16bit_fantasy_world_trans_516: 968033555
@@ -38310,6 +38312,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_280: -1404219641
       oryx_16bit_fantasy_world_trans_1560: -688981386
       oryx_16bit_fantasy_world_trans_1748: 94812257
+      Town Brick: -552632527
       oryx_16bit_fantasy_world_trans_657: 1881143932
       oryx_16bit_fantasy_world_trans_199: 149914768
       oryx_16bit_fantasy_world_trans_1406: -556873527
@@ -38319,6 +38322,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_616: -1315090399
       oryx_16bit_fantasy_world_trans_1439: 704099273
       oryx_16bit_fantasy_world_trans_901: 2084300667
+      Paved 4: -151377103
       oryx_16bit_fantasy_world_trans_290: 925764965
       oryx_16bit_fantasy_world_trans_1303: 1189142491
       oryx_16bit_fantasy_world_trans_1790: -943852965
@@ -38337,18 +38341,20 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1259: -1277616827
       oryx_16bit_fantasy_world_trans_112: 1281478884
       oryx_16bit_fantasy_world_trans_718: -1735844164
-      oryx_16bit_fantasy_world_trans_395: 1901672278
+      oryx_16bit_fantasy_world_trans_1376: -621986343
       oryx_16bit_fantasy_world_trans_1496: 270407422
       oryx_16bit_fantasy_world_trans_525: 869875854
       oryx_16bit_fantasy_world_trans_1597: -1278053786
       oryx_16bit_fantasy_world_trans_1334: 53602725
       oryx_16bit_fantasy_world_trans_80: -1075894042
       oryx_16bit_fantasy_world_trans_872: 221859829
-      oryx_16bit_fantasy_world_trans_1376: -621986343
+      Door Ajar: 259019941
+      Door Broken: -1393049718
       oryx_16bit_fantasy_world_trans_605: 2135183902
       oryx_16bit_fantasy_world_trans_89: 453553475
       oryx_16bit_fantasy_world_trans_993: -64141891
       oryx_16bit_fantasy_world_trans_1310: -2013180125
+      Skull A: 1261143213
       oryx_16bit_fantasy_world_trans_251: 922176211
       oryx_16bit_fantasy_world_trans_765: -1871455178
       oryx_16bit_fantasy_world_trans_1486: -1645511974
@@ -38376,7 +38382,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_608: 1249673168
       oryx_16bit_fantasy_world_trans_701: -73413873
       oryx_16bit_fantasy_world_trans_1630: -1832516325
-      oryx_16bit_fantasy_world_trans_343: -872183248
+      Stone 3: 1354088084
       oryx_16bit_fantasy_world_trans_346: 1195566226
       oryx_16bit_fantasy_world_trans_1173: 876865919
       oryx_16bit_fantasy_world_trans_1274: 821567782
@@ -38450,7 +38456,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1435: 643087979
       oryx_16bit_fantasy_world_trans_1616: -829667040
       oryx_16bit_fantasy_world_trans_631: 184181238
-      oryx_16bit_fantasy_world_trans_1148: -110074160
       oryx_16bit_fantasy_world_trans_1322: 1112943540
       oryx_16bit_fantasy_world_trans_1398: -2080858392
       oryx_16bit_fantasy_world_trans_55: -661375425
@@ -38471,7 +38476,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_877: -545975840
       oryx_16bit_fantasy_world_trans_423: 450286367
       oryx_16bit_fantasy_world_trans_674: 383258249
-      oryx_16bit_fantasy_world_trans_1036: -1573802539
       oryx_16bit_fantasy_world_trans_1553: -611326115
       oryx_16bit_fantasy_world_trans_744: 38299376
       oryx_16bit_fantasy_world_trans_652: 1847716902
@@ -38513,7 +38517,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1669: 1229828273
       oryx_16bit_fantasy_world_trans_7: 1300596023
       oryx_16bit_fantasy_world_trans_1451: 965103028
-      oryx_16bit_fantasy_world_trans_139: 259019941
       oryx_16bit_fantasy_world_trans_492: 931727273
       oryx_16bit_fantasy_world_trans_321: 246034403
       oryx_16bit_fantasy_world_trans_828: -633978434
@@ -38526,6 +38529,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_230: -615096665
       oryx_16bit_fantasy_world_trans_1216: -1681514943
       oryx_16bit_fantasy_world_trans_1511: -1679349519
+      Town Brick 2: 949669370
       oryx_16bit_fantasy_world_trans_773: -776480650
       oryx_16bit_fantasy_world_trans_1569: 1300503205
       oryx_16bit_fantasy_world_trans_1644: -1795314852
@@ -38533,6 +38537,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1321: 570388402
       oryx_16bit_fantasy_world_trans_922: 1296642390
       oryx_16bit_fantasy_world_trans_955: 1456204817
+      Paved 5: -1066362159
       oryx_16bit_fantasy_world_trans_348: 125376791
       oryx_16bit_fantasy_world_trans_110: 493107727
       oryx_16bit_fantasy_world_trans_53: -544267740
@@ -38552,6 +38557,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_371: 1956042366
       oryx_16bit_fantasy_world_trans_678: -456752732
       oryx_16bit_fantasy_world_trans_1418: -1833947739
+      Iron Door: 193679225
       oryx_16bit_fantasy_world_trans_987: 1500774479
       oryx_16bit_fantasy_world_trans_1718: -1278517992
       oryx_16bit_fantasy_world_trans_449: -1463561102
@@ -38563,7 +38569,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_654: -1959071055
       oryx_16bit_fantasy_world_trans_1250: -674219255
       oryx_16bit_fantasy_world_trans_1060: 657898152
-      oryx_16bit_fantasy_world_trans_1248: 1969628894
       oryx_16bit_fantasy_world_trans_1238: -658100991
       oryx_16bit_fantasy_world_trans_740: -1793369549
       oryx_16bit_fantasy_world_trans_398: -431944787
@@ -38590,7 +38595,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1364: 916792144
       oryx_16bit_fantasy_world_trans_1106: -394227278
       Tree Single: -520974208
-      oryx_16bit_fantasy_world_trans_1299: -1839653538
       oryx_16bit_fantasy_world_trans_1284: -2118869124
       oryx_16bit_fantasy_world_trans_358: -443675247
       oryx_16bit_fantasy_world_trans_1155: -1726061989
@@ -38613,6 +38617,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1209: -1896845096
       oryx_16bit_fantasy_world_trans_1092: -936107817
       oryx_16bit_fantasy_world_trans_1119: -1753894848
+      Tree Snowy: -192098286
       oryx_16bit_fantasy_world_trans_1043: 2033269826
       oryx_16bit_fantasy_world_trans_30: -1262392783
       oryx_16bit_fantasy_world_trans_768: -1884714054
@@ -38644,8 +38649,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_998: 367453364
       oryx_16bit_fantasy_world_trans_932: -288831555
       oryx_16bit_fantasy_world_trans_802: -225710689
-      oryx_16bit_fantasy_world_trans_140: 193679225
-      oryx_16bit_fantasy_world_trans_453: 1138124507
       oryx_16bit_fantasy_world_trans_787: 2110947202
       oryx_16bit_fantasy_world_trans_1695: 576364572
       oryx_16bit_fantasy_world_trans_1699: -1541189098
@@ -38656,7 +38659,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1241: -1955319874
       oryx_16bit_fantasy_world_trans_1368: -779829680
       oryx_16bit_fantasy_world_trans_1046: 1614096752
-      oryx_16bit_fantasy_world_trans_134: 1382717822
       oryx_16bit_fantasy_world_trans_1482: 152231398
       oryx_16bit_fantasy_world_trans_552: 1914222365
       oryx_16bit_fantasy_world_trans_1566: -845210666
@@ -38672,7 +38674,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1169: -1444208777
       oryx_16bit_fantasy_world_trans_463: 1048552031
       oryx_16bit_fantasy_world_trans_121: -1574121377
-      oryx_16bit_fantasy_world_trans_133: 207596807
+      Paved 3: -678857592
       oryx_16bit_fantasy_world_trans_1665: -1951408363
       oryx_16bit_fantasy_world_trans_349: -915659352
       oryx_16bit_fantasy_world_trans_755: 325084822
@@ -38686,7 +38688,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_960: -1196207136
       oryx_16bit_fantasy_world_trans_572: -469407339
       oryx_16bit_fantasy_world_trans_293: -1181945127
-      oryx_16bit_fantasy_world_trans_1147: -200720317
       oryx_16bit_fantasy_world_trans_763: 769485030
       oryx_16bit_fantasy_world_trans_1165: -1060731086
       oryx_16bit_fantasy_world_trans_1594: 1541732364
@@ -38710,7 +38711,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_370: -1635154663
       oryx_16bit_fantasy_world_trans_1273: -55176975
       oryx_16bit_fantasy_world_trans_963: 726473594
-      oryx_16bit_fantasy_world_trans_154: 480043242
       oryx_16bit_fantasy_world_trans_983: 303784297
       oryx_16bit_fantasy_world_trans_907: 1758501852
       oryx_16bit_fantasy_world_trans_1083: -1231304812
@@ -38719,7 +38719,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1409: 1248555340
       oryx_16bit_fantasy_world_trans_1519: 465203985
       oryx_16bit_fantasy_world_trans_385: -331943835
-      oryx_16bit_fantasy_world_trans_146: -982100262
       oryx_16bit_fantasy_world_trans_1230: -1602176079
       oryx_16bit_fantasy_world_trans_1504: -414221799
       oryx_16bit_fantasy_world_trans_314: 600085519
@@ -38750,7 +38749,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_714: -1799974152
       oryx_16bit_fantasy_world_trans_1736: 163762639
       oryx_16bit_fantasy_world_trans_884: -1758908660
-      oryx_16bit_fantasy_world_trans_141: 478699930
       oryx_16bit_fantasy_world_trans_549: -780531569
       oryx_16bit_fantasy_world_trans_839: 435061180
       oryx_16bit_fantasy_world_trans_667: -449346509
@@ -38772,7 +38770,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1578: 357712383
       oryx_16bit_fantasy_world_trans_450: -633161444
       oryx_16bit_fantasy_world_trans_615: -1748496439
-      oryx_16bit_fantasy_world_trans_144: 270170732
       oryx_16bit_fantasy_world_trans_265: -277274766
       oryx_16bit_fantasy_world_trans_1576: 785665036
       oryx_16bit_fantasy_world_trans_95: 1906126629
@@ -38789,6 +38786,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_633: -1770251303
       oryx_16bit_fantasy_world_trans_1556: 2006077971
       oryx_16bit_fantasy_world_trans_1306: 1907137874
+      Stone 2: 1830203025
       oryx_16bit_fantasy_world_trans_685: 238639103
       oryx_16bit_fantasy_world_trans_1289: -428741772
       oryx_16bit_fantasy_world_trans_24: -2054588751
@@ -38811,6 +38809,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1458: 1637832653
       oryx_16bit_fantasy_world_trans_215: -1007723728
       oryx_16bit_fantasy_world_trans_751: -1507207559
+      Town Center B: 1138124507
       oryx_16bit_fantasy_world_trans_382: -1271769724
       oryx_16bit_fantasy_world_trans_1034: 110052733
       oryx_16bit_fantasy_world_trans_930: 878319409
@@ -38830,7 +38829,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_10: 521285319
       oryx_16bit_fantasy_world_trans_1705: 1284066747
       oryx_16bit_fantasy_world_trans_1613: -1997697139
-      oryx_16bit_fantasy_world_trans_345: 1380765190
       oryx_16bit_fantasy_world_trans_1304: -1209203583
       oryx_16bit_fantasy_world_trans_1723: -1901138566
       oryx_16bit_fantasy_world_trans_1167: -914485775
@@ -38844,7 +38842,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_383: 826648937
       oryx_16bit_fantasy_world_trans_1463: 826245793
       oryx_16bit_fantasy_world_trans_758: 6333708
-      oryx_16bit_fantasy_world_trans_1198: -678857592
       oryx_16bit_fantasy_world_trans_277: -1612488132
       oryx_16bit_fantasy_world_trans_191: -1317981702
       oryx_16bit_fantasy_world_trans_1747: -1038378494
@@ -38886,12 +38883,11 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_880: 258393691
       oryx_16bit_fantasy_world_trans_491: 388915198
       oryx_16bit_fantasy_world_trans_656: -168155477
-      oryx_16bit_fantasy_world_trans_294: -194440816
+      oryx_16bit_fantasy_world_trans_1427: -2107126523
       oryx_16bit_fantasy_world_trans_1007: -1405959351
       oryx_16bit_fantasy_world_trans_118: 524242662
-      oryx_16bit_fantasy_world_trans_1427: -2107126523
-      oryx_16bit_fantasy_world_trans_1538: 666021423
       oryx_16bit_fantasy_world_trans_1627: -652212117
+      oryx_16bit_fantasy_world_trans_1538: 666021423
       oryx_16bit_fantasy_world_trans_926: -1560441852
       oryx_16bit_fantasy_world_trans_1628: 1594785071
       oryx_16bit_fantasy_world_trans_158: 2145611089
@@ -38905,6 +38901,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_261: -1089165389
       oryx_16bit_fantasy_world_trans_634: 678073247
       oryx_16bit_fantasy_world_trans_100: 1542499278
+      Iron Door Open: 478699930
       oryx_16bit_fantasy_world_trans_890: -215628260
       oryx_16bit_fantasy_world_trans_1118: 309172423
       oryx_16bit_fantasy_world_trans_1579: -820979761
@@ -38934,14 +38931,14 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_316: -1785100163
       oryx_16bit_fantasy_world_trans_1208: -1998923454
       oryx_16bit_fantasy_world_trans_1598: -1823407228
-      oryx_16bit_fantasy_world_trans_730: 159949619
-      oryx_16bit_fantasy_world_trans_836: -1405711350
       oryx_16bit_fantasy_world_trans_442: 1764404859
-      oryx_16bit_fantasy_world_trans_745: 273760319
+      oryx_16bit_fantasy_world_trans_836: -1405711350
+      oryx_16bit_fantasy_world_trans_1730: 716397290
+      oryx_16bit_fantasy_world_trans_730: 159949619
       oryx_16bit_fantasy_world_trans_33: 392355189
       oryx_16bit_fantasy_world_trans_1365: -1572194414
+      oryx_16bit_fantasy_world_trans_745: 273760319
       oryx_16bit_fantasy_world_trans_991: 429082325
-      oryx_16bit_fantasy_world_trans_1730: 716397290
       oryx_16bit_fantasy_world_trans_1100: -1139692794
       oryx_16bit_fantasy_world_trans_512: 820093630
       oryx_16bit_fantasy_world_trans_401: 1430839673
@@ -38958,11 +38955,11 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_193: 1207071069
       oryx_16bit_fantasy_world_trans_1268: 1048205798
       oryx_16bit_fantasy_world_trans_637: 609436977
-      oryx_16bit_fantasy_world_trans_138: -1393049718
       oryx_16bit_fantasy_world_trans_764: -2099919221
-      oryx_16bit_fantasy_world_trans_1329: -337915747
       oryx_16bit_fantasy_world_trans_1472: 1992883567
+      oryx_16bit_fantasy_world_trans_1329: -337915747
       oryx_16bit_fantasy_world_trans_340: 940712134
+      Door Locked: -1948783101
       oryx_16bit_fantasy_world_trans_412: 2072053353
       oryx_16bit_fantasy_world_trans_388: 282155076
       oryx_16bit_fantasy_world_trans_451: -685338593
@@ -38970,10 +38967,10 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1076: -356311591
       oryx_16bit_fantasy_world_trans_1796: 1970114806
       oryx_16bit_fantasy_world_trans_1270: -985795413
+      oryx_16bit_fantasy_world_trans_1552: -2121044001
       oryx_16bit_fantasy_world_trans_590: -1828216472
       oryx_16bit_fantasy_world_trans_1685: 1916651398
       oryx_16bit_fantasy_world_trans_1604: -964750025
-      oryx_16bit_fantasy_world_trans_1552: -2121044001
       oryx_16bit_fantasy_world_trans_879: -515788588
       oryx_16bit_fantasy_world_trans_944: -748554433
       oryx_16bit_fantasy_world_trans_259: 20139978
@@ -38993,7 +38990,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1245: -1021844643
       oryx_16bit_fantasy_world_trans_1633: 1407618763
       oryx_16bit_fantasy_world_trans_551: -624446470
-      oryx_16bit_fantasy_world_trans_344: 595278093
       oryx_16bit_fantasy_world_trans_664: -1208683049
       oryx_16bit_fantasy_world_trans_703: 962401838
       oryx_16bit_fantasy_world_trans_629: 1299800918
@@ -39009,15 +39005,15 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_384: 994846299
       oryx_16bit_fantasy_world_trans_310: -2091526701
       oryx_16bit_fantasy_world_trans_734: -2004186229
+      oryx_16bit_fantasy_world_trans_1220: 119022867
       oryx_16bit_fantasy_world_trans_335: 1746014969
       oryx_16bit_fantasy_world_trans_860: 1750026041
       oryx_16bit_fantasy_world_trans_939: 940727850
-      oryx_16bit_fantasy_world_trans_1220: 119022867
+      oryx_16bit_fantasy_world_trans_1754: -683385676
       oryx_16bit_fantasy_world_trans_1489: -579294422
       oryx_16bit_fantasy_world_trans_853: -258294686
       oryx_16bit_fantasy_world_trans_1255: -1318156696
       oryx_16bit_fantasy_world_trans_1530: -1684878060
-      oryx_16bit_fantasy_world_trans_1754: -683385676
       oryx_16bit_fantasy_world_trans_212: 1475836436
       oryx_16bit_fantasy_world_trans_747: 1714216643
       oryx_16bit_fantasy_world_trans_906: 466651764
@@ -39027,7 +39023,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_485: -1729332211
       oryx_16bit_fantasy_world_trans_190: -699187475
       oryx_16bit_fantasy_world_trans_336: 564277874
-      oryx_16bit_fantasy_world_trans_1247: 949669370
       oryx_16bit_fantasy_world_trans_1794: 895396394
       oryx_16bit_fantasy_world_trans_1449: -794179907
       oryx_16bit_fantasy_world_trans_252: -672292126
@@ -39072,8 +39067,8 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_570: -558724298
       oryx_16bit_fantasy_world_trans_776: 1584426026
       oryx_16bit_fantasy_world_trans_1726: 1788156567
-      oryx_16bit_fantasy_world_trans_206: -192098286
       oryx_16bit_fantasy_world_trans_1728: -1385108734
+      Stone 0: -1226979626
       oryx_16bit_fantasy_world_trans_1680: -264552611
       oryx_16bit_fantasy_world_trans_1217: -714997501
       oryx_16bit_fantasy_world_trans_102: -810246002
@@ -39085,9 +39080,11 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_96: -313151954
       oryx_16bit_fantasy_world_trans_1635: -771620668
       oryx_16bit_fantasy_world_trans_415: 467718935
+      Sigil Circle: -872183248
       oryx_16bit_fantasy_world_trans_303: 868518181
       oryx_16bit_fantasy_world_trans_1085: 1763974222
       oryx_16bit_fantasy_world_trans_1031: -702669362
+      Door Boarded: 270170732
       oryx_16bit_fantasy_world_trans_494: 1679272830
       oryx_16bit_fantasy_world_trans_675: 335659501
       oryx_16bit_fantasy_world_trans_1252: 484407727
@@ -39153,6 +39150,8 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1293: 1970304492
       oryx_16bit_fantasy_world_trans_397: -1406498937
       oryx_16bit_fantasy_world_trans_1498: -359874141
+      Town Brick 4: -330450527
+      Door Open Boarded: 1862608975
       oryx_16bit_fantasy_world_trans_1142: -1916567657
       oryx_16bit_fantasy_world_trans_405: 1217025348
       oryx_16bit_fantasy_world_trans_502: 314695503
@@ -39168,13 +39167,14 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1161: 363611335
       oryx_16bit_fantasy_world_trans_1585: -710973835
       oryx_16bit_fantasy_world_trans_147: -1359731091
+      Town Center A: 954529779
       oryx_16bit_fantasy_world_trans_1667: -1110273878
+      Town Brick 5: -1168647709
       oryx_16bit_fantasy_world_trans_14: 1414626323
       oryx_16bit_fantasy_world_trans_301: 17332814
       oryx_16bit_fantasy_world_trans_1656: -1151585100
       oryx_16bit_fantasy_world_trans_1658: 934109678
       oryx_16bit_fantasy_world_trans_469: 567206048
-      oryx_16bit_fantasy_world_trans_1297: -330450527
       oryx_16bit_fantasy_world_trans_1473: -741823248
       oryx_16bit_fantasy_world_trans_508: -1192455279
       oryx_16bit_fantasy_world_trans_94: -1299881512
@@ -39218,18 +39218,17 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_438: -998062652
       oryx_16bit_fantasy_world_trans_1361: -2082250446
       oryx_16bit_fantasy_world_trans_1522: 1804264300
-      oryx_16bit_fantasy_world_trans_1199: -151377103
       oryx_16bit_fantasy_world_trans_325: 511641970
       oryx_16bit_fantasy_world_trans_1396: -58542424
       oryx_16bit_fantasy_world_trans_48: -78551959
       oryx_16bit_fantasy_world_trans_635: -799390377
       oryx_16bit_fantasy_world_trans_82: -315096324
-      oryx_16bit_fantasy_world_trans_1038: 1354088084
       oryx_16bit_fantasy_world_trans_1776: -1193401412
       oryx_16bit_fantasy_world_trans_864: 191183172
       oryx_16bit_fantasy_world_trans_1061: 1009035827
       oryx_16bit_fantasy_world_trans_592: -1655127570
       oryx_16bit_fantasy_world_trans_1197: 998727569
+      Door Open: 1382717822
       oryx_16bit_fantasy_world_trans_807: -706978044
       oryx_16bit_fantasy_world_trans_1408: 967890960
       oryx_16bit_fantasy_world_trans_19: 2072610702
@@ -39265,7 +39264,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1213: -429148987
       oryx_16bit_fantasy_world_trans_1175: 1381691262
       oryx_16bit_fantasy_world_trans_1394: -1602595303
-      oryx_16bit_fantasy_world_trans_135: -1948783101
       oryx_16bit_fantasy_world_trans_222: 1138155485
       oryx_16bit_fantasy_world_trans_1221: 553964415
       oryx_16bit_fantasy_world_trans_1: 805002551
@@ -39273,10 +39271,9 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_209: 1603761284
       oryx_16bit_fantasy_world_trans_509: 1518339125
       oryx_16bit_fantasy_world_trans_693: -2078979186
-      oryx_16bit_fantasy_world_trans_1200: -1066362159
+      oryx_16bit_fantasy_world_trans_1163: -1021707946
       oryx_16bit_fantasy_world_trans_1564: -1947221531
       oryx_16bit_fantasy_world_trans_70: -297128362
-      oryx_16bit_fantasy_world_trans_1163: -1021707946
       oryx_16bit_fantasy_world_trans_128: -766612521
       oryx_16bit_fantasy_world_trans_503: -1546364907
       oryx_16bit_fantasy_world_trans_1075: -710562337
@@ -39324,7 +39321,6 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1540: -1017407456
       oryx_16bit_fantasy_world_trans_895: -1040058823
       oryx_16bit_fantasy_world_trans_924: -1963951042
-      oryx_16bit_fantasy_world_trans_513: -856282004
       oryx_16bit_fantasy_world_trans_1196: 478695521
       oryx_16bit_fantasy_world_trans_1011: -245568102
       oryx_16bit_fantasy_world_trans_670: -2052434885
@@ -39334,6 +39330,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_815: -1144291007
       oryx_16bit_fantasy_world_trans_808: 927011610
       oryx_16bit_fantasy_world_trans_1642: -2096695714
+      Town Statue Broken: -194440816
       oryx_16bit_fantasy_world_trans_589: -2049830438
       oryx_16bit_fantasy_world_trans_1733: 186856269
       oryx_16bit_fantasy_world_trans_1346: 1912093312
@@ -39353,6 +39350,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_50: 1224963800
       oryx_16bit_fantasy_world_trans_559: -782830680
       oryx_16bit_fantasy_world_trans_1121: 1622102023
+      Town Center C: 1386741889
       oryx_16bit_fantasy_world_trans_1062: 1583161884
       oryx_16bit_fantasy_world_trans_504: 1394605419
       oryx_16bit_fantasy_world_trans_52: -485843866
@@ -39363,6 +39361,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_805: -2137102801
       oryx_16bit_fantasy_world_trans_178: -1041716254
       oryx_16bit_fantasy_world_trans_1174: -1990387161
+      Door One Way: 1447797568
       oryx_16bit_fantasy_world_trans_917: 942712643
       oryx_16bit_fantasy_world_trans_47: -776338777
       oryx_16bit_fantasy_world_trans_621: 218812534
@@ -39407,10 +39406,10 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_728: -1614243716
       oryx_16bit_fantasy_world_trans_1786: -975954862
       oryx_16bit_fantasy_world_trans_1709: 1951865176
-      oryx_16bit_fantasy_world_trans_148: 786630955
       oryx_16bit_fantasy_world_trans_1647: -138259174
       oryx_16bit_fantasy_world_trans_1508: -765987349
       oryx_16bit_fantasy_world_trans_1391: -658621428
+      Town Statu: 1616068089
       oryx_16bit_fantasy_world_trans_956: 1475517354
       oryx_16bit_fantasy_world_trans_1491: 1023125729
       oryx_16bit_fantasy_world_trans_1429: 36394093
@@ -39429,6 +39428,7 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_424: 186887771
       oryx_16bit_fantasy_world_trans_887: -334156144
       oryx_16bit_fantasy_world_trans_1501: -1372263734
+      Paved 1: -200720317
       oryx_16bit_fantasy_world_trans_40: -1130764804
       oryx_16bit_fantasy_world_trans_969: 929244076
       oryx_16bit_fantasy_world_trans_1741: -126601059
@@ -39436,10 +39436,10 @@ TextureImporter:
       oryx_16bit_fantasy_world_trans_1792: 823128308
       oryx_16bit_fantasy_world_trans_1774: 424342457
       oryx_16bit_fantasy_world_trans_1109: -435383487
+      oryx_16bit_fantasy_world_trans_331: 1735544693
       oryx_16bit_fantasy_world_trans_161: -899404302
-      oryx_16bit_fantasy_world_trans_760: -1130135845
-      oryx_16bit_fantasy_world_trans_1086: 2099945671
-      oryx_16bit_fantasy_world_trans_581: -1191368353
+      oryx_16bit_fantasy_world_trans_308: -1682022377
+      oryx_16bit_fantasy_world_trans_567: -1125608526
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

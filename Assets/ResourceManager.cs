@@ -11,6 +11,9 @@ using Random = UnityEngine.Random;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager instance;
+    
+    public bool spawnResourceNodes = true;
+    
     public ResourceDropRegistry resourceDropRegistry;
     public ResourceNodeRegistry resourceNodeRegistry;
 
@@ -137,7 +140,7 @@ public class ResourceManager : MonoBehaviour
 
     private void CheckForRoomAndSpawnResourceNode()
     {
-        if (activeNodes.Count < resourceNodeCap)
+        if (activeNodes.Count < resourceNodeCap && spawnResourceNodes)
         {
             SpawnResourceNode(Random.value > 0.5f ? ResourceNode.Resource.Wood : ResourceNode.Resource.Stone);
             //TODO at some point in the future we will need a way to influence which nodes spawn and when, instead of randomly spawning them. 
@@ -382,5 +385,10 @@ public class ResourceManager : MonoBehaviour
         ReleaseAllExperienceOrbs();
         ReleaseAllResourceDrops();
         ReleaseAllResourceNodes();
+    }
+
+    public void SetSpawnResources(bool b)
+    {
+        spawnResourceNodes = b;
     }
 }

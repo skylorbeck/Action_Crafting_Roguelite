@@ -39,7 +39,6 @@ public class EnemyManager : MonoBehaviour
             }
         );
     }
-    //TODO replace this entire thing with a wave manager that tells the manager what to spawn and when
     private async void OnEnable()
     {
         await Task.Delay(1);
@@ -110,5 +109,10 @@ public class EnemyManager : MonoBehaviour
     {
         this.round = round;
         spawnEnemies = true;
+    }
+
+    public void SetSpawnEnemies(bool b)
+    {
+        spawnEnemies = b;
     }
 }

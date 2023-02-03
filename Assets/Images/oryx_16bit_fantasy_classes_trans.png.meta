@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1194,9 +1194,9 @@ TextureImporter:
       oryx_16bit_fantasy_classes_trans_59: 876334293
       oryx_16bit_fantasy_classes_trans_7: 729693398
       oryx_16bit_fantasy_classes_trans_20: 1317994847
-      oryx_16bit_fantasy_classes_trans_101: -402935931
       oryx_16bit_fantasy_classes_trans_109: -1574156188
       oryx_16bit_fantasy_classes_trans_63: -1588421407
+      oryx_16bit_fantasy_classes_trans_101: -402935931
       oryx_16bit_fantasy_classes_trans_37: 2101955129
       oryx_16bit_fantasy_classes_trans_97: -1367258336
       oryx_16bit_fantasy_classes_trans_87: 2111640378
@@ -1236,8 +1236,8 @@ TextureImporter:
       oryx_16bit_fantasy_classes_trans_57: 54505430
       oryx_16bit_fantasy_classes_trans_30: -1620849077
       oryx_16bit_fantasy_classes_trans_17: -1192439058
-      oryx_16bit_fantasy_classes_trans_53: -635428410
       oryx_16bit_fantasy_classes_trans_56: -679964466
+      oryx_16bit_fantasy_classes_trans_53: -635428410
       oryx_16bit_fantasy_classes_trans_22: 298070951
       oryx_16bit_fantasy_classes_trans_33: -1356647081
       oryx_16bit_fantasy_classes_trans_96: -1788357064

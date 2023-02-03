@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -6727,8 +6727,8 @@ TextureImporter:
       oryx_16bit_fantasy_items_trans_196: -1922622101
       oryx_16bit_fantasy_items_trans_4: 1762120784
       oryx_16bit_fantasy_items_trans_28: -100167699
-      oryx_16bit_fantasy_items_trans_310: -1520433829
       Heart Full: -1547448382
+      oryx_16bit_fantasy_items_trans_310: -1520433829
       oryx_16bit_fantasy_items_trans_80: -1623470665
       oryx_16bit_fantasy_items_trans_150: -597042024
       oryx_16bit_fantasy_items_trans_194: 948474094

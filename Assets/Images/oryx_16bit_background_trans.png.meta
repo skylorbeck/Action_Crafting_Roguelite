@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,7 +138,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 744
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591cd172ebde77f4fb5363a60daeba1b
+      internalID: 1573906684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a4d0f568ba8cc48a40b39ce508e0aa
+      internalID: -1910423582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 632
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303482dfec9fc554ea7994ec93478e49
+      internalID: -1665865338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25fc9fadf8cad3743a03882e6f72055e
+      internalID: 554705068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab90b41fa1f9a3341ab1b022ec06c4b8
+      internalID: -230186597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b10352224e8bd4ebe46b2477eff1e4
+      internalID: -627125574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ecccc97f2cbbc4882c43be50c2a221
+      internalID: -1885019619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3938f68fd2c6f254b8f90eb095170a7d
+      internalID: 1673818396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 296
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3368ca1c2a8a84b82b66a250050067
+      internalID: -1043345118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9ade6fcdd4c5c42934da77bac0a8ac
+      internalID: -2120035295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e75e2fb762b30a47bc1e3138dfa4785
+      internalID: 1638850212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oryx_16bit_background_trans_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 320
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61c06134a3ebdc478b236c8c84ddb22
+      internalID: -1502132487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -149,7 +401,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      oryx_16bit_background_trans_1: -1910423582
+      oryx_16bit_background_trans_6: -1885019619
+      oryx_16bit_background_trans_5: -627125574
+      oryx_16bit_background_trans_10: 1638850212
+      oryx_16bit_background_trans_8: -1043345118
+      oryx_16bit_background_trans_4: -230186597
+      oryx_16bit_background_trans_9: -2120035295
+      oryx_16bit_background_trans_12: -1415946083
+      oryx_16bit_background_trans_7: 1673818396
+      oryx_16bit_background_trans_3: 554705068
+      oryx_16bit_background_trans_11: -1502132487
+      oryx_16bit_background_trans_2: -1665865338
+      oryx_16bit_background_trans_0: 1573906684
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
