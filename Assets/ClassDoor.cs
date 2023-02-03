@@ -26,8 +26,9 @@ public class ClassDoor : MonoBehaviour
         }
     }
 
-    public void OpenClassPanel()
+    public void OpenClassPanel()//TODO weapon swapping
     {
+        classPanel.transform.DOComplete();  
         classPanel.SetActive(true);
         Player.instance.SetCanMove(false);
         closeButton.interactable = true;

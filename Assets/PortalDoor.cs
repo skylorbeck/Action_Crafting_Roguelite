@@ -22,6 +22,7 @@ public class PortalDoor : MonoBehaviour
 
     private void OpenPortal()
     {
+        playOptionsPanel.transform.DOComplete(); 
         playOptionsPanel.SetActive(true);
         Player.instance.SetCanMove(false);
         playButton.interactable = true;

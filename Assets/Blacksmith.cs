@@ -22,6 +22,7 @@ public class Blacksmith : MonoBehaviour
 
     public void OpenBlacksmith()
     {
+        blacksmithPanel.transform.DOComplete(); 
         blacksmithPanel.SetActive(true);
         blacksmithPanel.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
         Player.instance.SetCanMove(false);
