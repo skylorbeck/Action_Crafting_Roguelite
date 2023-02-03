@@ -11,8 +11,8 @@ using UnityEngine.UI;
 public class Player : Entity
 {
     public static Player instance;
-    [SerializeField] protected ClassRegistry classRegistry;
-    [SerializeField] protected int classIndex = 0;
+    [SerializeField] public ClassRegistry classRegistry;
+    [SerializeField] public int classIndex = 0;
     [SerializeField] protected int weaponIndex = 0;
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
@@ -172,8 +172,7 @@ public class Player : Entity
             experience -= experienceToNextLevel;
             level++;
             experienceToNextLevel = (uint)(experienceToNextLevel * 1.5f);
-            maxHealth += 10;
-            health = maxHealth;
+
             levelText.text = "Lv. " + level;
             
             //TODO hand off to level up system
@@ -206,6 +205,17 @@ public class Player : Entity
     public void SetCanMove(bool b)
     {
         playerInput.enabled = b;
+    }
+
+    public void UpdateClass()
+    {
+        classIndex = PlayerPrefs.GetInt("classIndex", 0);
+        weaponIndex = PlayerPrefs.GetInt("weaponIndex", 0);
+        SetClass(classRegistry.GetClass(classIndex));
+        if (spawnWithWeapons)
+        {
+            Instantiate(classRegistry.GetToolsOfClass(classIndex)[weaponIndex], weaponHolder);
+        }
     }
 }
 

@@ -76,14 +76,15 @@ public class ThrowingTool : Tool
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("ResourceNode"))
         {
-            if (col.GetComponent<ResourceNode>().resourceNode == targetResource)
+            primaryTargets.Add(col.gameObject);
+            /*if (col.GetComponent<ResourceNode>().resourceNode == targetResource)
             {
                 primaryTargets.Add(col.gameObject);
             }
             else
             {
                 secondaryTargets.Add(col.gameObject);
-            }
+            }*/
 
         }
 

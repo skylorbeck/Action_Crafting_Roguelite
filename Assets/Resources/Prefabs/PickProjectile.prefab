@@ -52,6 +52,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5563206522260159431}
   Rb: {fileID: 5563206522260159429}
   trailRenderer: {fileID: 4011914735975187497}
+  parent: {fileID: 0}
 --- !u!212 &5563206522260159431
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
 --- !u!50 &5563206522260159429
 Rigidbody2D:
   serializedVersion: 4

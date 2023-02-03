@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ClassRegistry", menuName = "ClassRegistry")]
 public class ClassRegistry: ScriptableObject
 {
-    [SerializeField] private List<ClassObject> classList = new List<ClassObject>();
+    [SerializeField] public List<ClassObject> classList = new List<ClassObject>();
     [SerializeField] private ToolRegistry toolRegistry;
 
     public List<ClassObject> GetClasses()
