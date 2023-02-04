@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 4777040365876319631}
   - component: {fileID: 4777040365876319624}
   - component: {fileID: 4777040365876319633}
-  - component: {fileID: 5572477842209469821}
   - component: {fileID: 4777040365876319628}
   - component: {fileID: 4777040365876319635}
   - component: {fileID: 4777040365876319634}
@@ -231,7 +230,33 @@ MonoBehaviour:
   health: 1
   classRegistry: {fileID: 11400000, guid: eb3c888df1dcb5643839337541b4b08a, type: 2}
   classIndex: 0
-  runStats: {fileID: 5572477842209469821}
+  weaponIndex: 0
+  spawnWithWeapons: 1
+  weaponHolder: {fileID: 0}
+  runStats:
+    enemiesKilled: 0
+    resourcesCollected: 0
+    stoneCollected: 0
+    stoneNodesHarvested: 0
+    woodCollected: 0
+    woodNodesHarvested: 0
+  perkStatModifiers:
+    healthFlatBonus: 0
+    damageFlatBonus: 0
+    damageMultiplierBonus: 0
+    attackSpeedMultiplierBonus: 0
+    movementSpeedMultiplierBonus: 0
+    critChanceFlatBonus: 0
+    critDamageMultiplierBonus: 0
+    projectileSpeedMultiplierBonus: 0
+    projectileSizeMultiplierBonus: 0
+    projectileCountFlatBonus: 0
+    areaOfEffectMultiplierBonus: 0
+    experienceValueMultiplierBonus: 0
+    goldValueMultiplierBonus: 0
+    nodesExplode: 0
+    enemiesExplode: 0
+  equippedPerks: []
   maxHealth: 6
   experience: 0
   goldCoins: 0
@@ -244,25 +269,6 @@ MonoBehaviour:
   goldText: {fileID: 0}
   spriteAnimator: {fileID: 4777040365876319624}
   playerInput: {fileID: 0}
-  resumeButton: {fileID: 0}
---- !u!114 &5572477842209469821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4777040365876319625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af2bc16c4bb541b4a04d27c4224c516d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesKilled: 0
-  resourcesCollected: 0
-  stoneCollected: 0
-  stoneNodesHarvested: 0
-  woodCollected: 0
-  woodNodesHarvested: 0
 --- !u!114 &4777040365876319628
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class ClassObject : ScriptableObject
     public int unlockLevel;
     public int unlockCost;
     
-    // public Perk[] perkList;//TODO add perks
+    public Perk[] perkList;
     
     public string className;
     public string classDescription;

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf96b8bb33e025458f5a90bb743c852, type: 3}
+  m_Name: HealthUp
+  m_EditorClassIdentifier: 
+  perkName: Armor
+  perkDescription: +1 Heart
+  perkIcon: {fileID: 2061890479, guid: 0fca63642bd17d346957db0e3211f213, type: 3}
+  perkCost: 0
+  perkStatModifiers:
+    healthFlatBonus: 2
+    damageFlatBonus: 0
+    damageMultiplierBonus: 0
+    attackSpeedMultiplierBonus: 0
+    movementSpeedMultiplierBonus: 0
+    critChanceFlatBonus: 0
+    critDamageMultiplierBonus: 0
+    projectileSpeedMultiplierBonus: 0
+    projectileSizeMultiplierBonus: 0
+    projectileCountFlatBonus: 0
+    areaOfEffectMultiplierBonus: 0
+    experienceValueMultiplierBonus: 0
+    goldValueMultiplierBonus: 0
+    nodesExplode: 0
+    enemiesExplode: 0

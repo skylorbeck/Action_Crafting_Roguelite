@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using PerkSystem;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,9 +17,10 @@ public class Player : Entity
     [SerializeField] protected int weaponIndex = 0;
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
+    [SerializeField] RunStats runStats;//TODO meta save this
     //TODO value owned perks more than new perks
-    [SerializeReference] RunStats runStats;//TODO meta save this
-
+    [SerializeField] PerkStatModifiers perkStatModifiers;
+    [SerializeField] public List<Perk> equippedPerks = new List<Perk>();
     [SerializeField] protected int maxHealth = 100;
     [SerializeField] protected uint experience = 0;
     [SerializeField] protected uint goldCoins = 0;
@@ -35,7 +37,6 @@ public class Player : Entity
 
     [SerializeField] protected PlayerInput playerInput;
     
-    [SerializeField] protected Button resumeButton;//TODO move this somewhere else
     protected override void Start()
     {
         instance = this;
@@ -165,7 +166,7 @@ public class Player : Entity
         CheckForLevelUp();
     }
 
-    private void CheckForLevelUp()
+    public void CheckForLevelUp()
     {
         if (experience >= experienceToNextLevel)
         {
@@ -175,25 +176,9 @@ public class Player : Entity
 
             levelText.text = "Lv. " + level;
             
-            //TODO hand off to level up system
-            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0f, 0.5f).SetUpdate(true).onComplete += () =>
-            {
-                resumeButton.interactable = true;
-            };
-            resumeButton.gameObject.SetActive(true);
-            resumeButton.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
+            PerkManager.instance.ShowPerkMenu();
+            
         }
-    }
-
-    public void ResumeGame()//TODO move this to the level up system
-    {
-        resumeButton.interactable = false;
-        Time.timeScale = 1f;
-        resumeButton.transform.DOLocalMove(new Vector3(0, -1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).onComplete += () =>
-            {
-                resumeButton.gameObject.SetActive(false);
-                CheckForLevelUp();
-            };
     }
 
     public void AddCoin(uint goldValue)
@@ -217,5 +202,35 @@ public class Player : Entity
             Instantiate(classRegistry.GetToolsOfClass(classIndex)[weaponIndex], weaponHolder);
         }
     }
+    
+    public void AddPerk(Perk perk)
+    {
+        AddPerkStatModifiers(perk.perkStatModifiers);
+        equippedPerks.Add(perk);
+        HealthDisplay.instance.SetMaxHealth(maxHealth);
+        HealthDisplay.instance.SetHealth(health);
+    }
+    
+    public void RemovePerk(Perk perk)
+    {
+        RemovePerkStatModifiers(perk.perkStatModifiers);
+        equippedPerks.Remove(perk);
+    }
+
+    private void AddPerkStatModifiers(PerkStatModifiers newPerkStatModifiers)
+    {
+        perkStatModifiers.Add(newPerkStatModifiers);
+    }
+    
+    private void RemovePerkStatModifiers(PerkStatModifiers newPerkStatModifiers)
+    {
+        perkStatModifiers.Remove(newPerkStatModifiers);
+    }
+    
+    public PerkStatModifiers GetPerkStatModifiers()
+    {
+        return perkStatModifiers;
+    }
+    
 }
 

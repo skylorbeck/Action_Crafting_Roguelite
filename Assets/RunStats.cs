@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class RunStats:MonoBehaviour
+[Serializable]
+public class RunStats
 {
     public uint enemiesKilled;
     public uint resourcesCollected;
