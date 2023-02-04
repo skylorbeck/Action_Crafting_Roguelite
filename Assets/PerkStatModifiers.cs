@@ -20,9 +20,12 @@ namespace PerkSystem
         public float areaOfEffectMultiplierBonus;
         public float experienceValueMultiplierBonus;
         public float goldValueMultiplierBonus;
-        [FormerlySerializedAs("resourceValueMultiplierBonus")] public int resourceDropFlatBonus;
-        public bool nodesExplode;//TODO
-        public bool enemiesExplode;//TODO
+        public int resourceDropFlatBonus;
+        [FormerlySerializedAs("nodesExplode")] public bool stoneNodesExplode;//TODO
+        [FormerlySerializedAs("enemiesExplode")] public bool enemiesSpawnPick;//TODO
+        public float enemyHealthMultiplier;//TODO
+        public float enemySpeedMultiplier;//TODO
+        
 
         public void Add(PerkStatModifiers statsToAdd)
         {
@@ -39,9 +42,11 @@ namespace PerkSystem
             areaOfEffectMultiplierBonus += statsToAdd.areaOfEffectMultiplierBonus;
             experienceValueMultiplierBonus += statsToAdd.experienceValueMultiplierBonus;
             goldValueMultiplierBonus += statsToAdd.goldValueMultiplierBonus;
-            nodesExplode = statsToAdd.nodesExplode;
-            enemiesExplode = statsToAdd.enemiesExplode;
             resourceDropFlatBonus += statsToAdd.resourceDropFlatBonus;
+            enemyHealthMultiplier += statsToAdd.enemyHealthMultiplier;
+            enemySpeedMultiplier += statsToAdd.enemySpeedMultiplier;
+            enemiesSpawnPick = enemiesSpawnPick || statsToAdd.enemiesSpawnPick;
+            stoneNodesExplode = stoneNodesExplode || statsToAdd.stoneNodesExplode;
         }
 
         public void Remove(PerkStatModifiers statsToRemove)
@@ -59,9 +64,11 @@ namespace PerkSystem
             areaOfEffectMultiplierBonus -= statsToRemove.areaOfEffectMultiplierBonus;
             experienceValueMultiplierBonus -= statsToRemove.experienceValueMultiplierBonus;
             goldValueMultiplierBonus -= statsToRemove.goldValueMultiplierBonus;
-            nodesExplode = statsToRemove.nodesExplode;
-            enemiesExplode = statsToRemove.enemiesExplode;
             resourceDropFlatBonus -= statsToRemove.resourceDropFlatBonus;
+            enemyHealthMultiplier -= statsToRemove.enemyHealthMultiplier;
+            enemySpeedMultiplier -= statsToRemove.enemySpeedMultiplier;
+            enemiesSpawnPick = enemiesSpawnPick && !statsToRemove.enemiesSpawnPick;
+            stoneNodesExplode = stoneNodesExplode && !statsToRemove.stoneNodesExplode;
         }
     }
 }

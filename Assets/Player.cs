@@ -47,9 +47,21 @@ public class Player : Entity, IDamageable
         SetClass(classRegistry.GetClass(classIndex));
         if (spawnWithWeapons)
         {
-            Instantiate(classRegistry.GetToolsOfClass(classIndex)[weaponIndex], weaponHolder);
+            EquipTool();
         }
         base.Start();
+    }
+
+    public void EquipTool(Tool tool = null)
+    {
+        if (tool == null)
+        {
+            tool = classRegistry.GetToolsOfClass(classIndex)[weaponIndex];
+        }
+        if (tool != null)
+        {
+            Instantiate(tool, weaponHolder);
+        }
     }
 
     private void SetClass(ClassObject classObject)
@@ -169,8 +181,8 @@ public class Player : Entity, IDamageable
 
     public void AddExperience(uint experienceValue)
     {
-        experienceValue = (uint) (experienceValue * GetExperienceBonus());
         experience += experienceValue;
+        PopupManager.instance.SpawnExpNumber((int)experienceValue);
         CheckForLevelUp();
     }
 
@@ -194,6 +206,7 @@ public class Player : Entity, IDamageable
         goldValue = (uint) (goldValue * GetGoldBonus());
         goldCoins += goldValue;
         goldText.text = "x" + goldCoins;
+        PopupManager.instance.SpawnCoinNumber((int)goldValue);
     }
 
     public void SetCanMove(bool b)
@@ -309,17 +322,28 @@ public class Player : Entity, IDamageable
     
     public bool EnemiesExplode()
     {
-        return perkStatModifiers.enemiesExplode;
+        return perkStatModifiers.enemiesSpawnPick;
     }
 
     public bool NodesExplode()
     {
-        return perkStatModifiers.nodesExplode;
+        return perkStatModifiers.stoneNodesExplode;
     }
 
     public void UpdatePickupSize()
     {
         pickupCircle.transform.localScale = Vector3.one * GetAoERadius() *2f;
     }
+    
+    public float GetEnemyHealthMultiplier()
+    {
+        return 1 + perkStatModifiers.enemyHealthMultiplier;
+    }
+    
+    public float GetEnemySpeedMultiplier()
+    {
+        return 1 + perkStatModifiers.enemySpeedMultiplier;
+    }
+
 }
 

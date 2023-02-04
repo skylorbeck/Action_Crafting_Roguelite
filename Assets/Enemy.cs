@@ -10,6 +10,7 @@ public class Enemy : Entity, IDamageable
     [SerializeField]protected int power = 1;
     [SerializeField]protected uint goldReward = 1;
     [SerializeField]protected SpriteAnimator spriteAnimator;
+    [SerializeField]protected int maxHealth = 2;
     protected override void Start()
     {
         base.Start();
@@ -17,18 +18,44 @@ public class Enemy : Entity, IDamageable
 
     protected override void Update()
     {
-        
         base.Update();
     }
     private void Awake()
     {
         Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
     }
+    
+    public void SetMaxHealth(int maxHealth)
+    {
+        this.maxHealth = maxHealth;
+        ApplyMaxHealth();
+    }
+    
+    public void ApplyMaxHealth()
+    {
+        health = maxHealth = Mathf.RoundToInt(maxHealth * Player.instance.GetEnemyHealthMultiplier());
+    }
+    
+    public void SetPower(int power)
+    {
+        this.power = power;
+    }
+    
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+    
+    public void SetGoldReward(uint goldReward)
+    {
+        this.goldReward = goldReward;
+    }
+    
 
     protected override void FixedUpdate()
     {
         var direction = (Player.instance.transform.position - transform.position).normalized;
-        Rb.velocity = direction * speed;
+        Rb.velocity = direction * (speed * Player.instance.GetEnemySpeedMultiplier());
 
         base.FixedUpdate();
     }

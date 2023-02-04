@@ -12,11 +12,25 @@ public class Perk :ScriptableObject
     public string perkDescription;
     public Sprite perkIcon;
     public int perkCost;
+    
+    public int perkLevel;
+    
+    public Perk nextPerk;
+
+    public Tool newTool;//TODO 
 
     public PerkStatModifiers perkStatModifiers = new PerkStatModifiers();
     
     public virtual void OnPerkEquipped()
     {
+        if (newTool!=null)
+        {
+            Player.instance.EquipTool(newTool);
+        }
+        if (nextPerk!=null)
+        {
+            PerkManager.instance.bonusPerkPool.Add(nextPerk);
+        }
         Player.instance.AddPerk(this);
         if (perkStatModifiers.healthFlatBonus!=0)
         {
@@ -27,5 +41,10 @@ public class Perk :ScriptableObject
         {
          Player.instance.UpdatePickupSize();   
         }
+        
+        
     }
+    
+    
 }
+

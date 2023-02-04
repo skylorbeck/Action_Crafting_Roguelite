@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkName: Crit Damage Up
   perkDescription: Increases Crit Damage by 50%
-  perkIcon: {fileID: 0}
+  perkIcon: {fileID: 2032209494, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
   perkStatModifiers:
     healthFlatBonus: 0
@@ -30,6 +30,6 @@ MonoBehaviour:
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
-    resourceValueMultiplierBonus: 0
+    resourceDropFlatBonus: 0
     nodesExplode: 0
     enemiesExplode: 0

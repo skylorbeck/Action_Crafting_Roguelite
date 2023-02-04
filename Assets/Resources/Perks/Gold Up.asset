@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkName: Gold Up
   perkDescription: +100% Gold
-  perkIcon: {fileID: -974738017, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
+  perkIcon: {fileID: -1218668632, guid: 60143fa534e879849bf21322a3587e34, type: 3}
   perkCost: 0
+  perkLevel: 2
+  nextPerk: {fileID: 0}
+  newTool: {fileID: 0}
   perkStatModifiers:
     healthFlatBonus: 0
     damageFlatBonus: 0
@@ -30,6 +33,6 @@ MonoBehaviour:
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 1
-    resourceValueMultiplierBonus: 0
+    resourceDropFlatBonus: 0
     nodesExplode: 0
     enemiesExplode: 0

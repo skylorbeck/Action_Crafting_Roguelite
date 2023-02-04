@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkName: Attack Speed Up
   perkDescription: Increases Attack Speed by 10%
-  perkIcon: {fileID: -1810143986, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
+  perkIcon: {fileID: 282179179, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
   perkStatModifiers:
     healthFlatBonus: 0
@@ -30,6 +30,6 @@ MonoBehaviour:
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
-    resourceValueMultiplierBonus: 0
+    resourceDropFlatBonus: 0
     nodesExplode: 0
     enemiesExplode: 0

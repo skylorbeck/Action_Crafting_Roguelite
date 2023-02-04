@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6287555370717478002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.48, y: 0.12, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,4 +102,6 @@ MonoBehaviour:
   - {fileID: -1071394030, guid: bd1d3259b853e2342ba3538edcaaf402, type: 3}
   - {fileID: -1088994961, guid: bd1d3259b853e2342ba3538edcaaf402, type: 3}
   currentSpriteIndex: 0
-  frameTime: 0.1
+  localTime: 1
+  timeBetweenSprites: 0.1
+  timeSinceLastSprite: 0

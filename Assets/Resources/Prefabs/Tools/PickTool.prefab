@@ -51,8 +51,8 @@ MonoBehaviour:
   throwablePrefab: {fileID: 5563206522260159424, guid: 0f59853fa78ca7d4981e5bc961fd88e7, type: 3}
   throwForce: 10
   throwTorque: 5
+  projectileCount: 1
   primaryTargets: []
-  secondaryTargets: []
 --- !u!58 &4213555600138669608
 CircleCollider2D:
   m_ObjectHideFlags: 0

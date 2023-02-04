@@ -82,7 +82,7 @@ public class EnemyManager : MonoBehaviour
                 position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect), mainCamera.transform.position.y - orthographicSize, 0);
                 break;
         }
-
+        enemy.ApplyMaxHealth();
         enemy.transform.position = position;
     }
 

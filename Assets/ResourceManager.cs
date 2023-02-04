@@ -17,17 +17,20 @@ public class ResourceManager : MonoBehaviour
     public ResourceDropRegistry resourceDropRegistry;
     public ResourceNodeRegistry resourceNodeRegistry;
 
+    public float pulseSize = 0.9f;
+    public float pulseSpeed = 0.5f;
+    
     public ObjectPool<ResourceNode> resourceNodes;
     public List<ResourceNode> activeNodes = new List<ResourceNode>();
     public uint resourceNodeCap = 10;
     public Transform resourceNodeParent;
-
+    
     public ObjectPool<ResourceDrop> resourceDrops;
     public List<ResourceDrop> activeDrops = new List<ResourceDrop>();
     public uint resourceDropCap = 10;
     public float resourceNodeSpawnRadius = 10f;
     public Transform resourceDropParent;
-
+    
     public ObjectPool<ExperienceOrb> experienceOrbs;
     public List<ExperienceOrb> activeExperienceOrbs = new List<ExperienceOrb>();
     public uint expOrbCap = 10;
@@ -79,7 +82,7 @@ public class ResourceManager : MonoBehaviour
                 resourceDrop.collider.enabled = false;
                 resourceDrop.gameObject.SetActive(true);
                 resourceDrop.transform.DOKill();
-                resourceDrop.transform.localScale = Vector3.one;
+                resourceDrop.transform.localScale = Vector3.one *0.5f;
                 activeDrops.Add(resourceDrop);
             },
             resourceDrop =>
@@ -100,7 +103,7 @@ public class ResourceManager : MonoBehaviour
                 experienceOrb.collider.enabled = false;
                 experienceOrb.gameObject.SetActive(true);
                 experienceOrb.transform.DOKill();
-                experienceOrb.transform.localScale = Vector3.one;
+                experienceOrb.transform.localScale = Vector3.one *0.5f;
                 activeExperienceOrbs.Add(experienceOrb);
             },
             experienceOrb =>
@@ -121,7 +124,7 @@ public class ResourceManager : MonoBehaviour
                 coin.collider.enabled = false;
                 coin.gameObject.SetActive(true);
                 coin.transform.DOKill();
-                coin.transform.localScale = Vector3.one;
+                coin.transform.localScale = Vector3.one *0.5f;
                 activeCoins.Add(coin);
             },
             coin =>
@@ -151,7 +154,7 @@ public class ResourceManager : MonoBehaviour
     public void SpawnResourceNode(ResourceNode.Resource resource = ResourceNode.Resource.Stone)
     {
         SpawnResourceNode(
-            Player.instance.transform.position + new Vector3(Random.Range(-10, 10), Random.Range(-10, 10)), resource);
+            Player.instance.transform.position + new Vector3(Random.Range(-10, 10), Random.Range(-10, 10)), resource);//TODO spawn area
     }
 
     public void SpawnResourceNode(Vector3 position, ResourceNode.Resource resource = ResourceNode.Resource.Stone)
@@ -165,6 +168,7 @@ public class ResourceManager : MonoBehaviour
 
     public void ReleaseResourceNode(ResourceNode resourceNode)
     {
+        if (!resourceNode.gameObject.activeSelf)return;
         resourceNodes.Release(resourceNode);
     }
 
@@ -173,7 +177,7 @@ public class ResourceManager : MonoBehaviour
         List<ResourceNode> activeNodes = new List<ResourceNode>(this.activeNodes);
         foreach (var resourceNode in activeNodes)
         {
-            resourceNodes.Release(resourceNode);
+            ReleaseResourceNode(resourceNode);
         }
     }
 
@@ -192,7 +196,7 @@ public class ResourceManager : MonoBehaviour
             .onComplete += () =>
         {
             resourceDrop.collider.enabled = true;
-            resourceDrop.transform.DOScale(0.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+            resourceDrop.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
         };
         if (resourceDrops.CountActive > resourceDropCap)
         {
@@ -207,11 +211,12 @@ public class ResourceManager : MonoBehaviour
         resourceDrop.SetAmount(value);
         resourceDrop.transform.position = position;
         resourceDrop.collider.enabled = true;
-        resourceDrop.transform.DOScale(0.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+        resourceDrop.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void ReleaseResourceDrop(ResourceDrop resourceDrop)
     {
+        if (!resourceDrop.gameObject.activeSelf) return;
         resourceDrops.Release(resourceDrop);
     }
 
@@ -220,7 +225,7 @@ public class ResourceManager : MonoBehaviour
         List<ResourceDrop> activeDrops = new List<ResourceDrop>(this.activeDrops);
         foreach (var resourceDrop in activeDrops)
         {
-            resourceDrops.Release(resourceDrop);
+            ReleaseResourceDrop(resourceDrop);
         }
     }
 
@@ -256,6 +261,7 @@ public class ResourceManager : MonoBehaviour
 
     public void SpawnExperienceOrb(Vector2 position, uint amount)
     {
+        amount = (uint)(amount * Player.instance.GetExperienceBonus());
         for (int i = 0; i < amount; i++)
         {
             ExperienceOrb experienceOrb = experienceOrbs.Get();
@@ -266,7 +272,7 @@ public class ResourceManager : MonoBehaviour
                 () =>
                 {
                     experienceOrb.collider.enabled = true;
-                    experienceOrb.transform.DOScale(0.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+                    experienceOrb.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
                 };
         }
 
@@ -278,6 +284,7 @@ public class ResourceManager : MonoBehaviour
 
     public void ReleaseExperienceOrb(ExperienceOrb experienceOrb)
     {
+        if (!experienceOrb.gameObject.activeSelf) return;
         experienceOrbs.Release(experienceOrb);
     }
 
@@ -286,7 +293,7 @@ public class ResourceManager : MonoBehaviour
         List<ExperienceOrb> activeExperienceOrbs = new List<ExperienceOrb>(this.activeExperienceOrbs);
         foreach (var experienceOrb in activeExperienceOrbs)
         {
-            experienceOrbs.Release(experienceOrb);
+            ReleaseExperienceOrb(experienceOrb);
         }
     }
 
@@ -329,7 +336,7 @@ public class ResourceManager : MonoBehaviour
             .onComplete += () =>
         {
             coin.collider.enabled = true;
-            coin.transform.DOScale(1.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+            coin.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
         };
         if (coins.CountActive > coinCap)
         {
@@ -339,6 +346,7 @@ public class ResourceManager : MonoBehaviour
 
     public void ReleaseCoin(GoldCoin coin)
     {
+        if (!coin.gameObject.activeSelf) return;
         coins.Release(coin);
     }
 
@@ -347,7 +355,7 @@ public class ResourceManager : MonoBehaviour
         List<GoldCoin> activeCoins = new List<GoldCoin>(this.activeCoins);
         foreach (var coin in activeCoins)
         {
-            coins.Release(coin);
+            ReleaseCoin(coin);
         }
     }
 

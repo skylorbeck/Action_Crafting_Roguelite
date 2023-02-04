@@ -107,8 +107,10 @@ MonoBehaviour:
   collider: {fileID: 0}
   resourcePool: 01000000
   resourceNode: 0
-  resourceAmount: 3
+  resourceAmount: 2
   experienceReward: 5
+  knockbackPlayer: 0.5
+  knockbackWeapon: 0.5
 --- !u!58 &1053179282637734466
 CircleCollider2D:
   m_ObjectHideFlags: 0

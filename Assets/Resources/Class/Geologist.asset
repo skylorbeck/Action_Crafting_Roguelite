@@ -17,6 +17,8 @@ MonoBehaviour:
   unlockAmount: 
   unlockLevel: 0
   unlockCost: 0
+  perkList:
+  - {fileID: 11400000, guid: d3c76b7b2e8283948b0023e10baedb25, type: 2}
   className: Stone Shaper
   classDescription: Likes Rocks, a lot
   classSprites:

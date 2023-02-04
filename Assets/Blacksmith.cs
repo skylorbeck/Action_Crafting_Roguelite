@@ -20,6 +20,8 @@ public class Blacksmith : MonoBehaviour
         }
     }
 
+  
+
     public void OpenBlacksmith()
     {
         blacksmithPanel.transform.DOComplete(); 

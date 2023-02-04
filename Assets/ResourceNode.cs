@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,7 +13,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     public Resource resourceNode;
     public uint resourceAmount = 10;
     public uint experienceReward = 5;
-
+    //TODO resource node size
     
     [SerializeField] float knockbackPlayer = 0.5f;
     [SerializeField] float knockbackWeapon = 0.5f;
@@ -87,14 +88,21 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
 
     private void GiveResources()
     {
+        var position = transform.position;
+
         for (int i = 0; i < resourceAmount + Player.instance.GetResourceBonus(); i++)
         {
             ResourceDrop.Resource resource = resourcePool[Random.Range(0, resourcePool.Length)];
-            ResourceManager.instance.SpawnResourceDrop(transform.position, resource);
+            ResourceManager.instance.SpawnResourceDrop(position, resource);
         }
 
+        if (Player.instance.GetPerkStatModifiers().stoneNodesExplode && resourceNode == Resource.Stone)
+        {
+            ExplosionManager.instance.SpawnDamagingExplosion(position);
+        }
+        
         Player.instance.AddNodeHarvest(resourceNode);
-        ResourceManager.instance.SpawnExperienceOrb(transform.position, experienceReward);
+        ResourceManager.instance.SpawnExperienceOrb(position, experienceReward);
         ResourceManager.instance.ReleaseResourceNode(this);
     }
 

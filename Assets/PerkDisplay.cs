@@ -10,6 +10,8 @@ public class PerkDisplay : MonoBehaviour
     public TextMeshProUGUI perkNameText;
     public TextMeshProUGUI perkDescriptionText;
     public Image perkIcon;
+    public Image perkBorder;
+    public Sprite[] perkBorderSprites;
     
     public void SetPerk(Perk perk)
     {
@@ -17,6 +19,7 @@ public class PerkDisplay : MonoBehaviour
         perkNameText.text = perk.perkName;
         perkDescriptionText.text = perk.perkDescription;
         perkIcon.sprite = perk.perkIcon;
+        perkBorder.sprite = perkBorderSprites[perk.perkLevel];
     }
     
     public void EquipPerk()

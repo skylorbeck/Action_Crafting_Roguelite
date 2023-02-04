@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkName: Resource Up
   perkDescription: +1 Resource Per Node
-  perkIcon: {fileID: -974738017, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
+  perkIcon: {fileID: 471203004, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
   perkStatModifiers:
     healthFlatBonus: 0

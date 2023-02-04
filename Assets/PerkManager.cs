@@ -9,6 +9,8 @@ public class PerkManager : MonoBehaviour
 {
     public static PerkManager instance;
     public List<Perk> allClassPerks = new List<Perk>();
+    public List<Perk> preferredPerkPool = new List<Perk>();
+    public List<Perk> bonusPerkPool = new List<Perk>();
     [SerializeField] private GameObject perkMenu;
     [SerializeField] private Button[] PerkButtons;
     [SerializeField] private PerkDisplay[] perkDisplays;
@@ -27,6 +29,7 @@ public class PerkManager : MonoBehaviour
         Time.timeScale = 0;
         List<Perk> perks = new List<Perk>(Player.instance.classRegistry.GetClass(Player.instance.classIndex).perkList);
         perks.AddRange(allClassPerks);
+        perks.AddRange(bonusPerkPool);
         perks.RemoveAll(perk => Player.instance.equippedPerks.Contains(perk));
         foreach (PerkDisplay perkDisplay in perkDisplays)
         {

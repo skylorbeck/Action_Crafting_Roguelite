@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkName: Exp Up
   perkDescription: +100% XP
-  perkIcon: {fileID: -974738017, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
+  perkIcon: {fileID: 1086539408, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
+  perkLevel: 2
+  nextPerk: {fileID: 0}
+  newTool: {fileID: 0}
   perkStatModifiers:
     healthFlatBonus: 0
     damageFlatBonus: 0
@@ -30,6 +33,6 @@ MonoBehaviour:
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 1
     goldValueMultiplierBonus: 0
-    resourceValueMultiplierBonus: 0
+    resourceDropFlatBonus: 0
     nodesExplode: 0
     enemiesExplode: 0

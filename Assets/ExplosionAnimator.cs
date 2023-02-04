@@ -5,22 +5,11 @@ using UnityEngine;
 
 public class ExplosionAnimator : SpriteAnimator
 {
-    [SerializeField]float frameTime = 0.1f;
-    float timer = 0;
     protected void Awake()
     {
         
     }
 
-    public void FixedUpdate()
-    {
-        timer += Time.fixedDeltaTime;
-        if (timer >= frameTime)
-        {
-            timer = 0;
-            NextSprite();
-        }
-    }
 
     protected override void NextSprite()
     {
