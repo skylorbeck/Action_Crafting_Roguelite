@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = move * speed;
+        rb.velocity = move * (speed * Player.instance.GetMoveSpeedBonus());
     }
 
     void FixedUpdate()

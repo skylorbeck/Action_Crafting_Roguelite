@@ -18,14 +18,13 @@ public class PerkManager : MonoBehaviour
          instance = this;
         
     }
-
+//TODO value owned perks more than new perks
     public void ShowPerkMenu()
     {
         perkMenu.SetActive(true);
-        perkMenu.transform.DOComplete();
+        perkMenu.transform.DOKill();
         perkMenu.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
-        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0f, 0.5f).SetUpdate(true);
-        
+        Time.timeScale = 0;
         List<Perk> perks = new List<Perk>(Player.instance.classRegistry.GetClass(Player.instance.classIndex).perkList);
         perks.AddRange(allClassPerks);
         perks.RemoveAll(perk => Player.instance.equippedPerks.Contains(perk));
@@ -50,6 +49,7 @@ public class PerkManager : MonoBehaviour
             for (int i = 0; i < perks.Count; i++)
             {
                 perkDisplays[i].gameObject.SetActive(true);
+                PerkButtons[i].interactable = true;
                 perkDisplays[i].SetPerk(perks[i]);
             }
             return;
@@ -66,6 +66,7 @@ public class PerkManager : MonoBehaviour
                 randomPerkIndex = Random.Range(0, perks.Count);
             }
             perkDisplays[i].gameObject.SetActive(true);
+            PerkButtons[i].interactable = true;
             perkDisplays[i].SetPerk(perks[randomPerkIndex]);
             randomPerkIndexes.Add(randomPerkIndex);
         }

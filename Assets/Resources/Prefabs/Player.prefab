@@ -254,6 +254,7 @@ MonoBehaviour:
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
+    resourceValueMultiplierBonus: 0
     nodesExplode: 0
     enemiesExplode: 0
   equippedPerks: []
@@ -264,6 +265,7 @@ MonoBehaviour:
   level: 0
   invincibleTime: 1
   invincibleTimer: 0
+  pickupCircle: {fileID: 4777040365247200357}
   experienceBar: {fileID: 0}
   levelText: {fileID: 0}
   goldText: {fileID: 0}

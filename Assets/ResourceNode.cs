@@ -75,7 +75,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     public bool TakeDamage(int damage)
     {
         health -= damage;
-        this.spriteRenderer.DOColor(Color.red, 0.1f).OnComplete(() => this.spriteRenderer.DOColor(Color.white, 0.1f));
+        this.spriteRenderer.DOColor(Color.blue, 0.1f).OnComplete(() => this.spriteRenderer.DOColor(Color.white, 0.1f));
         this.transform.DOShakePosition(0.1f, 0.1f);
         if (health <= 0)
         {
@@ -87,7 +87,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
 
     private void GiveResources()
     {
-        for (int i = 0; i < resourceAmount; i++)
+        for (int i = 0; i < resourceAmount + Player.instance.GetResourceBonus(); i++)
         {
             ResourceDrop.Resource resource = resourcePool[Random.Range(0, resourcePool.Length)];
             ResourceManager.instance.SpawnResourceDrop(transform.position, resource);
@@ -110,19 +110,19 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
             Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f*knockbackPlayer, col.GetContact(0).point);
             // TakeDamage(1);
         }
-
-        if (col.gameObject.layer == LayerMask.NameToLayer("PlayerWeapons"))
+        //Moved to Projectile.cs
+        /*if (col.gameObject.layer == LayerMask.NameToLayer("PlayerWeapons"))
         {
             Rb.AddForceAtPosition((col.transform.position - transform.position).normalized * -1000f * knockbackWeapon, col.GetContact(0).point);
             if (col.gameObject.GetComponent<Projectile>().targetResource == resourceNode)
             {
-                TakeDamage(2);//TODO perks modify this
+                TakeDamage(2);
             }
             else
             {
-                TakeDamage(1);//TODO perks modify this
+                TakeDamage(1);
             }
-        }
+        }*/
         
         base.OnCollisionEnter2D(col);
     }

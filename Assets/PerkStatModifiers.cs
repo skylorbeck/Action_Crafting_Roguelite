@@ -1,26 +1,28 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PerkSystem
 {
     [Serializable]
     public class PerkStatModifiers
-    {//TODO make all of these work
-        public uint healthFlatBonus;
-        public uint damageFlatBonus;
+    {
+        public int healthFlatBonus;
+        public int damageFlatBonus;
         public float damageMultiplierBonus;
         public float attackSpeedMultiplierBonus;
         public float movementSpeedMultiplierBonus;
-        public float critChanceFlatBonus;
-        public float critDamageMultiplierBonus;
+        public float critChanceFlatBonus;//TODO
+        public float critDamageMultiplierBonus;//TODO
         public float projectileSpeedMultiplierBonus;
         public float projectileSizeMultiplierBonus;
-        public uint projectileCountFlatBonus;
+        public int projectileCountFlatBonus;
         public float areaOfEffectMultiplierBonus;
         public float experienceValueMultiplierBonus;
         public float goldValueMultiplierBonus;
-        public bool nodesExplode;
-        public bool enemiesExplode;
+        [FormerlySerializedAs("resourceValueMultiplierBonus")] public int resourceDropFlatBonus;
+        public bool nodesExplode;//TODO
+        public bool enemiesExplode;//TODO
 
         public void Add(PerkStatModifiers statsToAdd)
         {
@@ -39,6 +41,7 @@ namespace PerkSystem
             goldValueMultiplierBonus += statsToAdd.goldValueMultiplierBonus;
             nodesExplode = statsToAdd.nodesExplode;
             enemiesExplode = statsToAdd.enemiesExplode;
+            resourceDropFlatBonus += statsToAdd.resourceDropFlatBonus;
         }
 
         public void Remove(PerkStatModifiers statsToRemove)
@@ -58,6 +61,7 @@ namespace PerkSystem
             goldValueMultiplierBonus -= statsToRemove.goldValueMultiplierBonus;
             nodesExplode = statsToRemove.nodesExplode;
             enemiesExplode = statsToRemove.enemiesExplode;
+            resourceDropFlatBonus -= statsToRemove.resourceDropFlatBonus;
         }
     }
 }

@@ -12,7 +12,7 @@ public class Tool : MonoBehaviour
     protected async void FixedUpdate()
     {
         if (fireRate==0) return;
-        fireTimer += Time.fixedDeltaTime;
+        fireTimer += Time.fixedDeltaTime * Player.instance.GetAttackSpeedBonus();
         
         if (fireTimer >= fireRate)
         {

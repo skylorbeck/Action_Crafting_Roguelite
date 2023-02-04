@@ -12,9 +12,8 @@ public class ThrowingTool : Tool
     [SerializeField] private GameObject throwablePrefab;
     [SerializeField] private float throwForce = 10f;
     [SerializeField] private float throwTorque = 1;
-    
+[SerializeField] private int projectileCount = 1;
     [SerializeField] private List<GameObject> primaryTargets = new List<GameObject>();
-    [SerializeField] private List<GameObject> secondaryTargets = new List<GameObject>();
 
     ObjectPool<Rigidbody2D> throwables;
 
@@ -31,7 +30,8 @@ public class ThrowingTool : Tool
             {
                 throwable.gameObject.SetActive(true);
                 var transform1 = throwable.transform;
-                transform1.localScale = Vector3.one;//TODO stats modify this
+                transform1.localScale =
+                    Vector3.one *Player.instance.GetProjectileSizeBonus();
                 var transform2 = transform;
                 transform1.position = transform2.position;
                 transform1.rotation = transform2.rotation;
@@ -49,27 +49,37 @@ public class ThrowingTool : Tool
     public override async void Fire()
     {
         Transform playerTransform = Player.instance.transform;
-        Vector3 playerPosition = playerTransform.position;
-        this.transform.position = playerPosition;
-        primaryTargets.Sort((a, b) => Vector3.Distance(playerPosition, a.transform.position)
-            .CompareTo(Vector3.Distance(playerTransform.position, b.transform.position)));
-        secondaryTargets.Sort((a, b) => Vector3.Distance(playerPosition, a.transform.position)
-            .CompareTo(Vector3.Distance(playerTransform.position, b.transform.position)));
+        Vector3 playerPosition;
         
-        var throwable = throwables.Get();
 
-        Vector3 target = primaryTargets.Count > 0
-            ? primaryTargets[0].transform.position
-            : secondaryTargets.Count > 0
-                ? secondaryTargets[0].transform.position
-                : Random.insideUnitCircle + (Vector2) playerTransform.position;
-        Vector3 direction = (target - playerTransform.position).normalized;
-        throwable.AddForce(direction * throwForce, ForceMode2D.Impulse);
-        throwable.AddTorque(throwTorque, ForceMode2D.Impulse);
-        
+        List<Rigidbody2D> throwablesToRelease = new List<Rigidbody2D>();
+        for (int i = 0; i < projectileCount+Player.instance.GetExtraProjectiles(); i++)
+        {
+            playerPosition = playerTransform.position;
+            this.transform.position = playerPosition;
+            primaryTargets.Sort((a, b) => Vector3.Distance(playerPosition, a.transform.position)
+                .CompareTo(Vector3.Distance(playerTransform.position, b.transform.position)));
+            
+            var throwable = throwables.Get();
+            
+            Vector3 target = primaryTargets.Count > 0 && i < primaryTargets.Count
+                ? primaryTargets[i].transform.position
+                    : Random.insideUnitCircle + (Vector2) playerTransform.position;
+            Vector3 direction = (target - playerTransform.position).normalized;
+            throwable.AddForce(direction * (throwForce * Player.instance.GetProjectileSpeedBonus()), ForceMode2D.Impulse);
+            throwable.AddTorque(throwTorque, ForceMode2D.Impulse);
+            
+            throwablesToRelease.Add(throwable);
+            await Task.Delay(100);
+        }
+
         await Task.Delay(1000);
         
-        throwables.Release(throwable);
+        foreach (var t in throwablesToRelease)
+        {
+            throwables.Release(t);
+            await Task.Delay(100);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -99,14 +109,12 @@ public class ThrowingTool : Tool
         if (col.gameObject.layer == LayerMask.NameToLayer("ResourceNode"))
         {
             primaryTargets.Remove(col.gameObject);
-            secondaryTargets.Remove(col.gameObject);
         }
     }
     
     public override void RemoveTarget(Entity target)
     {
         primaryTargets.Remove(target.gameObject);
-        secondaryTargets.Remove(target.gameObject);
     }
 }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Projectile : MonoBehaviour
 {
@@ -13,23 +14,40 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        int damage = Player.instance.GetDamage();
+        bool crit = Random.Range(0f, 1) < Player.instance.GetCritChance();
         if (col.gameObject.layer == LayerMask.NameToLayer("ResourceNode"))
         {
             ResourceNode resourceNode = col.gameObject.GetComponent<ResourceNode>();
             if (resourceNode.resourceNode == targetResource)
             {
-                resourceNode.TakeDamage(2);//TODO perks modify this
+                damage *= 2;
+            }
+            if (crit)
+            {
+                damage = (int)(damage * Player.instance.GetCritDamageBonus());
+                PopupManager.instance.SpawnCriticalNumber(damage, resourceNode.transform.position);
             }
             else
             {
-                resourceNode.TakeDamage(1);//TODO perks modify this
+                PopupManager.instance.SpawnDamageNumber(damage, resourceNode.transform.position);
             }
+            resourceNode.TakeDamage(damage);
         }
 
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
-            if (enemy.TakeDamage(1))//TODO perks modify this
+            if (crit)
+            {
+                damage = (int)(damage * Player.instance.GetCritDamageBonus());
+                PopupManager.instance.SpawnCriticalNumber(damage, enemy.transform.position);
+            }
+            else
+            {
+                PopupManager.instance.SpawnDamageNumber(damage, enemy.transform.position);
+            }
+            if (enemy.TakeDamage(damage))
             {
                 RemoveFromParent(enemy);
             }

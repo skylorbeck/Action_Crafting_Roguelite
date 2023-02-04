@@ -64,7 +64,8 @@ public class EnemyManager : MonoBehaviour
         //place the enemy off the screen in a random direction
         int randomDirection = Random.Range(0, 4);
         Vector3 position = Vector3.zero;
-        float orthographicSize = mainCamera.orthographicSize+1;
+        // float orthographicSize = mainCamera.orthographicSize+1;
+        float orthographicSize = 11;//Used to use the cameras current size but you could change the difficulty by changing the zoom level, so now we take the max zoom level
         float aspect = mainCamera.aspect;
         switch (randomDirection)
         {

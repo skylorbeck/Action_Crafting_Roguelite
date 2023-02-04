@@ -34,7 +34,8 @@ public class SwingingTool : Tool
             {
                 swingable.gameObject.SetActive(true);
                 var transform1 = swingable.transform;
-                transform1.localScale = Vector3.one * 2f; //TODO stats modify this
+                transform1.localScale =
+                    Vector3.one * Player.instance.GetProjectileSizeBonus();
                 transform1.position = transform.position;
                 transform1.rotation = transform.rotation;
                 swingable.Rb.velocity = Vector2.zero;
@@ -47,21 +48,22 @@ public class SwingingTool : Tool
             }
         );
 
-
+        Fire();
     }
 
     public override async void Fire()
     {
         List<Projectile> swingablesToDestroy = new List<Projectile>();
-        for (int i = 0; i < swingableCount; i++)
+        for (int i = 0; i < swingableCount+Player.instance.GetExtraProjectiles(); i++)
         {
             var swingable = swingables.Get();
             swingable.transform.parent = transform;
-            float angle = i / (float)swingableCount;
-            float x = Mathf.Cos(angle * Mathf.PI * 2f) * swingDistance;
-            float y = Mathf.Sin(angle * Mathf.PI * 2f) * swingDistance;
+            float angle = i / (float)(swingableCount+Player.instance.GetExtraProjectiles());
+            float x = Mathf.Cos(angle * Mathf.PI * 2f) * swingDistance * Player.instance.GetAoERadius();
+            float y = Mathf.Sin(angle * Mathf.PI * 2f) * swingDistance * Player.instance.GetAoERadius();
             swingable.transform.localPosition = new Vector3(x, y, 0);
             Transform transform1;
+            
             (transform1 = swingable.transform).Rotate(Vector3.forward, angle * 360f);
             activeSwingables.Add(transform1);
             swingablesToDestroy.Add(swingable);
@@ -85,8 +87,8 @@ public class SwingingTool : Tool
         foreach (var swingable in activeSwingables)
         {
             var position = transform.position;
-            swingable.transform.position = position + (swingable.position - position).normalized * swingDistance;
-            swingable.transform.RotateAround(position, Vector3.forward, swingSpeed * Time.fixedDeltaTime);
+            swingable.transform.position = position + (swingable.position - position).normalized * (swingDistance * Player.instance.GetAoERadius());
+            swingable.transform.RotateAround(position, Vector3.forward, swingSpeed * Time.fixedDeltaTime * Player.instance.GetProjectileSpeedBonus());
             swingable.transform.Rotate(Vector3.forward, swingSpeed * 2.5f * Time.fixedDeltaTime);
         }
 

@@ -186,7 +186,7 @@ public class ResourceManager : MonoBehaviour
     {
         ResourceDrop resourceDrop = resourceDrops.Get();
         resourceDrop.SetResource(resource);
-        resourceDrop.SetAmount(1); //TODO perk influence
+        resourceDrop.SetAmount((uint)(1 * Player.instance.GetResourceBonus()));
         resourceDrop.transform.position = position;
         resourceDrop.transform.DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 2, 0.5f)
             .onComplete += () =>

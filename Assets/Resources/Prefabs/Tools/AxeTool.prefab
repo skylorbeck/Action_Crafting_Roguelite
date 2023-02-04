@@ -50,6 +50,6 @@ MonoBehaviour:
   swingablePrefab: {fileID: 8999593085323237554, guid: dd957467748c734458169c4e37dabbe0, type: 3}
   swingableCount: 2
   swingSpeed: 150
-  swingDistance: 2
+  swingDistance: 1
   swingTime: 4
   activeSwingables: []

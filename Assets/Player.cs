@@ -7,9 +7,10 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : Entity
+public class Player : Entity, IDamageable
 {
     public static Player instance;
     [SerializeField] public ClassRegistry classRegistry;
@@ -18,10 +19,10 @@ public class Player : Entity
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
     [SerializeField] RunStats runStats;//TODO meta save this
-    //TODO value owned perks more than new perks
+    
     [SerializeField] PerkStatModifiers perkStatModifiers;
     [SerializeField] public List<Perk> equippedPerks = new List<Perk>();
-    [SerializeField] protected int maxHealth = 100;
+    [SerializeField] protected int maxHealth = 6;
     [SerializeField] protected uint experience = 0;
     [SerializeField] protected uint goldCoins = 0;
     [SerializeField] protected uint experienceToNextLevel = 100;
@@ -29,11 +30,12 @@ public class Player : Entity
 
     [SerializeField] protected float invincibleTime = 1f;
     [SerializeField] protected float invincibleTimer = 0f;
-
+    
+    [SerializeField] protected Collider2D pickupCircle;
     [SerializeField] protected Image experienceBar;
     [SerializeField] protected TextMeshProUGUI levelText;
     [SerializeField] protected TextMeshProUGUI goldText;
-    [SerializeField]protected SpriteAnimator spriteAnimator;
+    [SerializeField] protected SpriteAnimator spriteAnimator;
 
     [SerializeField] protected PlayerInput playerInput;
     
@@ -82,7 +84,7 @@ public class Player : Entity
         base.FixedUpdate();
     }
 
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(8, LoopType.Yoyo).onComplete += () => spriteRenderer.DOColor(Color.white, 0.1f);
         // transform.DOShakeScale(1f, 0.5f);
@@ -91,7 +93,10 @@ public class Player : Entity
         if (health <= 0)
         {
             Kill();
+            return true;
         }
+
+        return false;
     }
 
     private void Kill()
@@ -101,7 +106,9 @@ public class Player : Entity
         EnemyManager.instance.SetSpawnEnemies(false);
         ResourceManager.instance.ReleaseAllAll();
         ResourceManager.instance.SetSpawnResources(false);
-        gameObject.SetActive(false); //TODO replace this with a proper end screen
+        gameObject.SetActive(false); 
+        Debug.LogWarning("Player died");//TODO replace this with a proper end screen
+        SceneManager.LoadScene("TheBlacksmith");
     }
 
 
@@ -162,6 +169,7 @@ public class Player : Entity
 
     public void AddExperience(uint experienceValue)
     {
+        experienceValue = (uint) (experienceValue * GetExperienceBonus());
         experience += experienceValue;
         CheckForLevelUp();
     }
@@ -183,6 +191,7 @@ public class Player : Entity
 
     public void AddCoin(uint goldValue)
     {
+        goldValue = (uint) (goldValue * GetGoldBonus());
         goldCoins += goldValue;
         goldText.text = "x" + goldCoins;
     }
@@ -207,8 +216,6 @@ public class Player : Entity
     {
         AddPerkStatModifiers(perk.perkStatModifiers);
         equippedPerks.Add(perk);
-        HealthDisplay.instance.SetMaxHealth(maxHealth);
-        HealthDisplay.instance.SetHealth(health);
     }
     
     public void RemovePerk(Perk perk)
@@ -231,6 +238,88 @@ public class Player : Entity
     {
         return perkStatModifiers;
     }
+
+    public void AddHealth(int healthFlatBonus)
+    {
+        maxHealth += healthFlatBonus;
+        HealthDisplay.instance.SetMaxHealth(maxHealth);
+        health += healthFlatBonus;
+        HealthDisplay.instance.SetHealth(health);
+    }
     
+    public int GetDamage()
+    {
+        return (int)Math.Round(1 + perkStatModifiers.damageFlatBonus * (perkStatModifiers.damageMultiplierBonus + 1),MidpointRounding.AwayFromZero);
+    }
+
+    public float GetAttackSpeedBonus()
+    {
+        return 1 + perkStatModifiers.attackSpeedMultiplierBonus;
+    }
+    
+    public float GetMoveSpeedBonus()
+    {
+        return 1 + perkStatModifiers.movementSpeedMultiplierBonus;
+    }
+    
+    public float GetCritChance()
+    {
+        return 0.1f + perkStatModifiers.critChanceFlatBonus;
+    }
+    
+    public float GetCritDamageBonus()
+    {
+        return 1 + perkStatModifiers.critDamageMultiplierBonus;
+    }
+    
+    public float GetProjectileSpeedBonus()
+    {
+        return 1 + perkStatModifiers.projectileSpeedMultiplierBonus;
+    }
+    
+    public float GetProjectileSizeBonus()
+    {
+        return 1 + perkStatModifiers.projectileSizeMultiplierBonus;
+    }
+    
+    public int GetExtraProjectiles()
+    {
+        return perkStatModifiers.projectileCountFlatBonus;
+    }
+    
+    public float GetAoERadius()
+    {
+        return (1 + perkStatModifiers.areaOfEffectMultiplierBonus);
+    }
+
+    public float GetExperienceBonus()
+    {
+        return 1+ perkStatModifiers.experienceValueMultiplierBonus;
+    }
+    
+    public float GetGoldBonus()
+    {
+        return 1+ perkStatModifiers.goldValueMultiplierBonus;
+    }
+    
+    public int GetResourceBonus()
+    {
+        return perkStatModifiers.resourceDropFlatBonus;
+    }
+    
+    public bool EnemiesExplode()
+    {
+        return perkStatModifiers.enemiesExplode;
+    }
+
+    public bool NodesExplode()
+    {
+        return perkStatModifiers.nodesExplode;
+    }
+
+    public void UpdatePickupSize()
+    {
+        pickupCircle.transform.localScale = Vector3.one * GetAoERadius() *2f;
+    }
 }
 

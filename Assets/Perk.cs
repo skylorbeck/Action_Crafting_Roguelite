@@ -18,5 +18,14 @@ public class Perk :ScriptableObject
     public virtual void OnPerkEquipped()
     {
         Player.instance.AddPerk(this);
+        if (perkStatModifiers.healthFlatBonus!=0)
+        {
+            Player.instance.AddHealth(perkStatModifiers.healthFlatBonus);
+        }
+
+        if (perkStatModifiers.areaOfEffectMultiplierBonus!=0)
+        {
+         Player.instance.UpdatePickupSize();   
+        }
     }
 }

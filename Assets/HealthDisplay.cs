@@ -37,26 +37,32 @@ public class HealthDisplay : MonoBehaviour
     {
         if (!active) return;
         int maxHealth = (int) Math.Round(health / 2f, MidpointRounding.AwayFromZero);
-        int heartsNeeded = maxHealth - hearts.Count;
-        if (hearts.Count<heartsNeeded)
+        
+        if (hearts.Count<maxHealth)
         {
+            int heartsNeeded = maxHealth - hearts.Count;
+
             for (int i = 0; i < heartsNeeded; i++)
             {
                 GameObject heart = new GameObject("Heart");
                 heart.transform.SetParent(transform);
                 heart.transform.localScale = Vector3.one;
                 heart.AddComponent<Image>();
-                heart.GetComponent<RectTransform>().anchoredPosition = Vector2.zero + new Vector2(0,-heartSpacing * i * (compressed?compression:1));
                 hearts.Add(heart.GetComponent<Image>());
             }
         }
-        else if (heartsNeeded<0)
+        else if (hearts.Count>maxHealth)
         {
             for (int i = 0; i < hearts.Count - health / 2; i++)
             {
                 hearts.RemoveAt(hearts.Count - 1);
                 Destroy(hearts[^1].gameObject);
             }
+        }
+        
+        for (var i = 0; i < hearts.Count; i++)
+        {
+            hearts[i].GetComponent<RectTransform>().anchoredPosition = Vector2.zero + new Vector2(0,-heartSpacing * i * (compressed?compression:1));
         }
     }
     

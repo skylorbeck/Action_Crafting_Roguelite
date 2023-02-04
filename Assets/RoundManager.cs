@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class RoundManager : MonoBehaviour
         if (currentRound >= rounds.Length)
         {
             Debug.LogWarning("No more rounds!");//TODO end game call
+            SceneManager.LoadScene("TheBlacksmith");
             return;
         }
         RoundObject round = rounds[currentRound];
