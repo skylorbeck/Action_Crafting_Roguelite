@@ -94,6 +94,7 @@ public class EnemyManager : MonoBehaviour
     
     public void ReleaseEnemy(Enemy enemy)
     {
+        if (!enemy.gameObject.activeSelf) return;
         enemies.Release(enemy);
     }
     

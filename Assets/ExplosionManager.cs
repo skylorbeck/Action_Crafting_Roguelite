@@ -8,9 +8,10 @@ public class ExplosionManager : MonoBehaviour
     public static ExplosionManager instance;
     private ObjectPool<ExplosionAnimator> explosions;
     private ObjectPool<ExplosionAnimator> damagingExplosions;
-    public List<ExplosionAnimator> activeExplosions = new List<ExplosionAnimator>();
+    private ObjectPool<ExplosionAnimator> burningExplosions;
     public ExplosionAnimator explosionPrefab;
     public ExplosionAnimator damagingExplosionPrefab;
+    public ExplosionAnimator burningExplosionPrefab;
 
     private void Awake()
     {
@@ -20,11 +21,9 @@ public class ExplosionManager : MonoBehaviour
             explosion =>
             {
                 explosion.gameObject.SetActive(true);
-                activeExplosions.Add(explosion);
             },
             explosion =>
             {
-                activeExplosions.Remove(explosion);
                 explosion.gameObject.SetActive(false);
             }
         );
@@ -33,11 +32,20 @@ public class ExplosionManager : MonoBehaviour
             explosion =>
             {
                 explosion.gameObject.SetActive(true);
-                activeExplosions.Add(explosion);
             },
             explosion =>
             {
-                activeExplosions.Remove(explosion);
+                explosion.gameObject.SetActive(false);
+            }
+        );
+        burningExplosions = new ObjectPool<ExplosionAnimator>(
+            () => Instantiate(burningExplosionPrefab, transform),
+            explosion =>
+            {
+                explosion.gameObject.SetActive(true);
+            },
+            explosion =>
+            {
                 explosion.gameObject.SetActive(false);
             }
         );
@@ -62,7 +70,16 @@ public class ExplosionManager : MonoBehaviour
     public void SpawnDamagingExplosion(Vector3 position)
     {
         var explosion = damagingExplosions.Get();
-        explosion.transform.localScale = Vector3.one * 2 * Player.instance.GetAoERadius();
-        explosion.transform.position = position;
+        Transform transform1;
+        (transform1 = explosion.transform).localScale = Vector3.one * 2 * Player.instance.GetAoERadius();
+        transform1.position = position;
+    }
+    
+    public void SpawnBurningExplosion(Vector3 position)
+    {
+        var explosion = burningExplosions.Get();
+        Transform transform1;
+        (transform1 = explosion.transform).localScale = Vector3.one * Player.instance.GetAoERadius();
+        transform1.position = position;
     }
 }

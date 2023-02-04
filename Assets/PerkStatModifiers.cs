@@ -21,10 +21,14 @@ namespace PerkSystem
         public float experienceValueMultiplierBonus;
         public float goldValueMultiplierBonus;
         public int resourceDropFlatBonus;
-        [FormerlySerializedAs("nodesExplode")] public bool stoneNodesExplode;//TODO
-        [FormerlySerializedAs("enemiesExplode")] public bool enemiesSpawnPick;//TODO
-        public float enemyHealthMultiplier;//TODO
-        public float enemySpeedMultiplier;//TODO
+        public float enemyHealthMultiplier;
+        public float enemySpeedMultiplier;
+        public bool enemiesSpawnPick;
+        public bool stoneNodesExplode;
+        public bool splitPicks;//TODO
+        public bool splitAxes;//TODO
+        public bool combineAxes;//TODO
+        public bool treesBurn;
         
 
         public void Add(PerkStatModifiers statsToAdd)
@@ -47,6 +51,10 @@ namespace PerkSystem
             enemySpeedMultiplier += statsToAdd.enemySpeedMultiplier;
             enemiesSpawnPick = enemiesSpawnPick || statsToAdd.enemiesSpawnPick;
             stoneNodesExplode = stoneNodesExplode || statsToAdd.stoneNodesExplode;
+            splitPicks = splitPicks || statsToAdd.splitPicks;
+            splitAxes = splitAxes || statsToAdd.splitAxes;
+            combineAxes = combineAxes || statsToAdd.combineAxes;
+            treesBurn = treesBurn || statsToAdd.treesBurn;
         }
 
         public void Remove(PerkStatModifiers statsToRemove)
@@ -69,6 +77,10 @@ namespace PerkSystem
             enemySpeedMultiplier -= statsToRemove.enemySpeedMultiplier;
             enemiesSpawnPick = enemiesSpawnPick && !statsToRemove.enemiesSpawnPick;
             stoneNodesExplode = stoneNodesExplode && !statsToRemove.stoneNodesExplode;
+            splitPicks = splitPicks && !statsToRemove.splitPicks;
+            splitAxes = splitAxes && !statsToRemove.splitAxes;
+            combineAxes = combineAxes && !statsToRemove.combineAxes;
+            treesBurn = treesBurn && !statsToRemove.treesBurn;
         }
     }
 }

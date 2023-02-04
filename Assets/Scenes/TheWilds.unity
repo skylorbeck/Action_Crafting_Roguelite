@@ -105308,9 +105308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd02f1917e9ec9c4f905c4aa12f0e782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeExplosions: []
   explosionPrefab: {fileID: 6287555370717478003, guid: 5e21f6b955fbb7240996bc16823ab327, type: 3}
   damagingExplosionPrefab: {fileID: 6287555370717478003, guid: 41f8fe4bda5b69440b88f96dcd65f886, type: 3}
+  burningExplosionPrefab: {fileID: 6287555370717478003, guid: b6c3b40961a60d241a62ea2f81ed7e8a, type: 3}
 --- !u!1 &1377658588
 GameObject:
   m_ObjectHideFlags: 0

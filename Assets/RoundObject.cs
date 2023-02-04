@@ -6,6 +6,11 @@ public class RoundObject : ScriptableObject
 {
     [SerializeField] Enemy[] enemies;
     
+    public virtual void OnRoundStart()
+    {
+        //do stuff here
+    }
+    
     public Enemy[] GetEnemies()
     {
         return enemies;

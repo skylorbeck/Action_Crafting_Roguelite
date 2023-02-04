@@ -96,9 +96,14 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
             ResourceManager.instance.SpawnResourceDrop(position, resource);
         }
 
-        if (Player.instance.GetPerkStatModifiers().stoneNodesExplode && resourceNode == Resource.Stone)
+        if (Player.instance.NodesExplode() && resourceNode == Resource.Stone)
         {
             ExplosionManager.instance.SpawnDamagingExplosion(position);
+        }
+
+        if (Player.instance.TreesBurn() && resourceNode == Resource.Wood)
+        {
+            ExplosionManager.instance.SpawnBurningExplosion(position);
         }
         
         Player.instance.AddNodeHarvest(resourceNode);

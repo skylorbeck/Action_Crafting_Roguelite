@@ -11,10 +11,17 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D Rb;
     public TrailRenderer trailRenderer;
     public Tool parent;
+    public float damageScale = 1f;
     
-    public bool childProjectile = false;
+    public bool continuousDamage = false;
+    public float continuousDamageTimer = 0f;
+    public float continuousDamageInterval = 0.5f;
+    
+    public bool childProjectile = false;//TODO Perk that allows child projectiles to spawn more child projectiles
     public float childProjectileTimer = 0f;
     public float childProjectileDuration = 0.5f;
+    public float childProjectileSize = 0.5f;
+    public float childProjectileDamage = 0.5f;
 
     public void FixedUpdate()
     {
@@ -40,6 +47,12 @@ public class Projectile : MonoBehaviour
     {
         int damage = Player.instance.GetDamage();
         bool crit = Random.Range(0f, 1) < Player.instance.GetCritChance();
+        damage = (int)(damage * damageScale);
+        if (childProjectile)
+        {
+            damage = (int)(damage * childProjectileDamage);
+        }
+        
         if (col.gameObject.layer == LayerMask.NameToLayer("ResourceNode"))
         {
             ResourceNode resourceNode = col.gameObject.GetComponent<ResourceNode>();
@@ -56,6 +69,7 @@ public class Projectile : MonoBehaviour
             {
                 PopupManager.instance.SpawnDamageNumber(damage, resourceNode.transform.position);
             }
+            
             resourceNode.TakeDamage(damage);
         }
 
@@ -73,7 +87,7 @@ public class Projectile : MonoBehaviour
             }
             if (enemy.TakeDamage(damage))
             {
-                if (Player.instance.GetPerkStatModifiers().enemiesSpawnPick && !childProjectile)
+                if (Player.instance.PicksSpawnOnDeath() && !childProjectile)
                 {
                     Projectile child = ((ThrowingTool)parent).GetProjectile();
                     var transform1 = transform;
@@ -81,6 +95,7 @@ public class Projectile : MonoBehaviour
                     child.transform.position = position;
                     child.targetResource = targetResource;
                     child.childProjectile = true;
+                    child.transform.localScale *= childProjectileSize;
 
                     Vector3 direction = (enemy.transform.position+(Vector3)Random.insideUnitCircle - transform.position).normalized;
                     child.Rb.AddForce(direction * Rb.velocity.sqrMagnitude *5f);
@@ -92,7 +107,20 @@ public class Projectile : MonoBehaviour
         }
 
     }
-    
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (continuousDamage)
+        {
+            continuousDamageTimer += Time.fixedDeltaTime;
+            if (continuousDamageTimer >= continuousDamageInterval)
+            {
+                continuousDamageTimer = 0f;
+                OnTriggerEnter2D(other);
+            }
+        }
+    }
+
     protected void RemoveFromParent(Entity target)
     {
         if (parent != null)

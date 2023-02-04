@@ -320,7 +320,7 @@ public class Player : Entity, IDamageable
         return perkStatModifiers.resourceDropFlatBonus;
     }
     
-    public bool EnemiesExplode()
+    public bool PicksSpawnOnDeath()
     {
         return perkStatModifiers.enemiesSpawnPick;
     }
@@ -343,6 +343,26 @@ public class Player : Entity, IDamageable
     public float GetEnemySpeedMultiplier()
     {
         return 1 + perkStatModifiers.enemySpeedMultiplier;
+    }
+    
+    public bool SplitPicks()
+    {
+        return perkStatModifiers.splitPicks;
+    }
+
+    public bool SplitAxes()
+    {
+        return perkStatModifiers.splitAxes;
+    }
+
+    public bool CombineAxes()
+    {
+        return perkStatModifiers.combineAxes;
+    }
+
+    public bool TreesBurn()
+    {
+        return perkStatModifiers.treesBurn;
     }
 
 }
