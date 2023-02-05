@@ -190,7 +190,7 @@ public class ResourceManager : MonoBehaviour
     {
         ResourceDrop resourceDrop = resourceDrops.Get();
         resourceDrop.SetResource(resource);
-        resourceDrop.SetAmount((uint)(1 * Player.instance.GetResourceBonus()));
+        resourceDrop.SetAmount(1);
         resourceDrop.transform.position = position;
         resourceDrop.transform.DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 2, 0.5f)
             .onComplete += () =>
@@ -203,17 +203,7 @@ public class ResourceManager : MonoBehaviour
             CleanupDrops();
         }
     }
-
-    public void SpawnResourceDrop(Vector2 position, uint value, ResourceDrop.Resource resource)
-    {
-        ResourceDrop resourceDrop = resourceDrops.Get();
-        resourceDrop.SetResource(resource);
-        resourceDrop.SetAmount(value);
-        resourceDrop.transform.position = position;
-        resourceDrop.collider.enabled = true;
-        resourceDrop.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
-    }
-
+    
     public void ReleaseResourceDrop(ResourceDrop resourceDrop)
     {
         if (!resourceDrop.gameObject.activeSelf) return;

@@ -52,6 +52,11 @@ public class Player : Entity, IDamageable
         base.Start();
     }
 
+    public uint GetGold()
+    {
+        return goldCoins;
+    }
+    
     public void EquipTool(Tool tool = null)
     {
         if (tool == null)
@@ -118,9 +123,12 @@ public class Player : Entity, IDamageable
         EnemyManager.instance.SetSpawnEnemies(false);
         ResourceManager.instance.ReleaseAllAll();
         ResourceManager.instance.SetSpawnResources(false);
-        gameObject.SetActive(false); 
-        Debug.LogWarning("Player died");//TODO replace this with a proper end screen
-        SceneManager.LoadScene("TheBlacksmith");
+        // gameObject.SetActive(false); 
+        spriteRenderer.color = Color.clear;
+        SetCanMove(false);
+        weaponHolder.gameObject.SetActive(false);
+        TimerManager.instance.isPaused = true;
+        GameOverManager.instance.GameOver();
     }
 
 
@@ -159,6 +167,9 @@ public class Player : Entity, IDamageable
             case ResourceDrop.Resource.Wood:
                 runStats.woodCollected += amount;
                 break;
+            case ResourceDrop.Resource.Iron:
+            case ResourceDrop.Resource.Gold:
+            case ResourceDrop.Resource.Diamond:
             default:
                 throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
         }
@@ -365,5 +376,9 @@ public class Player : Entity, IDamageable
         return perkStatModifiers.treesBurn;
     }
 
+    public RunStats GetRunStats()
+    {
+        return runStats;
+    }
 }
 

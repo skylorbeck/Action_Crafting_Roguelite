@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 6440035285943207892, guid: 6c4242059fb87764c8d32c3d994a11ca, type: 3}
   - {fileID: 6440035285943207892, guid: 69e2cd3285d5cae4e92254e01bda00f6, type: 3}
   - {fileID: 6440035285943207892, guid: 3197d868a84751b49aa3958e017c97dd, type: 3}
+  spawnRate: 0.25

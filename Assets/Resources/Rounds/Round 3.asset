@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6440035285943207892, guid: 3197d868a84751b49aa3958e017c97dd, type: 3}
+  spawnRate: 0.5

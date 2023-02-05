@@ -5,7 +5,8 @@ using UnityEngine;
 public class RoundObject : ScriptableObject
 {
     [SerializeField] Enemy[] enemies;
-    
+    [SerializeField] public float spawnRate = 1;
+
     public virtual void OnRoundStart()
     {
         //do stuff here

@@ -23,6 +23,7 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private uint thirtyMinutes = 0;
     [SerializeField] private uint hours = 0;
 
+    public bool isPaused = false;
     void Start()
     {
         if (instance == null)
@@ -43,6 +44,7 @@ public class TimerManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isPaused) return;
         oneSecond += Time.fixedDeltaTime;
         
         if (!(oneSecond >= 1f)) return;

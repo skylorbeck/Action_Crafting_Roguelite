@@ -16,6 +16,11 @@ public class ResourceDrop : Entity
         spriteRenderer.sprite = ResourceManager.instance.resourceDropRegistry.GetResourceDropPrefab(resource).sprites[0];
         this.resource = resource;
     }
+    
+    public void ModifyAmount(int amount)
+    {
+        this.amount = (uint) Math.Max(0, this.amount + amount);
+    }
 
     public void SetAmount(uint amount)
     {
@@ -42,6 +47,7 @@ public class ResourceDrop : Entity
         collider.enabled = false;
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            Debug.Log("Player picked up resource" + resource + " x" + amount);
             Player.instance.AddResource(resource, amount);
             ResourceManager.instance.ReleaseResourceDrop(this);
         }

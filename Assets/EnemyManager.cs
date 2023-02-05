@@ -17,6 +17,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private RoundObject round;
     [SerializeField] private bool spawnEnemies = false;
+    [SerializeField] private float enemySpawnRate = 1;
+    private float enemySpawnTimer = 0;
     void Awake()
     {
         instance = this;
@@ -39,14 +41,15 @@ public class EnemyManager : MonoBehaviour
             }
         );
     }
-    private async void OnEnable()
+
+    private void FixedUpdate()
     {
-        await Task.Delay(1);
-        TimerManager.instance.onOneSecond += CheckForRoomAndSpawnEnemy;
-    }
-    private void OnDisable()
-    {
-        TimerManager.instance.onOneSecond -= CheckForRoomAndSpawnEnemy;
+        enemySpawnTimer += Time.fixedDeltaTime;
+        if (enemySpawnTimer >= enemySpawnRate)
+        {
+            enemySpawnTimer = 0;
+            CheckForRoomAndSpawnEnemy();
+        }
     }
 
     private void CheckForRoomAndSpawnEnemy()
@@ -110,6 +113,7 @@ public class EnemyManager : MonoBehaviour
     public void StartRound(RoundObject round)
     {
         this.round = round;
+        enemySpawnRate = round.spawnRate;
         spawnEnemies = true;
     }
 
