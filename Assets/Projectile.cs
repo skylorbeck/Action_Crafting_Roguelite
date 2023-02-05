@@ -40,7 +40,7 @@ public class Projectile : MonoBehaviour
     {
         childProjectileTimer = 0f;
         childProjectile = false;
-        ((ThrowingTool)parent).ReleaseProjectile(Rb);
+        ((ThrowingTool)parent).ReleaseProjectile(this);
     }
 
     private void OnTriggerEnter2D(Collider2D col)

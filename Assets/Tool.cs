@@ -9,6 +9,9 @@ public class Tool : MonoBehaviour
     public float fireTimer = 0f;
     public float fireRate = 1f;
 
+    public float damageScale = 1f;//TODO add a bunch of other parameters to customize tools with. Consider making this a class with overrides for each tool type
+
+    
     protected async void FixedUpdate()
     {
         if (fireRate==0) return;

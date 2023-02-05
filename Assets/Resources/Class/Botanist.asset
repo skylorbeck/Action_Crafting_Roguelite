@@ -17,6 +17,10 @@ MonoBehaviour:
   unlockAmount: 
   unlockLevel: 0
   unlockCost: 0
+  perkList:
+  - {fileID: 11400000, guid: 84e308a7dc6e5db43adb12fbea4aa304, type: 2}
+  - {fileID: 11400000, guid: d6656d19ae8ad624cb6ce7a69279a950, type: 2}
+  - {fileID: 11400000, guid: 28fc1e0c0cc763d49b09196a7189b0a2, type: 2}
   className: Botanist
   classDescription: Might be a druid in another life
   classSprites:

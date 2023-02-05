@@ -25,9 +25,9 @@ namespace PerkSystem
         public float enemySpeedMultiplier;
         public bool enemiesSpawnPick;
         public bool stoneNodesExplode;
-        public bool splitPicks;//TODO
-        public bool splitAxes;//TODO
-        public bool combineAxes;//TODO
+        public bool splitPicks;
+        public bool splitAxes;
+        public bool combineAxes;
         public bool treesBurn;
         
 

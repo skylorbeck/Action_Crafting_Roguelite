@@ -14,7 +14,9 @@ public class SwingingTool : Tool
     public float swingSpeed = 1f;
     public float swingDistance = 1f;
     public float swingTime = 5f;
-
+    public float combineAxesSizeBonus = .5f;
+    public float splitAxesSizeBonus = 0.75f;
+    
     private ObjectPool<Projectile> swingables;
 
     public List<Transform> activeSwingables = new List<Transform>();
@@ -54,11 +56,29 @@ public class SwingingTool : Tool
     public override async void Fire()
     {
         List<Projectile> swingablesToDestroy = new List<Projectile>();
-        for (int i = 0; i < swingableCount+Player.instance.GetExtraProjectiles(); i++)
+        int projectiles = this.swingableCount + Player.instance.GetExtraProjectiles();
+        if (Player.instance.SplitAxes())
+        {
+            projectiles *= 2;
+        }
+       
+        for (int i = 0; i < projectiles; i++)
         {
             var swingable = swingables.Get();
             swingable.transform.parent = transform;
-            float angle = i / (float)(swingableCount+Player.instance.GetExtraProjectiles());
+            swingable.damageScale = damageScale;
+
+            if (Player.instance.SplitAxes())
+            {
+                swingable.damageScale =splitAxesSizeBonus;
+                swingable.transform.localScale = Vector3.one * splitAxesSizeBonus;
+            }
+            if (Player.instance.CombineAxes())
+            {
+                swingable.damageScale = swingable.damageScale * projectiles * combineAxesSizeBonus;
+                swingable.transform.localScale = Vector3.one * (projectiles * combineAxesSizeBonus);
+            }
+            float angle = i / (float)(projectiles);
             float x = Mathf.Cos(angle * Mathf.PI * 2f) * swingDistance * Player.instance.GetAoERadius();
             float y = Mathf.Sin(angle * Mathf.PI * 2f) * swingDistance * Player.instance.GetAoERadius();
             swingable.transform.localPosition = new Vector3(x, y, 0);
@@ -68,6 +88,10 @@ public class SwingingTool : Tool
             activeSwingables.Add(transform1);
             swingablesToDestroy.Add(swingable);
             swingable.spriteRenderer.DOFade(1, 0.5f);
+            if (Player.instance.CombineAxes())
+            {
+                break;
+            }
         }
 
         await Task.Delay(TimeSpan.FromSeconds(swingTime));
