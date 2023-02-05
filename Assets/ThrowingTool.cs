@@ -86,6 +86,7 @@ public class ThrowingTool : Tool
             for (int j = 0; j < amountOfPicks; j++)
             {
                 Projectile throwable = throwables.Get();
+                throwable.damageScale = damageScale;
                 Vector3 direction = (target - playerTransform.position).normalized;
                 if (j>0)
                 {
@@ -95,7 +96,7 @@ public class ThrowingTool : Tool
                 if (Player.instance.SplitPicks())
                 {
                     throwable.transform.localScale *= splitPickSize;
-                    throwable.damageScale *= splitPickSize;
+                    throwable.damageScale *=splitPickSize;
                 }
                 Rigidbody2D rb = throwable.GetComponent<Rigidbody2D>();
                 rb.AddForce(direction * (throwForce * Player.instance.GetProjectileSpeedBonus()),

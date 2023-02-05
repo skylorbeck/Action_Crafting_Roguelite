@@ -47,10 +47,10 @@ public class Projectile : MonoBehaviour
     {
         int damage = Player.instance.GetDamage();
         bool crit = Random.Range(0f, 1) < Player.instance.GetCritChance();
-        damage = (int)(damage * damageScale);
+        damage = Mathf.RoundToInt(damage * damageScale);
         if (childProjectile)
         {
-            damage = (int)(damage * childProjectileDamage);
+            damage = Mathf.RoundToInt(damage * childProjectileDamage);
         }
         
         if (col.gameObject.layer == LayerMask.NameToLayer("ResourceNode"))
@@ -62,7 +62,7 @@ public class Projectile : MonoBehaviour
             }
             if (crit)
             {
-                damage = (int)(damage * Player.instance.GetCritDamageBonus());
+                damage = Mathf.RoundToInt(damage * Player.instance.GetCritDamageBonus());
                 PopupManager.instance.SpawnCriticalNumber(damage, resourceNode.transform.position);
             }
             else
@@ -78,7 +78,7 @@ public class Projectile : MonoBehaviour
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
             if (crit)
             {
-                damage = (int)(damage * Player.instance.GetCritDamageBonus());
+                damage = Mathf.RoundToInt(damage * Player.instance.GetCritDamageBonus());
                 PopupManager.instance.SpawnCriticalNumber(damage, enemy.transform.position);
             }
             else

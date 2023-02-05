@@ -262,7 +262,7 @@ public class Player : Entity, IDamageable
     
     public int GetDamage()
     {
-        return (int)Math.Round(1 + perkStatModifiers.damageFlatBonus * (perkStatModifiers.damageMultiplierBonus + 1),MidpointRounding.AwayFromZero);
+        return Mathf.RoundToInt(1 + perkStatModifiers.damageFlatBonus * (perkStatModifiers.damageMultiplierBonus + 1));
     }
 
     public float GetAttackSpeedBonus()
