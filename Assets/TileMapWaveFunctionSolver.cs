@@ -13,7 +13,6 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
     
-    //list of arrays of valid tiles for each tile
     public List<TileBase> allTiles = new List<TileBase>();
     public List<List<TileBase>[]> possibleTiles = new List<List<TileBase>[]>();
     
@@ -25,9 +24,10 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
     public Vector3Int debugPos;
     public Vector3Int secondDebugPos;
     public Vector3Int thirdDebugPos;
-
+    public bool debug = false;
     public void OnDrawGizmos()
     {
+        if (!debug)return;
         Gizmos.color = Color.red;
         Gizmos.DrawCube(debugPos+new Vector3(0.5f,0.5f), Vector3.one);
         Gizmos.color = Color.blue;
@@ -51,8 +51,13 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                 {
                     continue;
                 }
-                debugPos = new Vector3Int(x, y, 0);
-                await Task.Delay(10);
+
+                if (debug)
+                {
+                    debugPos = new Vector3Int(x, y, 0);
+                    await Task.Delay(10);
+                }
+                
                 for (int i = 0; i < 4; i++)
                 {
                     Vector3Int pos = new Vector3Int(x, y, 0);
@@ -80,8 +85,12 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                     {
                        continue;
                     }
-                    secondDebugPos = pos + offset;
-                    await Task.Delay(10);
+                    
+                    if (debug)
+                    {
+                        secondDebugPos = pos + offset;
+                        await Task.Delay(10);
+                    }
                     possibleNeighbors[i].Add(tile2);
                 }
                 if (!allTiles.Contains(tile))
@@ -154,8 +163,12 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
             
             tilesToCheck.RemoveAt(0);
             TileBase currentTile = floorTilemap.GetTile(pos);
-            debugPos = pos;
-            await Task.Delay(10);
+            
+            if (debug)
+            {
+                debugPos = pos;
+                await Task.Delay(10);
+            }
             if (currentTile == null)
             {
                 continue;
@@ -187,8 +200,12 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                 {
                     continue;
                 }
-                secondDebugPos = pos + direction;
-                await Task.Delay(10);
+                
+                if (debug)
+                {
+                    secondDebugPos = pos + direction;
+                    await Task.Delay(10);
+                }
                 for (int j = 3; j >= 0; j--)
                 {
                     Vector3Int offset = new Vector3Int(0, 0, 0);
@@ -214,9 +231,12 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                     {
                         continue;
                     }
-
-                    thirdDebugPos = pos + direction - offset;
-                    await Task.Delay(10);
+                    if (debug)
+                    {
+                        thirdDebugPos = pos + direction - offset;
+                        await Task.Delay(10);
+                    }
+                    
                     int index = allTiles.IndexOf(tempTile);
                     List<TileBase> temp = new List<TileBase>(possibleTiles[index][j]);
                     possibleNeighbors[i].RemoveAll(x => !temp.Contains(x));
@@ -230,7 +250,10 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                     {
                         tilesToCheck.Add(pos + direction);
                     }
-                    await Task.Delay(10);
+                    if (debug)
+                    {
+                        await Task.Delay(10);
+                    }
                 }
             }
         }
@@ -240,6 +263,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
     {
         Vector3Int lowestEntropyTile = new Vector3Int(0, 0, 0);
         int lowestEntropy = 100000;
+        
         for (int x = -bounds.x; x < bounds.x; x++)
         {
             for (int y = -bounds.y; y < bounds.y; y++)
