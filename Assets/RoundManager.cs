@@ -21,7 +21,7 @@ public class RoundManager : MonoBehaviour
         if (currentRound >= rounds.Length)
         {
             Debug.LogWarning("No more rounds!");//TODO end game call
-            SceneManager.LoadScene("TheBlacksmith");
+            Player.instance.Kill();//TODO end game without killing?
             return;
         }
         RoundObject round = rounds[currentRound];

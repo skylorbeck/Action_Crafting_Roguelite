@@ -116,7 +116,7 @@ public class Player : Entity, IDamageable
         return false;
     }
 
-    private void Kill()
+    public void Kill()
     {
         ExplosionManager.instance.SpawnExplosion(transform.position);
         EnemyManager.instance.ReleaseAllEnemies();

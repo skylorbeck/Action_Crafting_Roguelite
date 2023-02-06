@@ -25,6 +25,7 @@ public class ResourceManager : MonoBehaviour
     public ObjectPool<ResourceNode> resourceNodes;
     public List<ResourceNode> activeNodes = new List<ResourceNode>();
     public uint resourceNodeCap = 10;
+    public uint resourceNodeSpawnCount = 1;
     public Transform resourceNodeParent;
     
     public ObjectPool<ResourceDrop> resourceDrops;
@@ -147,8 +148,11 @@ public class ResourceManager : MonoBehaviour
     {
         if (activeNodes.Count < resourceNodeCap && spawnResourceNodes)
         {
-            SpawnResourceNode(Random.value > 0.5f ? ResourceNode.Resource.Wood : ResourceNode.Resource.Stone);
-            //TODO at some point in the future we will need a way to influence which nodes spawn and when, instead of randomly spawning them. 
+            for (int i = 0; i < resourceNodeSpawnCount; i++)
+            {
+                SpawnResourceNode(Random.value > 0.5f ? ResourceNode.Resource.Wood : ResourceNode.Resource.Stone);
+                //TODO at some point in the future we will need a way to influence which nodes spawn and when, instead of randomly spawning them. 
+            }
         }
     }
 
