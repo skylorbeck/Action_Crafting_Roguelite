@@ -19,6 +19,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private bool spawnEnemies = false;
     [SerializeField] private float enemySpawnRate = 1;
     private float enemySpawnTimer = 0;
+    
+    [SerializeField] private Vector2Int enemySpawnRange = new Vector2Int(30, 30);//TODO Move this to a global settings class
     void Awake()
     {
         instance = this;
@@ -65,26 +67,34 @@ public class EnemyManager : MonoBehaviour
         var enemy = enemies.Get();
         enemy.SetPrefab(round.GetRandomEnemy());
         //place the enemy off the screen in a random direction
-        int randomDirection = Random.Range(0, 4);
         Vector3 position = Vector3.zero;
         // float orthographicSize = mainCamera.orthographicSize+1;
         float orthographicSize = 11;//Used to use the cameras current size but you could change the difficulty by changing the zoom level, so now we take the max zoom level
         float aspect = mainCamera.aspect;
-        switch (randomDirection)
+        do
         {
-            case 0:
-                position = new Vector3(mainCamera.transform.position.x + orthographicSize * aspect, Random.Range(-orthographicSize, orthographicSize), 0);
-                break;
-            case 1:
-                position = new Vector3(mainCamera.transform.position.x - orthographicSize * aspect, Random.Range(-orthographicSize, orthographicSize), 0);
-                break;
-            case 2:
-                position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect), mainCamera.transform.position.y + orthographicSize, 0);
-                break;
-            case 3:
-                position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect), mainCamera.transform.position.y - orthographicSize, 0);
-                break;
-        }
+            int randomDirection = Random.Range(0, 4);
+            switch (randomDirection)
+            {
+                case 0:
+                    position = new Vector3(mainCamera.transform.position.x + orthographicSize * aspect,
+                        Random.Range(-orthographicSize, orthographicSize), 0);
+                    break;
+                case 1:
+                    position = new Vector3(mainCamera.transform.position.x - orthographicSize * aspect,
+                        Random.Range(-orthographicSize, orthographicSize), 0);
+                    break;
+                case 2:
+                    position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect),
+                        mainCamera.transform.position.y + orthographicSize, 0);
+                    break;
+                case 3:
+                    position = new Vector3(Random.Range(-orthographicSize * aspect, orthographicSize * aspect),
+                        mainCamera.transform.position.y - orthographicSize, 0);
+                    break;
+            }
+        } while (position.x<-enemySpawnRange.x || position.x>enemySpawnRange.x || position.y<-enemySpawnRange.y || position.y>enemySpawnRange.y);
+
         enemy.ApplyMaxHealth();
         enemy.transform.position = position;
     }

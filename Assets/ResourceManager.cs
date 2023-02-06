@@ -20,6 +20,8 @@ public class ResourceManager : MonoBehaviour
     public float pulseSize = 0.9f;
     public float pulseSpeed = 0.5f;
     
+    [SerializeField] private Vector2Int spawnRange = new Vector2Int(30, 30);//TODO Move this to a global settings class
+
     public ObjectPool<ResourceNode> resourceNodes;
     public List<ResourceNode> activeNodes = new List<ResourceNode>();
     public uint resourceNodeCap = 10;
@@ -153,8 +155,12 @@ public class ResourceManager : MonoBehaviour
 
     public void SpawnResourceNode(ResourceNode.Resource resource = ResourceNode.Resource.Stone)
     {
-        SpawnResourceNode(
-            Player.instance.transform.position + new Vector3(Random.Range(-10, 10), Random.Range(-10, 10)), resource);//TODO spawn area
+        Vector3 pos;
+        do
+        {
+            pos = new Vector3(Random.Range(-spawnRange.x, spawnRange.x), Random.Range(-spawnRange.y, spawnRange.y), 0);
+        } while (pos.x<-spawnRange.x+1.5f || pos.x>spawnRange.x-1.5f || pos.y<-spawnRange.y+1.5f || pos.y>spawnRange.y-1.5f);
+        SpawnResourceNode(pos, resource);
     }
 
     public void SpawnResourceNode(Vector3 position, ResourceNode.Resource resource = ResourceNode.Resource.Stone)
@@ -192,7 +198,9 @@ public class ResourceManager : MonoBehaviour
         resourceDrop.SetResource(resource);
         resourceDrop.SetAmount(1);
         resourceDrop.transform.position = position;
-        resourceDrop.transform.DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 2, 0.5f)
+        Vector3 targetPosition = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
+        targetPosition = new Vector2(Mathf.Clamp(targetPosition.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(targetPosition.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
+        resourceDrop.transform.DOJump(targetPosition, 0.5f, 2, 0.5f)
             .onComplete += () =>
         {
             resourceDrop.collider.enabled = true;
@@ -257,8 +265,10 @@ public class ResourceManager : MonoBehaviour
             ExperienceOrb experienceOrb = experienceOrbs.Get();
             experienceOrb.SetAmount(1);
             experienceOrb.transform.position = position;
+            Vector3 targetPosition = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
+            targetPosition = new Vector2(Mathf.Clamp(targetPosition.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(targetPosition.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
             experienceOrb.transform
-                    .DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 2, 0.5f).onComplete +=
+                    .DOJump(targetPosition, 0.5f, 2, 0.5f).onComplete +=
                 () =>
                 {
                     experienceOrb.collider.enabled = true;
