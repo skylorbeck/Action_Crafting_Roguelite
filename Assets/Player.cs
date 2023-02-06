@@ -24,6 +24,7 @@ public class Player : Entity, IDamageable
     [SerializeField] public List<Perk> equippedPerks = new List<Perk>();
     [SerializeField] protected int maxHealth = 6;
     [SerializeField] protected uint experience = 0;
+    [SerializeField] protected float experienceScale = 1.1f;
     [SerializeField] protected uint goldCoins = 0;
     [SerializeField] protected uint experienceToNextLevel = 100;
     [SerializeField] protected uint level = 0;
@@ -203,7 +204,7 @@ public class Player : Entity, IDamageable
         {
             experience -= experienceToNextLevel;
             level++;
-            experienceToNextLevel = (uint)(experienceToNextLevel * 1.5f);
+            experienceToNextLevel = (uint)Mathf.RoundToInt(experienceToNextLevel * experienceScale);
 
             levelText.text = "Lv. " + level;
             

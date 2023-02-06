@@ -112,7 +112,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3688525277379565147}
   Rb: {fileID: 4519846912891868955}
   health: 1
-  experienceValue: 5
+  experienceValue: 1
   collider: {fileID: 5412369282583831896}
 --- !u!58 &5412369282583831896
 CircleCollider2D:

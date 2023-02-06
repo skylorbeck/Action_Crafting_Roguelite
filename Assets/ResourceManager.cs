@@ -36,7 +36,8 @@ public class ResourceManager : MonoBehaviour
     
     public ObjectPool<ExperienceOrb> experienceOrbs;
     public List<ExperienceOrb> activeExperienceOrbs = new List<ExperienceOrb>();
-    public uint expOrbCap = 10;
+    public uint expOrbCap = 100;
+    public uint expPerOrb = 5;
     public ExperienceOrb experienceOrbPrefab;
     public Transform experienceOrbParent;
 
@@ -263,11 +264,29 @@ public class ResourceManager : MonoBehaviour
 
     public void SpawnExperienceOrb(Vector2 position, uint amount)
     {
-        amount = (uint)(amount * Player.instance.GetExperienceBonus());
-        for (int i = 0; i < amount; i++)
+        amount = (uint)Mathf.RoundToInt(amount * Player.instance.GetExperienceBonus());
+        uint remainingAmount = (uint)Mathf.RoundToInt(amount%expPerOrb);
+        int orbAmount = Mathf.RoundToInt(amount/(float)expPerOrb);
+        for (int i = 0; i < orbAmount; i++)
         {
             ExperienceOrb experienceOrb = experienceOrbs.Get();
-            experienceOrb.SetAmount(1);
+            experienceOrb.SetAmount(expPerOrb);
+            experienceOrb.transform.position = position;
+            Vector3 targetPosition = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
+            targetPosition = new Vector2(Mathf.Clamp(targetPosition.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(targetPosition.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
+            experienceOrb.transform
+                    .DOJump(targetPosition, 0.5f, 2, 0.5f).onComplete +=
+                () =>
+                {
+                    experienceOrb.collider.enabled = true;
+                    experienceOrb.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
+                };
+        }
+        
+        if (remainingAmount > 0)
+        {
+            ExperienceOrb experienceOrb = experienceOrbs.Get();
+            experienceOrb.SetAmount(remainingAmount);
             experienceOrb.transform.position = position;
             Vector3 targetPosition = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
             targetPosition = new Vector2(Mathf.Clamp(targetPosition.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(targetPosition.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
@@ -334,14 +353,17 @@ public class ResourceManager : MonoBehaviour
     public void SpawnCoin(Vector2 position, uint amount)
     {
         GoldCoin coin = coins.Get();
-        coin.SetAmount(amount);
-        coin.transform.position = position;
-        coin.transform.DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 1, 0.25f)
-            .onComplete += () =>
+        for (int i = 0; i < amount; i++)
         {
-            coin.collider.enabled = true;
-            coin.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
-        };
+            coin.transform.position = position;
+            coin.transform.DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 1, 0.25f)
+                .onComplete += () =>
+            {
+                coin.collider.enabled = true;
+                coin.transform.DOScale(pulseSize, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
+            };
+        }
+
         if (coins.CountActive > coinCap)
         {
             CleanupCoins();

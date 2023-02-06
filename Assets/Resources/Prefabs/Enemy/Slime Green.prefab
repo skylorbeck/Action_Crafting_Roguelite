@@ -110,7 +110,7 @@ MonoBehaviour:
   power: 1
   goldReward: 1
   spriteAnimator: {fileID: 6440035285943207889}
-  maxHealth: 1
+  maxHealth: 30
 --- !u!58 &6440035285943207888
 CircleCollider2D:
   m_ObjectHideFlags: 0

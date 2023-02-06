@@ -27,14 +27,14 @@ public class ExperienceOrb : Entity
    {
       spriteRenderer.sprite = experienceValue switch
       {
-         > 1 and < 4 => sprites[1],
-         > 4 and < 8 => sprites[2],
-         > 8 and < 16 => sprites[3],
-         > 16 and < 32 => sprites[4],
-         > 32 and < 64 => sprites[5],
-         > 64 and < 128 => sprites[6],
-         > 128 and < 256 => sprites[7],
-         > 256 => sprites[8],
+         > 1 and < 5 => sprites[1],
+         > 5 and < 10 => sprites[2],
+         > 10 and < 20 => sprites[3],
+         > 20 and < 50 => sprites[4],
+         > 50 and < 100 => sprites[5],
+         > 100 and < 200 => sprites[6],
+         > 200 and < 500 => sprites[7],
+         > 500 => sprites[8],
          _ => sprites[0],
       };
    }

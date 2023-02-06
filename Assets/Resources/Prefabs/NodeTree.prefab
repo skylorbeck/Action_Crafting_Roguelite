@@ -8,12 +8,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
-      propertyPath: resourceNode
-      value: 1
+      propertyPath: health
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
-      propertyPath: resourceAmount
-      value: 3
+      propertyPath: resourceNode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1053179282637734467, guid: d1bd04b37594293488635eaad332dfda, type: 3}
       propertyPath: sprites.Array.data[0]

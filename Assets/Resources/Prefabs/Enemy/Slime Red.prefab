@@ -106,11 +106,11 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6440035285943207893}
   Rb: {fileID: 6440035285943207891}
   health: 1
-  speed: 2.5
+  speed: 3
   power: 1
   goldReward: 1
   spriteAnimator: {fileID: 6440035285943207889}
-  maxHealth: 1
+  maxHealth: 20
 --- !u!58 &6440035285943207888
 CircleCollider2D:
   m_ObjectHideFlags: 0

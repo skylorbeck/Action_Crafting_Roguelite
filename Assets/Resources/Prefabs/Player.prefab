@@ -327,7 +327,7 @@ MonoBehaviour:
     woodNodesHarvested: 0
   perkStatModifiers:
     healthFlatBonus: 0
-    damageFlatBonus: 0
+    damageFlatBonus: 9
     damageMultiplierBonus: 0
     attackSpeedMultiplierBonus: 0
     movementSpeedMultiplierBonus: 0
@@ -340,15 +340,19 @@ MonoBehaviour:
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
     resourceDropFlatBonus: 0
-    stoneNodesExplode: 0
-    enemiesSpawnPick: 0
     enemyHealthMultiplier: 0
     enemySpeedMultiplier: 0
+    enemiesSpawnPick: 0
+    stoneNodesExplode: 0
+    splitPicks: 0
+    splitAxes: 0
+    combineAxes: 0
+    treesBurn: 0
   equippedPerks: []
   maxHealth: 6
   experience: 0
   goldCoins: 0
-  experienceToNextLevel: 10
+  experienceToNextLevel: 70
   level: 0
   invincibleTime: 1
   invincibleTimer: 0
