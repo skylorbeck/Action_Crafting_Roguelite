@@ -20,6 +20,20 @@ public class ThrowingTool : Tool
 
     ObjectPool<Projectile> throwables;
 
+    protected override void FixedUpdate()
+    {
+        if (primaryTargets.Count > 0)
+        {
+            targetReticule.transform.position = primaryTargets[0].transform.position;
+            targetReticule.gameObject.SetActive(true);
+        }
+        else
+        {
+            targetReticule.gameObject.SetActive(false);
+        }
+        base.FixedUpdate();
+    }
+    
     public void Awake()
     {
         throwables = new ObjectPool<Projectile>(
@@ -47,6 +61,7 @@ public class ThrowingTool : Tool
                 throwable.GetComponent<TrailRenderer>().Clear();
                 throwable.gameObject.SetActive(false);
             }
+            
         );
     }
 

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1375345026, guid: 00c26d4656f213d44adc06341960394c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   power: 1
   goldReward: 1
   spriteAnimator: {fileID: 6440035285943207889}
+  maxHealth: 1
 --- !u!58 &6440035285943207888
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,3 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites: []
   currentSpriteIndex: 0
+  localTime: 0
+  timeBetweenSprites: 1
+  timeSinceLastSprite: 0

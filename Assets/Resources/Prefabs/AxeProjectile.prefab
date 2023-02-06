@@ -53,6 +53,15 @@ MonoBehaviour:
   Rb: {fileID: 8999593085323237554}
   trailRenderer: {fileID: -1372195469949275231}
   parent: {fileID: 0}
+  damageScale: 1
+  continuousDamage: 0
+  continuousDamageTimer: 0
+  continuousDamageInterval: 0.5
+  childProjectile: 0
+  childProjectileTimer: 0
+  childProjectileDuration: 0.5
+  childProjectileSize: 0.5
+  childProjectileDamage: 0.5
 --- !u!212 &8999593085323237556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93,7 +102,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 1921185510, guid: 4340ab99cbdfda542afe8ab57ca5c7bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
