@@ -7,39 +7,35 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ClassDoor : MonoBehaviour
+public class ClassDoor : MenuTrigger
 {
-    [SerializeField] private GameObject classPanel;
-    [SerializeField] private Button closeButton;
     [SerializeField] private Button nextClassButton;
     [SerializeField] private Button previousClassButton;
     [SerializeField] private TextMeshProUGUI classNameText;
     [SerializeField] private TextMeshProUGUI classDescriptionText;
     [SerializeField] private Image classRenderer;
     [SerializeField] private ImageAnimator classAnimator;
-
-    private void OnCollisionEnter2D(Collision2D col)
+//TODO weapon swapping
+    public override void Open()
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            OpenClassPanel();
-        }
-    }
-
-    public void OpenClassPanel()//TODO weapon swapping
-    {
-        classPanel.transform.DOComplete();  
-        classPanel.SetActive(true);
-        Player.instance.SetCanMove(false);
-        closeButton.interactable = true;
+        base.Open();
         nextClassButton.interactable = true;
         previousClassButton.interactable = true;
-        closeButton.Select();
-        classPanel.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
-
         SetPreview();
-    }
 
+    }
+    
+    public override void Close()
+    {
+        base.Close();
+        nextClassButton.interactable = false;
+        previousClassButton.interactable = false;
+        PlayerPrefs.SetInt("classIndex", Player.instance.classIndex);
+        PlayerPrefs.SetInt("weaponIndex", Player.instance.weaponIndex);
+        PlayerPrefs.Save();
+        Player.instance.UpdateClass();
+    }
+  
     private void SetPreview()
     {
         ClassObject classObject = Player.instance.classRegistry.GetClass(Player.instance.classIndex);
@@ -47,22 +43,6 @@ public class ClassDoor : MonoBehaviour
         classDescriptionText.text = classObject.classDescription;
         classRenderer.sprite = classObject.classSprites[0];
         classAnimator.SetSprites(classObject.classSprites);
-    }
-
-    public void CloseClassPanel()
-    {
-        PlayerPrefs.SetInt("classIndex", Player.instance.classIndex);
-        PlayerPrefs.Save();
-        EventSystem.current.SetSelectedGameObject(null);
-        closeButton.interactable = false;
-        nextClassButton.interactable = false;
-        previousClassButton.interactable = false;
-        Time.timeScale = 1f;
-        Player.instance.SetCanMove(true);
-        Player.instance.UpdateClass();
-        classPanel.transform.DOLocalMove(new Vector3(0, -1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack)
-            .onComplete += () => { classPanel.SetActive(false); };
-        
     }
 
     public void NextClass()

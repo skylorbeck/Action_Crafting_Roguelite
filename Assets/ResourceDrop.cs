@@ -37,10 +37,6 @@ public class ResourceDrop : Entity
         return amount;
     }
 
-    private void Awake()
-    {
-        Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
-    }
 
     protected override void OnTriggerEnter2D(Collider2D col)
     {

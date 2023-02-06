@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,11 @@ public class Entity : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponent<SpriteAnimator>()?.SetSprites(sprites);
+    }
+
+    protected virtual void Awake()
+    {
+        Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
     }
 
     protected virtual void Update()

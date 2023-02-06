@@ -15,7 +15,7 @@ public class Player : Entity, IDamageable
     public static Player instance;
     [SerializeField] public ClassRegistry classRegistry;
     [SerializeField] public int classIndex = 0;
-    [SerializeField] protected int weaponIndex = 0;
+    [SerializeField] public int weaponIndex = 0;
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
     [SerializeField] RunStats runStats;//TODO meta save this
@@ -76,12 +76,12 @@ public class Player : Entity, IDamageable
         spriteRenderer.sprite = sprites[0];
     }
 
-    private void Awake()
+    protected override void Awake()
     {
         health = maxHealth;
         HealthDisplay.instance.SetMaxHealth(maxHealth);
         HealthDisplay.instance.SetHealth(health);
-        Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
+        base.Awake();
     }
 
     protected override void Update()

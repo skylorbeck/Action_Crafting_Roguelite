@@ -7,11 +7,10 @@ public class ExperienceOrb : Entity
 {
    public uint experienceValue = 1;
    public Collider2D collider;
-   public void Awake()
+   protected override void Awake()
    {
       UpdateSprite();
-      Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
-
+        base.Awake();
    }
 
    protected override void OnTriggerEnter2D(Collider2D col)

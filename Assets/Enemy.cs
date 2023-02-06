@@ -20,11 +20,7 @@ public class Enemy : Entity, IDamageable
     {
         base.Update();
     }
-    private void Awake()
-    {
-        Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
-    }
-    
+
     public void SetMaxHealth(int maxHealth)
     {
         this.maxHealth = maxHealth;

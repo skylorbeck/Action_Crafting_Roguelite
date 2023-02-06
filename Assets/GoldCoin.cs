@@ -4,10 +4,6 @@ public class GoldCoin:Entity
 {
     public uint goldValue = 1;
     public Collider2D collider;
-    public void Awake()
-    {
-        Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
-    }
 
     protected override void OnTriggerEnter2D(Collider2D col)
     {

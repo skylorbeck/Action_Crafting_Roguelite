@@ -23,11 +23,6 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         base.Start();
     }
 
-    private void Awake()
-    {
-        Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
-    }
-    
     public void SetResourcePool(ResourceDrop.Resource[] resourcePool)
     {
         this.resourcePool = resourcePool;

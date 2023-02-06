@@ -6,42 +6,22 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PortalDoor : MonoBehaviour
+public class PortalDoor : MenuTrigger
 {
     [SerializeField] private string targetScene;
-    [SerializeField] private GameObject playOptionsPanel;
     [SerializeField] private Button playButton;
-    [SerializeField] private Button cancelButton;
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            OpenPortal();
-        }
-    }
 
-    private void OpenPortal()
+
+    public override void Open()
     {
-        playOptionsPanel.transform.DOComplete(); 
-        playOptionsPanel.SetActive(true);
-        Player.instance.SetCanMove(false);
+        base.Open();
         playButton.interactable = true;
-        cancelButton.interactable = true;
-        playButton.Select();
-        playOptionsPanel.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
     }
 
-    public void Cancel()
+    public override void Close()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        base.Close();
         playButton.interactable = false;
-        cancelButton.interactable = false;
-        Time.timeScale = 1f;
-        Player.instance.SetCanMove(true);
-        playOptionsPanel.transform.DOLocalMove(new Vector3(0, -1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).onComplete += () =>
-        {
-            playOptionsPanel.SetActive(false);
-        };
     }
     
     public void LoadScene()
@@ -49,18 +29,5 @@ public class PortalDoor : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(targetScene);
     }
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    void FixedUpdate()
-    {
-        
-    }
+  
 }
