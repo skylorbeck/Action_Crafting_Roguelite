@@ -47,7 +47,7 @@ public class TitleScreenHandler : MonoBehaviour
         }
         else
         {
-            gradientImage.transform.localScale = Vector3.Lerp(Vector3.one*0.5f, Vector3.one*0.75f,Mathf.Sin(Time.time));
+            gradientImage.transform.localScale = Vector3.Lerp(Vector3.one*0.5f, Vector3.one*0.75f,Mathf.Sin(Time.time*2f));
         }
     }
 }
