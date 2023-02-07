@@ -93,7 +93,7 @@ public class EnemyManager : MonoBehaviour
                         mainCamera.transform.position.y - orthographicSize, 0);
                     break;
             }
-        } while (position.x<-enemySpawnRange.x || position.x>enemySpawnRange.x || position.y<-enemySpawnRange.y || position.y>enemySpawnRange.y);
+        } while (position.x<-enemySpawnRange.x || position.x>enemySpawnRange.x-1.5f || position.y<-enemySpawnRange.y || position.y>enemySpawnRange.y-1.5f);
 
         enemy.ApplyMaxHealth();
         enemy.transform.position = position;

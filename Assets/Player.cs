@@ -18,7 +18,7 @@ public class Player : Entity, IDamageable
     [SerializeField] public int weaponIndex = 0;
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
-    [SerializeField] RunStats runStats;//TODO meta save this
+    [SerializeField] RunStats runStats;
     
     [SerializeField] PerkStatModifiers perkStatModifiers;
     [SerializeField] public List<Perk> equippedPerks = new List<Perk>();
@@ -36,6 +36,8 @@ public class Player : Entity, IDamageable
     [SerializeField] protected Image experienceBar;
     [SerializeField] protected TextMeshProUGUI levelText;
     [SerializeField] protected TextMeshProUGUI goldText;
+    [SerializeField] protected TextMeshProUGUI stoneText;
+    [SerializeField] protected TextMeshProUGUI woodText;
     [SerializeField] protected SpriteAnimator spriteAnimator;
 
     [SerializeField] protected PlayerInput playerInput;
@@ -162,11 +164,12 @@ public class Player : Entity, IDamageable
         switch (resource)
         {
             case ResourceDrop.Resource.Stone:
-                runStats.stoneCollected += amount; //TODO display on screen?
-                //TODO add to inventory at end of run
+                runStats.stoneCollected += amount; 
+                PopupManager.instance.SpawnStoneNumber((int)amount);
                 break;
             case ResourceDrop.Resource.Wood:
                 runStats.woodCollected += amount;
+                PopupManager.instance.SpawnWoodNumber((int)amount);
                 break;
             case ResourceDrop.Resource.Iron:
             case ResourceDrop.Resource.Gold:
@@ -174,6 +177,7 @@ public class Player : Entity, IDamageable
             default:
                 throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
         }
+        UpdateResourceText();
     }
 
     public void AddNodeHarvest(ResourceNode.Resource resource)
@@ -217,8 +221,13 @@ public class Player : Entity, IDamageable
     {
         goldValue = (uint) (goldValue * GetGoldBonus());
         goldCoins += goldValue;
-        goldText.text = "x" + goldCoins;
+        UpdateCoinText();
         PopupManager.instance.SpawnCoinNumber((int)goldValue);
+    }
+
+    private void UpdateCoinText()
+    {
+        goldText.text = "x" + goldCoins;
     }
 
     public void SetCanMove(bool b)
@@ -380,6 +389,57 @@ public class Player : Entity, IDamageable
     public RunStats GetRunStats()
     {
         return runStats;
+    }
+
+    public void SetMetaStats(RunStats getMetaStats)
+    {
+        runStats = getMetaStats;
+        UpdateCoinText();
+        UpdateResourceText();
+    }
+    
+    public bool SpendResource(ResourceNode.Resource resource, uint amount)
+    {
+        bool success = false;
+        switch (resource)
+        {
+            case ResourceNode.Resource.Stone:
+                if (runStats.stoneCollected >= amount)
+                {
+                    runStats.stoneCollected -= amount;
+                    success = true;
+                }
+                break;
+            case ResourceNode.Resource.Wood:
+                if (runStats.woodCollected >= amount)
+                {
+                    runStats.woodCollected -= amount;
+                    success = true;
+                }
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
+        }
+        UpdateResourceText();
+        return success;
+    }
+    
+    public bool SpendGold(uint amount)
+    {
+        if (goldCoins >= amount)
+        {
+            goldCoins -= amount;
+            UpdateCoinText();
+            return true;
+        }
+
+        return false;
+    }
+    
+    public void UpdateResourceText()
+    {
+        stoneText.text = "x" + runStats.stoneCollected;
+        woodText.text = "x" + runStats.woodCollected;
     }
 }
 

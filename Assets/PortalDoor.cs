@@ -26,6 +26,8 @@ public class PortalDoor : MenuTrigger
     
     public void LoadScene()
     {
+        SaveManager.instance.SetMetaStats(Player.instance.GetRunStats());
+        SaveManager.instance.Save();
         Time.timeScale = 1f;
         SceneManager.LoadScene(targetScene);
     }

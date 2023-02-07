@@ -18,6 +18,8 @@ public class TitleScreenHandler : MonoBehaviour
     public async void Start()
     {
         await Task.Delay(1);
+        SaveManager.instance.Load();
+        Player.instance.SetMetaStats(SaveManager.instance.GetMetaStats());
         startPosition = Player.instance.transform.position;
     }
     

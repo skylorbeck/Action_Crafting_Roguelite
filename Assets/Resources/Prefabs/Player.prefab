@@ -319,6 +319,7 @@ MonoBehaviour:
   spawnWithWeapons: 1
   weaponHolder: {fileID: 0}
   runStats:
+    version: 1
     enemiesKilled: 0
     resourcesCollected: 0
     stoneCollected: 0
@@ -332,7 +333,7 @@ MonoBehaviour:
     attackSpeedMultiplierBonus: 0
     movementSpeedMultiplierBonus: 0
     critChanceFlatBonus: 0
-    critDamageMultiplierBonus: 0
+    critDamageMultiplierBonus: 0.1
     projectileSpeedMultiplierBonus: 0
     projectileSizeMultiplierBonus: 0
     projectileCountFlatBonus: 0
@@ -351,8 +352,9 @@ MonoBehaviour:
   equippedPerks: []
   maxHealth: 6
   experience: 0
+  experienceScale: 1.1
   goldCoins: 0
-  experienceToNextLevel: 70
+  experienceToNextLevel: 40
   level: 0
   invincibleTime: 1
   invincibleTimer: 0
@@ -360,6 +362,8 @@ MonoBehaviour:
   experienceBar: {fileID: 0}
   levelText: {fileID: 0}
   goldText: {fileID: 0}
+  stoneText: {fileID: 0}
+  woodText: {fileID: 0}
   spriteAnimator: {fileID: 4777040365876319624}
   playerInput: {fileID: 0}
 --- !u!114 &4777040365876319628

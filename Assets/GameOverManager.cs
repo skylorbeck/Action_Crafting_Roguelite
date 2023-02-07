@@ -42,6 +42,8 @@ public class GameOverManager : MonoBehaviour
 
     public async void GameOver()
     {
+        SaveManager.instance.AddRunToMetaStats(Player.instance.GetRunStats());
+        SaveManager.instance.Save();
         background.gameObject.SetActive(true);
         canvasPanel.gameObject.SetActive(true);
         background.DOFade(0.5f, 1f);
@@ -66,6 +68,6 @@ public class GameOverManager : MonoBehaviour
         await Task.Delay(100);
         DOTween.To(() => goldText.text, x => goldText.text = x, Player.instance.GetGold().ToString(), 0.25f);
         
-        Debug.Log("Game Over!");//TODO Pass off to SaveManager
+        Debug.Log("Game Over!");
     }
 }

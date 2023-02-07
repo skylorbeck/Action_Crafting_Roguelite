@@ -16,6 +16,12 @@ public class PopupManager : MonoBehaviour
 
     public DamageNumber ExpNumberUIPrefab;
     public RectTransform ExpIcon;
+    
+    public DamageNumber stoneNumberUIPrefab;
+    public RectTransform stoneIcon;
+    
+    public DamageNumber woodNumberUIPrefab;
+    public RectTransform woodIcon;
     private void Awake()
     {
         instance = this;
@@ -48,5 +54,19 @@ public class PopupManager : MonoBehaviour
         DamageNumber number = ExpNumberUIPrefab.Spawn(Vector3.zero, "+");
         number.number = exp;
         number.SetAnchoredPosition(ExpIcon,Vector2.zero);
+    }
+    
+    public void SpawnStoneNumber(int stone)
+    {
+        DamageNumber number = stoneNumberUIPrefab.Spawn(Vector3.zero, "+");
+        number.number = stone;
+        number.SetAnchoredPosition(stoneIcon,Vector2.zero);
+    }
+    
+    public void SpawnWoodNumber(int wood)
+    {
+        DamageNumber number = woodNumberUIPrefab.Spawn(Vector3.zero, "+");
+        number.number = wood;
+        number.SetAnchoredPosition(woodIcon,Vector2.zero);
     }
 }

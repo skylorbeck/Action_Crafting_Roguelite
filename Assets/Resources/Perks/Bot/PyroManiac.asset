@@ -41,4 +41,4 @@ MonoBehaviour:
     splitPicks: 0
     splitAxes: 0
     combineAxes: 0
-    treesBurn: 0
+    treesBurn: 1

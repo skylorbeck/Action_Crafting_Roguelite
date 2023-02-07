@@ -54,7 +54,7 @@ MonoBehaviour:
   trailRenderer: {fileID: -1372195469949275231}
   parent: {fileID: 0}
   damageScale: 1
-  continuousDamage: 0
+  continuousDamage: 1
   continuousDamageTimer: 0
   continuousDamageInterval: 0.5
   childProjectile: 0

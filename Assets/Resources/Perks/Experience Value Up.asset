@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Experience Value Up
   m_EditorClassIdentifier: 
   perkName: Exp Up
-  perkDescription: +100% XP
+  perkDescription: +10% XP
   perkIcon: {fileID: 1086539408, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
   perkLevel: 2
@@ -31,8 +31,14 @@ MonoBehaviour:
     projectileSizeMultiplierBonus: 0
     projectileCountFlatBonus: 0
     areaOfEffectMultiplierBonus: 0
-    experienceValueMultiplierBonus: 1
+    experienceValueMultiplierBonus: 0.1
     goldValueMultiplierBonus: 0
     resourceDropFlatBonus: 0
-    nodesExplode: 0
-    enemiesExplode: 0
+    enemyHealthMultiplier: 0
+    enemySpeedMultiplier: 0
+    enemiesSpawnPick: 0
+    stoneNodesExplode: 0
+    splitPicks: 0
+    splitAxes: 0
+    combineAxes: 0
+    treesBurn: 0

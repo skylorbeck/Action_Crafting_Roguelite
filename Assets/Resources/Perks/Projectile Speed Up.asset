@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Projectile Speed Up
   m_EditorClassIdentifier: 
   perkName: Projectile Speed Up
-  perkDescription: Projectile Speed +50%
+  perkDescription: Projectile Speed +10%
   perkIcon: {fileID: 859403915, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
   perkLevel: 1
@@ -27,12 +27,18 @@ MonoBehaviour:
     movementSpeedMultiplierBonus: 0
     critChanceFlatBonus: 0
     critDamageMultiplierBonus: 0
-    projectileSpeedMultiplierBonus: 0.5
+    projectileSpeedMultiplierBonus: 0.1
     projectileSizeMultiplierBonus: 0
     projectileCountFlatBonus: 0
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
     resourceDropFlatBonus: 0
-    nodesExplode: 0
-    enemiesExplode: 0
+    enemyHealthMultiplier: 0
+    enemySpeedMultiplier: 0
+    enemiesSpawnPick: 0
+    stoneNodesExplode: 0
+    splitPicks: 0
+    splitAxes: 0
+    combineAxes: 0
+    treesBurn: 0

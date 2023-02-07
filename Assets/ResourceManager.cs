@@ -332,7 +332,7 @@ public class ResourceManager : MonoBehaviour
         for (int i = 0; i < allExperienceOrbs.Count - expOrbCap; i++)
         {
             ExperienceOrb experienceOrb = allExperienceOrbs[i];
-            ExperienceOrb lastExperienceOrb = allExperienceOrbs[^1];
+            ExperienceOrb lastExperienceOrb = allExperienceOrbs[allExperienceOrbs.Count - i - 1];
             if (lastExperienceOrb != null && lastExperienceOrb != experienceOrb)
             {
                 lastExperienceOrb.SetAmount(lastExperienceOrb.GetAmount() + experienceOrb.GetAmount());
@@ -356,7 +356,9 @@ public class ResourceManager : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             coin.transform.position = position;
-            coin.transform.DOJump(position + (Random.insideUnitCircle * resourceNodeSpawnRadius), 0.5f, 1, 0.25f)
+            position = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
+            position = new Vector2(Mathf.Clamp(position.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(position.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
+            coin.transform.DOJump(position, 0.5f, 1, 0.25f)
                 .onComplete += () =>
             {
                 coin.collider.enabled = true;
@@ -397,7 +399,7 @@ public class ResourceManager : MonoBehaviour
         for (int i = 0; i < allCoins.Count - coinCap; i++)
         {
             GoldCoin coin = allCoins[i];
-            GoldCoin lastCoin = allCoins[^1];
+            GoldCoin lastCoin = allCoins[allCoins.Count - i - 1];
             if (lastCoin != null && lastCoin != coin)
             {
                 lastCoin.SetAmount(lastCoin.GetAmount() + coin.GetAmount());

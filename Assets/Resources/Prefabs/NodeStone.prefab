@@ -108,7 +108,7 @@ MonoBehaviour:
   resourcePool: 01000000
   resourceNode: 0
   resourceAmount: 2
-  experienceReward: 30
+  experienceReward: 10
   knockbackPlayer: 0.5
   knockbackWeapon: 0.5
 --- !u!58 &1053179282637734466
