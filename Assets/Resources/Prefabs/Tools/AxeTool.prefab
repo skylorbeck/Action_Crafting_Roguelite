@@ -45,11 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetResource: 1
+  targetReticule: {fileID: 0}
   fireTimer: 0
   fireRate: 6
+  damageScale: 1
   swingablePrefab: {fileID: 8999593085323237554, guid: dd957467748c734458169c4e37dabbe0, type: 3}
   swingableCount: 2
   swingSpeed: 150
-  swingDistance: 1
+  swingDistance: 1.5
   swingTime: 4
+  combineAxesSizeBonus: 0.75
+  splitAxesSizeBonus: 0.75
   activeSwingables: []

@@ -17,6 +17,10 @@ public class TitleScreenHandler : MonoBehaviour
     public Vector3 startPosition;
     public async void Start()
     {
+        titleImage.gameObject.SetActive(true);
+        gradientImage.gameObject.SetActive(true);
+        titleImage.transform.localPosition = Vector3.zero;
+        gradientImage.transform.localScale = Vector3.one*0.5f;
         await Task.Delay(1);
         SaveManager.instance.Load();
         Player.instance.SetMetaStats(SaveManager.instance.GetMetaStats());

@@ -326,6 +326,7 @@ MonoBehaviour:
     stoneNodesHarvested: 0
     woodCollected: 0
     woodNodesHarvested: 0
+    goldCollected: 0
   perkStatModifiers:
     healthFlatBonus: 0
     damageFlatBonus: 9
@@ -353,7 +354,6 @@ MonoBehaviour:
   maxHealth: 6
   experience: 0
   experienceScale: 1.1
-  goldCoins: 0
   experienceToNextLevel: 40
   level: 0
   invincibleTime: 1

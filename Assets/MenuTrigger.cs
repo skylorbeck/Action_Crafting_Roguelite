@@ -32,7 +32,7 @@ public class MenuTrigger : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         cancelButton.interactable = false;
         Player.instance.SetCanMove(true);
-        menuPanel.transform.DOLocalMove(new Vector3(0, -1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).onComplete += () =>
+        menuPanel.transform.DOLocalMove(new Vector3(0, -1080, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).onComplete += () =>
         {
             menuPanel.SetActive(false);
         };

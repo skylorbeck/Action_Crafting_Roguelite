@@ -11,6 +11,7 @@ public class RunStats
     public uint stoneNodesHarvested;
     public uint woodCollected;
     public uint woodNodesHarvested;
+    public uint goldCollected;
     //version 1 end
     public void AddRunStats(RunStats runStats)
     {
@@ -20,6 +21,7 @@ public class RunStats
         stoneNodesHarvested += runStats.stoneNodesHarvested;
         woodCollected += runStats.woodCollected;
         woodNodesHarvested += runStats.woodNodesHarvested;
+        goldCollected += runStats.goldCollected;
     }
     
     public void Reset()
@@ -30,6 +32,7 @@ public class RunStats
         stoneNodesHarvested = 0;
         woodCollected = 0;
         woodNodesHarvested = 0;
+        goldCollected = 0;
     }
     
     public bool InsertSaveData(RunStats saveFile)
@@ -44,6 +47,7 @@ public class RunStats
         stoneNodesHarvested = saveFile.stoneNodesHarvested;
         woodCollected = saveFile.woodCollected;
         woodNodesHarvested = saveFile.woodNodesHarvested;
+        goldCollected = saveFile.goldCollected;
         return true;
     }
 }

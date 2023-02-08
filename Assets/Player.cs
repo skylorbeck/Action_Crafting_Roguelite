@@ -25,7 +25,6 @@ public class Player : Entity, IDamageable
     [SerializeField] protected int maxHealth = 6;
     [SerializeField] protected uint experience = 0;
     [SerializeField] protected float experienceScale = 1.1f;
-    [SerializeField] protected uint goldCoins = 0;
     [SerializeField] protected uint experienceToNextLevel = 100;
     [SerializeField] protected uint level = 0;
 
@@ -57,7 +56,7 @@ public class Player : Entity, IDamageable
 
     public uint GetGold()
     {
-        return goldCoins;
+        return runStats.goldCollected;
     }
     
     public void EquipTool(Tool tool = null)
@@ -99,7 +98,7 @@ public class Player : Entity, IDamageable
             invincibleTimer -= Time.fixedDeltaTime;
         }
 
-        experienceBar.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(experienceBar.rectTransform.sizeDelta.x,(experience / (float)experienceToNextLevel) * 1820,Time.fixedDeltaTime), 64);
+        // experienceBar.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(experienceBar.rectTransform.sizeDelta.x,(experience / (float)experienceToNextLevel) * 1820,Time.fixedDeltaTime), 64);
 
         base.FixedUpdate();
     }
@@ -215,19 +214,22 @@ public class Player : Entity, IDamageable
             PerkManager.instance.ShowPerkMenu();
             
         }
+        DOTween.Kill(experienceBar.rectTransform);
+        DOTween.To(() => experienceBar.rectTransform.sizeDelta.x, x => experienceBar.rectTransform.sizeDelta = new Vector2(x, experienceBar.rectTransform.sizeDelta.y), (experience / (float)experienceToNextLevel) * 1820, 0.5f);
+
     }
 
     public void AddCoin(uint goldValue)
     {
         goldValue = (uint) (goldValue * GetGoldBonus());
-        goldCoins += goldValue;
+        runStats.goldCollected += goldValue;
         UpdateCoinText();
         PopupManager.instance.SpawnCoinNumber((int)goldValue);
     }
 
     private void UpdateCoinText()
     {
-        goldText.text = "x" + goldCoins;
+        goldText.text = "x" + runStats.goldCollected;
     }
 
     public void SetCanMove(bool b)
@@ -426,9 +428,9 @@ public class Player : Entity, IDamageable
     
     public bool SpendGold(uint amount)
     {
-        if (goldCoins >= amount)
+        if (runStats.goldCollected >= amount)
         {
-            goldCoins -= amount;
+            runStats.goldCollected -= amount;
             UpdateCoinText();
             return true;
         }
