@@ -28,7 +28,7 @@ public class GameOverManager : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != this)
+        else 
         {
             Debug.LogWarning("GameOverManager already exists, destroying object!");
             Destroy(gameObject);
@@ -42,7 +42,9 @@ public class GameOverManager : MonoBehaviour
 
     public async void GameOver()
     {
-        SaveManager.instance.AddRunToMetaStats(Player.instance.GetRunStats());
+        RunStats runStats = Player.instance.GetRunStats();
+
+        SaveManager.instance.AddRunToMetaStats(runStats);
         SaveManager.instance.Save();
         background.gameObject.SetActive(true);
         canvasPanel.gameObject.SetActive(true);
@@ -58,7 +60,6 @@ public class GameOverManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
         };
         
-        RunStats runStats = Player.instance.GetRunStats();
         await Task.Delay(100);
         DOTween.To(() => woodText.text, x => woodText.text = x, runStats.woodCollected.ToString(), 0.25f);
         await Task.Delay(100);

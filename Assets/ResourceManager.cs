@@ -63,12 +63,12 @@ public class ResourceManager : MonoBehaviour
             resourceNode =>
             {
                 resourceNode.gameObject.SetActive(true);
-                resourceNode.transform.DOKill();
                 resourceNode.transform.localScale = Vector3.one;
                 activeNodes.Add(resourceNode);
             },
             resourceNode =>
             {
+                resourceNode.transform.DOKill();
                 activeNodes.Remove(resourceNode);
                 resourceNode.gameObject.SetActive(false);
             }
@@ -85,12 +85,12 @@ public class ResourceManager : MonoBehaviour
             {
                 resourceDrop.collider.enabled = false;
                 resourceDrop.gameObject.SetActive(true);
-                resourceDrop.transform.DOKill();
-                resourceDrop.transform.localScale = Vector3.one *0.5f;
+                resourceDrop.transform.localScale = Vector3.one;
                 activeDrops.Add(resourceDrop);
             },
             resourceDrop =>
             {
+                resourceDrop.transform.DOKill();
                 resourceDrop.collider.enabled = false;
                 activeDrops.Remove(resourceDrop);
                 resourceDrop.gameObject.SetActive(false);
@@ -106,12 +106,12 @@ public class ResourceManager : MonoBehaviour
             {
                 experienceOrb.collider.enabled = false;
                 experienceOrb.gameObject.SetActive(true);
-                experienceOrb.transform.DOKill();
-                experienceOrb.transform.localScale = Vector3.one *0.5f;
+                experienceOrb.transform.localScale = Vector3.one;
                 activeExperienceOrbs.Add(experienceOrb);
             },
             experienceOrb =>
             {
+                experienceOrb.transform.DOKill();
                 experienceOrb.collider.enabled = false;
                 activeExperienceOrbs.Remove(experienceOrb);
                 experienceOrb.gameObject.SetActive(false);
@@ -127,12 +127,12 @@ public class ResourceManager : MonoBehaviour
             {
                 coin.collider.enabled = false;
                 coin.gameObject.SetActive(true);
-                coin.transform.DOKill();
-                coin.transform.localScale = Vector3.one *0.5f;
+                coin.transform.localScale = Vector3.one;
                 activeCoins.Add(coin);
             },
             coin =>
             {
+                coin.transform.DOKill();
                 coin.collider.enabled = false;
                 activeCoins.Remove(coin);
                 coin.gameObject.SetActive(false);
@@ -352,11 +352,13 @@ public class ResourceManager : MonoBehaviour
 
     public void SpawnCoin(Vector2 position, uint amount)
     {
-        GoldCoin coin = coins.Get();
-        for (int i = 0; i < amount; i++)
+        int coinAmount = Mathf.RoundToInt(amount * Player.instance.GetGoldBonus());
+        Vector2 targetPosition = position;
+        for (int i = 0; i < coinAmount; i++)
         {
-            coin.transform.position = position;
-            position = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
+            GoldCoin coin = coins.Get();
+            coin.transform.position = targetPosition;
+            position = targetPosition+ (Random.insideUnitCircle *resourceNodeSpawnRadius);
             position = new Vector2(Mathf.Clamp(position.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(position.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
             coin.transform.DOJump(position, 0.5f, 1, 0.25f)
                 .onComplete += () =>

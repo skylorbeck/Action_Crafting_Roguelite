@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public TrailRenderer trailRenderer;
     public Tool parent;
     public float damageScale = 1f;
+    public float projectileScale = 1f;
     
     public bool continuousDamage = false;
     public float continuousDamageTimer = 0f;

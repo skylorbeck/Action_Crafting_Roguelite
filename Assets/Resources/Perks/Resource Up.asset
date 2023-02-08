@@ -16,6 +16,9 @@ MonoBehaviour:
   perkDescription: +1 Resource Per Node
   perkIcon: {fileID: 471203004, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
+  perkLevel: 0
+  nextPerk: {fileID: 0}
+  newTool: {fileID: 0}
   perkStatModifiers:
     healthFlatBonus: 0
     damageFlatBonus: 0
@@ -30,6 +33,12 @@ MonoBehaviour:
     areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
-    resourceDropFlatBonus: 0
-    nodesExplode: 0
-    enemiesExplode: 0
+    resourceDropFlatBonus: 1
+    enemyHealthMultiplier: 0
+    enemySpeedMultiplier: 0
+    enemiesSpawnPick: 0
+    stoneNodesExplode: 0
+    splitPicks: 0
+    splitAxes: 0
+    combineAxes: 0
+    treesBurn: 0

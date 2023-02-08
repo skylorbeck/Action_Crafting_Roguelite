@@ -49,7 +49,7 @@ public class ThrowingTool : Tool
                 throwable.gameObject.SetActive(true);
                 var transform1 = throwable.transform;
                 transform1.localScale =
-                    Vector3.one * Player.instance.GetProjectileSizeBonus();
+                    Vector3.one * throwable.projectileScale * Player.instance.GetProjectileSizeBonus();
                 var transform2 = transform;
                 transform1.position = transform2.position;
                 transform1.rotation = transform2.rotation;

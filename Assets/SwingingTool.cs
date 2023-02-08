@@ -37,7 +37,7 @@ public class SwingingTool : Tool
                 swingable.gameObject.SetActive(true);
                 var transform1 = swingable.transform;
                 transform1.localScale =
-                    Vector3.one * Player.instance.GetProjectileSizeBonus();
+                    Vector3.one * swingable.projectileScale * Player.instance.GetProjectileSizeBonus();
                 transform1.position = transform.position;
                 transform1.rotation = transform.rotation;
                 swingable.Rb.velocity = Vector2.zero;

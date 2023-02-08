@@ -85,9 +85,8 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     {
         var position = transform.position;
 
-        int resourceAmount = Mathf.RoundToInt(this.resourceAmount + Player.instance.GetResourceBonus());
-
-        for (int i = 0; i < resourceAmount ; i++)
+        int newResourceAmount = ((int)this.resourceAmount) + Player.instance.GetResourceBonus();
+        for (int i = 0; i < newResourceAmount ; i++)
         {
             ResourceDrop.Resource resource = resourcePool[Random.Range(0, resourcePool.Length)];
             ResourceManager.instance.SpawnResourceDrop(position, resource);

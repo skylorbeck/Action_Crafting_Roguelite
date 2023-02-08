@@ -4371,6 +4371,16 @@ MonoBehaviour:
     woodCollected: 0
     woodNodesHarvested: 0
     goldCollected: 0
+  townStats:
+    version: 1
+    experience: 0
+    experienceToNextLevel: 100
+    level: 0
+--- !u!212 &793562399 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6173754786544083285, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+  m_PrefabInstance: {fileID: 6173754785854929187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &916314033 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5470891034931637679, guid: dad70e6528a49ef44b0c9ee4b82e6683, type: 3}
@@ -5596,6 +5606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2846342577629691413, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7473493730953575894, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
       propertyPath: m_Name
       value: SettingsContainer
@@ -5811,6 +5825,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: TownContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 6173754786205969632, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786205969632, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786205969632, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786324739225, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_text
+      value: You can use Resources to increase the level of your camp and unlock
+        new gameplay features. Requires 100 Wood and 100 Stone.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786449998041, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_text
+      value: Camp Level
+      objectReference: {fileID: 0}
     - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
       propertyPath: levelText
       value: 
@@ -5819,6 +5854,70 @@ PrefabInstance:
       propertyPath: experienceBar
       value: 
       objectReference: {fileID: 548355181}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 793562399}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 954529779, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1138124507, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1386741889, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1901672278, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: townStats.experienceScale
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786544083290, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: townStats.experienceToNextLevelBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754786958026865, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787262640463, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787321284876, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SubmitResources
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787321284877, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787321284877, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787321284877, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787321284877, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173754787403311197, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_text
+      value: Submit Resources
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d427635d2244e489b6598e185936f6, type: 3}
 --- !u!1001 &7231920088168578990

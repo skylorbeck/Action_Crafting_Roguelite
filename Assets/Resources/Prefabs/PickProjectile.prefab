@@ -54,6 +54,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 4011914735975187497}
   parent: {fileID: 0}
   damageScale: 1
+  projectileScale: 2
   continuousDamage: 0
   continuousDamageTimer: 0
   continuousDamageInterval: 0.5
@@ -129,7 +130,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!50 &5563206522260159429
 Rigidbody2D:
   serializedVersion: 4

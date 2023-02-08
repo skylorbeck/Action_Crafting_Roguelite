@@ -333,8 +333,8 @@ MonoBehaviour:
     damageMultiplierBonus: 0
     attackSpeedMultiplierBonus: 0
     movementSpeedMultiplierBonus: 0
-    critChanceFlatBonus: 0
-    critDamageMultiplierBonus: 0.1
+    critChanceFlatBonus: 0.1
+    critDamageMultiplierBonus: 0.5
     projectileSpeedMultiplierBonus: 0
     projectileSizeMultiplierBonus: 0
     projectileCountFlatBonus: 0

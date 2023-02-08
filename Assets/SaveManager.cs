@@ -7,11 +7,13 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
     [SerializeField] private RunStats metaStats; 
+    [SerializeField] private TownStats townStats; 
     public void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            Load();
         }
         else
         {
@@ -39,22 +41,50 @@ public class SaveManager : MonoBehaviour
         metaStats.Reset();
     }
     
+    public void SetTownStats(TownStats oldTownStats)
+    {
+        townStats = oldTownStats;
+    }
+    
+    public TownStats GetTownStats()
+    {
+        return townStats;
+    }
+    
+    public void ResetTownStats()
+    {
+        townStats.Reset();
+    }
+
     public void Save()
     {
         string json = JsonUtility.ToJson(metaStats);
         File.WriteAllText(Application.persistentDataPath + "/metaStats.json", json);
+        json = JsonUtility.ToJson(townStats);
+        File.WriteAllText(Application.persistentDataPath + "/townStats.json", json);
     }
     
-    public bool Load() //returns false if no save file or save file is corrupt
+    public void Load()
     {
         metaStats = new RunStats();
         if (!File.Exists(Application.persistentDataPath + "/metaStats.json"))
         {
             File.Create(Application.persistentDataPath + "/metaStats.json").Dispose();
-            return false;
+        } 
+        else
+        {
+            string metaStatsJson = File.ReadAllText(Application.persistentDataPath + "/metaStats.json");
+            metaStats = JsonUtility.FromJson<RunStats>(metaStatsJson);
         }
-        string json = File.ReadAllText(Application.persistentDataPath + "/metaStats.json");
-        bool success = metaStats.InsertSaveData(JsonUtility.FromJson<RunStats>(json));
-        return success;
+
+        if (!File.Exists(Application.persistentDataPath + "/townStats.json"))
+        {
+            File.Create(Application.persistentDataPath + "/townStats.json").Dispose();
+        }
+        else
+        {
+            string townStatsJson = File.ReadAllText(Application.persistentDataPath + "/townStats.json");
+            townStats = JsonUtility.FromJson<TownStats>(townStatsJson);
+        }
     }
 }

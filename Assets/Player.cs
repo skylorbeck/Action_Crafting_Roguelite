@@ -221,7 +221,6 @@ public class Player : Entity, IDamageable
 
     public void AddCoin(uint goldValue)
     {
-        goldValue = (uint) (goldValue * GetGoldBonus());
         runStats.goldCollected += goldValue;
         UpdateCoinText();
         PopupManager.instance.SpawnCoinNumber((int)goldValue);
@@ -335,7 +334,7 @@ public class Player : Entity, IDamageable
     
     public float GetGoldBonus()
     {
-        return 1+ perkStatModifiers.goldValueMultiplierBonus;
+        return 1 + perkStatModifiers.goldValueMultiplierBonus;
     }
     
     public int GetResourceBonus()
