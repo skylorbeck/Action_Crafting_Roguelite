@@ -4928,7 +4928,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_228
+      name: Dog A
       rect:
         serializedVersion: 2
         x: 312
@@ -4970,7 +4970,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_230
+      name: Wolf A
       rect:
         serializedVersion: 2
         x: 360
@@ -4991,7 +4991,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_231
+      name: Bird 1 A
       rect:
         serializedVersion: 2
         x: 384
@@ -5012,7 +5012,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_232
+      name: Bird 2 A
       rect:
         serializedVersion: 2
         x: 408
@@ -5033,7 +5033,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_233
+      name: Bird 3 A
       rect:
         serializedVersion: 2
         x: 432
@@ -5306,7 +5306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_246
+      name: Dog B
       rect:
         serializedVersion: 2
         x: 312
@@ -5348,7 +5348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_248
+      name: Wolf B
       rect:
         serializedVersion: 2
         x: 360
@@ -5369,7 +5369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_249
+      name: Bird 1 B
       rect:
         serializedVersion: 2
         x: 384
@@ -5390,7 +5390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_250
+      name: Bird 2 B
       rect:
         serializedVersion: 2
         x: 408
@@ -5411,7 +5411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_251
+      name: Bird 3 B
       rect:
         serializedVersion: 2
         x: 432
@@ -7868,7 +7868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_368
+      name: Eye A
       rect:
         serializedVersion: 2
         x: 216
@@ -8246,7 +8246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_386
+      name: Eye B
       rect:
         serializedVersion: 2
         x: 216
@@ -8605,6 +8605,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_404: 1451546947
       oryx_16bit_fantasy_creatures_trans_278: -611215422
       oryx_16bit_fantasy_creatures_trans_261: 1659374825
+      Bird 3 B: -92358955
       oryx_16bit_fantasy_creatures_trans_60: 1140242418
       oryx_16bit_fantasy_creatures_trans_138: 1946108033
       oryx_16bit_fantasy_creatures_trans_75: 1272672151
@@ -8616,11 +8617,9 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_308: -287881620
       oryx_16bit_fantasy_creatures_trans_266: 909401358
       oryx_16bit_fantasy_creatures_trans_293: 439456727
-      oryx_16bit_fantasy_creatures_trans_228: 24782233
       oryx_16bit_fantasy_creatures_trans_281: -126570907
       oryx_16bit_fantasy_creatures_trans_57: -2053978842
       oryx_16bit_fantasy_creatures_trans_163: -393706272
-      oryx_16bit_fantasy_creatures_trans_231: -525486840
       oryx_16bit_fantasy_creatures_trans_279: -1149930353
       oryx_16bit_fantasy_creatures_trans_100: -521959119
       oryx_16bit_fantasy_creatures_trans_52: 1431870921
@@ -8654,12 +8653,12 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_297: -1460072208
       oryx_16bit_fantasy_creatures_trans_318: -851916134
       oryx_16bit_fantasy_creatures_trans_324: 590409780
+      Bird 1 B: 288844566
       oryx_16bit_fantasy_creatures_trans_395: -661902595
       oryx_16bit_fantasy_creatures_trans_4: -1180515491
       oryx_16bit_fantasy_creatures_trans_340: 1804388446
       oryx_16bit_fantasy_creatures_trans_370: -1950366887
       oryx_16bit_fantasy_creatures_trans_275: 200174225
-      oryx_16bit_fantasy_creatures_trans_250: 745036165
       oryx_16bit_fantasy_creatures_trans_155: -1254577634
       oryx_16bit_fantasy_creatures_trans_87: 888493488
       oryx_16bit_fantasy_creatures_trans_45: -1906185541
@@ -8672,6 +8671,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_201: -1417061808
       oryx_16bit_fantasy_creatures_trans_40: 928378001
       oryx_16bit_fantasy_creatures_trans_355: 1117275464
+      Eye A: -190315919
       oryx_16bit_fantasy_creatures_trans_143: 1129292988
       oryx_16bit_fantasy_creatures_trans_405: 572548585
       oryx_16bit_fantasy_creatures_trans_123: -704237563
@@ -8690,7 +8690,6 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_104: 141742980
       oryx_16bit_fantasy_creatures_trans_66: 508340406
       oryx_16bit_fantasy_creatures_trans_29: 850890093
-      oryx_16bit_fantasy_creatures_trans_251: -92358955
       oryx_16bit_fantasy_creatures_trans_239: -1610778618
       oryx_16bit_fantasy_creatures_trans_185: 11817273
       oryx_16bit_fantasy_creatures_trans_315: -215179637
@@ -8710,8 +8709,8 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_136: 517980238
       oryx_16bit_fantasy_creatures_trans_180: 1094974084
       oryx_16bit_fantasy_creatures_trans_173: -670110953
-      oryx_16bit_fantasy_creatures_trans_401: -1569068174
       oryx_16bit_fantasy_creatures_trans_407: -1304727975
+      oryx_16bit_fantasy_creatures_trans_401: -1569068174
       oryx_16bit_fantasy_creatures_trans_95: 1275123307
       Slime Green B: -892009
       oryx_16bit_fantasy_creatures_trans_5: -2010130963
@@ -8730,21 +8729,19 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_212: -111910437
       oryx_16bit_fantasy_creatures_trans_413: -192223700
       oryx_16bit_fantasy_creatures_trans_220: -748109909
-      oryx_16bit_fantasy_creatures_trans_249: 288844566
-      oryx_16bit_fantasy_creatures_trans_160: -1284420870
       oryx_16bit_fantasy_creatures_trans_188: 17417921
+      oryx_16bit_fantasy_creatures_trans_160: -1284420870
       oryx_16bit_fantasy_creatures_trans_116: -267544630
       oryx_16bit_fantasy_creatures_trans_156: -657226580
       oryx_16bit_fantasy_creatures_trans_162: -1592417607
       oryx_16bit_fantasy_creatures_trans_422: -778432847
-      oryx_16bit_fantasy_creatures_trans_232: -177093849
       oryx_16bit_fantasy_creatures_trans_111: -2019258594
       Knight A: 1972983003
-      oryx_16bit_fantasy_creatures_trans_227: 1900044502
       oryx_16bit_fantasy_creatures_trans_400: -1202462921
+      oryx_16bit_fantasy_creatures_trans_227: 1900044502
+      oryx_16bit_fantasy_creatures_trans_74: 1265468498
       oryx_16bit_fantasy_creatures_trans_92: -353982317
       oryx_16bit_fantasy_creatures_trans_121: 852677725
-      oryx_16bit_fantasy_creatures_trans_74: 1265468498
       oryx_16bit_fantasy_creatures_trans_216: 508438982
       oryx_16bit_fantasy_creatures_trans_210: 249079825
       oryx_16bit_fantasy_creatures_trans_412: 2089421075
@@ -8767,6 +8764,7 @@ TextureImporter:
       Rat B: 1733286028
       oryx_16bit_fantasy_creatures_trans_306: 884560248
       oryx_16bit_fantasy_creatures_trans_339: 463143217
+      Wolf A: 2049909289
       oryx_16bit_fantasy_creatures_trans_176: -1932386573
       Knight B: -47052592
       oryx_16bit_fantasy_creatures_trans_320: -179825585
@@ -8777,7 +8775,6 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_305: 1360105827
       oryx_16bit_fantasy_creatures_trans_6: -988624406
       oryx_16bit_fantasy_creatures_trans_30: -323498999
-      oryx_16bit_fantasy_creatures_trans_248: -1030123390
       oryx_16bit_fantasy_creatures_trans_115: 1418292934
       oryx_16bit_fantasy_creatures_trans_406: 151461055
       oryx_16bit_fantasy_creatures_trans_124: -1345763730
@@ -8793,13 +8790,11 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_77: -1858291527
       oryx_16bit_fantasy_creatures_trans_256: 914724442
       oryx_16bit_fantasy_creatures_trans_195: -912718276
-      oryx_16bit_fantasy_creatures_trans_368: -190315919
       oryx_16bit_fantasy_creatures_trans_53: -905131491
       oryx_16bit_fantasy_creatures_trans_135: 1118807648
       oryx_16bit_fantasy_creatures_trans_215: -1327353862
       oryx_16bit_fantasy_creatures_trans_345: -186660758
       oryx_16bit_fantasy_creatures_trans_258: 870418783
-      oryx_16bit_fantasy_creatures_trans_230: 2049909289
       oryx_16bit_fantasy_creatures_trans_139: 802836418
       oryx_16bit_fantasy_creatures_trans_154: -781910916
       oryx_16bit_fantasy_creatures_trans_7: -1641537423
@@ -8816,6 +8811,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_8: -155038124
       oryx_16bit_fantasy_creatures_trans_238: -1919373473
       oryx_16bit_fantasy_creatures_trans_361: -1152635642
+      Bird 2 B: 745036165
       oryx_16bit_fantasy_creatures_trans_3: 90732998
       oryx_16bit_fantasy_creatures_trans_83: -590267057
       oryx_16bit_fantasy_creatures_trans_19: 725630167
@@ -8857,6 +8853,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_73: -1553326732
       oryx_16bit_fantasy_creatures_trans_70: -748385896
       oryx_16bit_fantasy_creatures_trans_105: -1912024382
+      Bird 2 A: -177093849
       oryx_16bit_fantasy_creatures_trans_225: -2057315751
       oryx_16bit_fantasy_creatures_trans_313: 2101796102
       oryx_16bit_fantasy_creatures_trans_0: -1872972940
@@ -8864,6 +8861,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_214: 1312536722
       oryx_16bit_fantasy_creatures_trans_22: -338173317
       oryx_16bit_fantasy_creatures_trans_325: 138867551
+      Eye B: 1495933659
       oryx_16bit_fantasy_creatures_trans_389: 658839316
       oryx_16bit_fantasy_creatures_trans_96: -1556653394
       oryx_16bit_fantasy_creatures_trans_390: -1192031652
@@ -8872,6 +8870,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_187: 599439774
       oryx_16bit_fantasy_creatures_trans_132: 1536494259
       oryx_16bit_fantasy_creatures_trans_49: -181259384
+      Bird 3 A: -292821653
       oryx_16bit_fantasy_creatures_trans_89: -336563184
       oryx_16bit_fantasy_creatures_trans_146: -1124547975
       oryx_16bit_fantasy_creatures_trans_25: 1583594592
@@ -8890,11 +8889,11 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_27: 658757600
       oryx_16bit_fantasy_creatures_trans_354: -127285624
       oryx_16bit_fantasy_creatures_trans_56: 1495933659
-      oryx_16bit_fantasy_creatures_trans_386: -1634407779
       oryx_16bit_fantasy_creatures_trans_219: -359798507
       oryx_16bit_fantasy_creatures_trans_80: 1009379087
       oryx_16bit_fantasy_creatures_trans_338: -1812782079
       oryx_16bit_fantasy_creatures_trans_76: -892009
+      Dog B: -94310663
       Slime Green A: -1270416964
       oryx_16bit_fantasy_creatures_trans_58: 802991791
       oryx_16bit_fantasy_creatures_trans_113: 259096111
@@ -8906,6 +8905,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_353: 330391065
       oryx_16bit_fantasy_creatures_trans_356: 2062293620
       oryx_16bit_fantasy_creatures_trans_55: -1286073752
+      Bird 1 A: -525486840
       oryx_16bit_fantasy_creatures_trans_415: 1365587527
       oryx_16bit_fantasy_creatures_trans_172: 1505157561
       oryx_16bit_fantasy_creatures_trans_351: 1901228421
@@ -8929,7 +8929,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_47: 810858613
       oryx_16bit_fantasy_creatures_trans_381: -1255460341
       oryx_16bit_fantasy_creatures_trans_191: -292821653
-      oryx_16bit_fantasy_creatures_trans_233: -1223022637
+      Dog A: 24782233
       oryx_16bit_fantasy_creatures_trans_34: -1700441728
       oryx_16bit_fantasy_creatures_trans_247: -71495607
       oryx_16bit_fantasy_creatures_trans_397: 429584400
@@ -8975,7 +8975,6 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_85: -1685982813
       oryx_16bit_fantasy_creatures_trans_175: -13845660
       oryx_16bit_fantasy_creatures_trans_243: -94310663
-      oryx_16bit_fantasy_creatures_trans_246: -862371857
       oryx_16bit_fantasy_creatures_trans_291: -414804206
       oryx_16bit_fantasy_creatures_trans_363: 1033903651
       oryx_16bit_fantasy_creatures_trans_42: 717139580
@@ -9004,6 +9003,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_158: -820210674
       oryx_16bit_fantasy_creatures_trans_268: -159979962
       oryx_16bit_fantasy_creatures_trans_411: -469528313
+      Wolf B: -1030123390
       oryx_16bit_fantasy_creatures_trans_226: -133268803
       Rat A: -333756402
       oryx_16bit_fantasy_creatures_trans_377: -2038369367

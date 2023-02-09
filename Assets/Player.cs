@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Player : Entity, IDamageable
 {
@@ -284,7 +285,7 @@ public class Player : Entity, IDamageable
     
     public int GetDamage()
     {
-        return Mathf.RoundToInt(1 + perkStatModifiers.damageFlatBonus * (perkStatModifiers.damageMultiplierBonus + 1));
+        return Mathf.RoundToInt((1 + perkStatModifiers.damageFlatBonus * (perkStatModifiers.damageMultiplierBonus + 1))*Random.Range(0.9f, 1.1f));
     }
 
     public float GetAttackSpeedBonus()

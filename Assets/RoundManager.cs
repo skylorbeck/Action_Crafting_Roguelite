@@ -20,12 +20,11 @@ public class RoundManager : MonoBehaviour
     {
         if (currentRound >= rounds.Length)
         {
-            Debug.LogWarning("No more rounds!");//TODO end game call
             Player.instance.Kill();//TODO end game without killing?
             return;
         }
         RoundObject round = rounds[currentRound];
-        EnemyManager.instance.StartRound(round);
+        EnemyManager.instance.StartRound(round, currentRound);
     }
 
     private async void Awake()

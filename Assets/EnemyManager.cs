@@ -19,6 +19,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private bool spawnEnemies = false;
     [SerializeField] private float enemySpawnRate = 1;
     private float enemySpawnTimer = 0;
+    private int roundNumber = 0;
+    
     
     [SerializeField] private Vector2Int enemySpawnRange = new Vector2Int(30, 30);//TODO Move this to a global settings class
     void Awake()
@@ -94,8 +96,7 @@ public class EnemyManager : MonoBehaviour
                     break;
             }
         } while (position.x<-enemySpawnRange.x || position.x>enemySpawnRange.x-1.5f || position.y<-enemySpawnRange.y || position.y>enemySpawnRange.y-1.5f);
-
-        enemy.ApplyMaxHealth();
+        enemy.ApplyMaxHealth(round.healthMultiplier+(roundNumber*0.05f));
         enemy.transform.position = position;
     }
 
@@ -120,9 +121,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void StartRound(RoundObject round)
+    public void StartRound(RoundObject round, int roundCount)
     {
         this.round = round;
+        roundNumber = roundCount;
         enemySpawnRate = round.spawnRate;
         spawnEnemies = true;
     }

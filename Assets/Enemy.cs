@@ -27,10 +27,11 @@ public class Enemy : Entity, IDamageable
         ApplyMaxHealth();
     }
     
-    public void ApplyMaxHealth()
+    public void ApplyMaxHealth(float multiplier = 1)
     {
-        health = maxHealth = Mathf.RoundToInt(maxHealth * Player.instance.GetEnemyHealthMultiplier());
+        health = maxHealth = Mathf.RoundToInt(maxHealth * Player.instance.GetEnemyHealthMultiplier() * multiplier);
     }
+    
     
     public void SetPower(int power)
     {
