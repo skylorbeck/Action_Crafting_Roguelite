@@ -40,7 +40,7 @@ public class GameOverManager : MonoBehaviour
         SceneManager.LoadScene("TheBlacksmith");
     }
 
-    public async void GameOver()
+    public IEnumerator GameOver()
     {
         RunStats runStats = Player.instance.GetRunStats();
 
@@ -52,15 +52,15 @@ public class GameOverManager : MonoBehaviour
         canvasPanel.DOLocalMoveY(0,1f).SetEase(Ease.InBounce);
         continueButton.gameObject.SetActive(true);
         continueButton.interactable = false;
-        await Task.Delay(1500);
+        yield return new WaitForSeconds(1.5f);
         DOTween.To(() => timerText.text, x => timerText.text = x, TimerManager.instance.GetElapsedTime(), 0.25f);
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.1f);
         DOTween.To(() => woodText.text, x => woodText.text = x, runStats.woodCollected.ToString(), 0.25f);
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.1f);
         DOTween.To(() => stoneText.text, x => stoneText.text = x, runStats.stoneCollected.ToString(), 0.25f);
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.1f);
         DOTween.To(() => enemiesKilledText.text, x => enemiesKilledText.text = x, runStats.enemiesKilled.ToString(), 0.25f);
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.1f);
         DOTween.To(() => goldText.text, x => goldText.text = x, Player.instance.GetGold().ToString(), 0.25f);
         continueButton.interactable = true;
         continueButton.Select();

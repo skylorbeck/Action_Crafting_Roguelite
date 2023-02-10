@@ -15,21 +15,21 @@ public class Tool : MonoBehaviour
     public float damageScale = 1f;//TODO add a bunch of other parameters to customize tools with. Consider making this a class with overrides for each tool type
 
     
-    protected virtual async void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (fireRate==0) return;
         fireTimer += Time.fixedDeltaTime * Player.instance.GetAttackSpeedBonus();
         
         if (fireTimer >= fireRate)
         {
-            Fire();
+            StartCoroutine(Fire());
             fireTimer = 0f;
         }
     }
 
-    public virtual void Fire()
+    public virtual IEnumerator Fire()
     {
-        //do stuff here
+        yield return null;
     }
 
     public virtual void RemoveTarget(Entity enemy)

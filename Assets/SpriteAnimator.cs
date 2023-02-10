@@ -19,10 +19,9 @@ public class SpriteAnimator : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    protected virtual async void OnEnable()
+    protected virtual void OnEnable()
     {
         if (localTime) return;
-        await Task.Delay(1);
         TimerManager.instance.onOneSecond += NextSprite;
 
     }

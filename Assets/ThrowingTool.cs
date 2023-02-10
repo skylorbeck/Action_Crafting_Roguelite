@@ -65,12 +65,13 @@ public class ThrowingTool : Tool
         );
     }
 
-    public override async void Fire()
+    public override IEnumerator Fire()
     {
-        Fire(true);
+        StartCoroutine(Fire(true));
+        yield return base.Fire();
     }
 
-    private async void Fire(bool fromPlayer)
+    private IEnumerator Fire(bool fromPlayer)
     {
         Transform playerTransform = Player.instance.transform;
         Vector3 playerPosition;
@@ -120,15 +121,15 @@ public class ThrowingTool : Tool
                 throwablesToRelease.Add(throwable);
             }
 
-            await Task.Delay(100);
+            yield return new WaitForSeconds(0.1f);
         }
 
-        await Task.Delay(1000);
+        yield return new WaitForSeconds(1f);
 
         foreach (var t in throwablesToRelease)
         {
             throwables.Release(t);
-            await Task.Delay(100);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -148,21 +149,7 @@ public class ThrowingTool : Tool
         if (col.gameObject.layer == LayerMask.NameToLayer("ResourceNode"))
         {
             primaryTargets.Add(col.gameObject);
-            /*if (col.GetComponent<ResourceNode>().resourceNode == targetResource)
-            {
-                primaryTargets.Add(col.gameObject);
-            }
-            else
-            {
-                secondaryTargets.Add(col.gameObject);
-            }*/
-
         }
-
-        // if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        // {
-        //     secondaryTargets.Add(col.gameObject);
-        // }
     }
 
     private void OnTriggerExit2D(Collider2D col)

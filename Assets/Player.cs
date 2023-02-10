@@ -134,7 +134,7 @@ public class Player : Entity, IDamageable
         SetCanMove(false);
         weaponHolder.gameObject.SetActive(false);
         TimerManager.instance.isPaused = true;
-        GameOverManager.instance.GameOver();
+        StartCoroutine(GameOverManager.instance.GameOver());
     }
 
 

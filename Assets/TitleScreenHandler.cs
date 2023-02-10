@@ -15,13 +15,13 @@ public class TitleScreenHandler : MonoBehaviour
     public float fadeDelay = 1f;
     public float maxDistance = 1f;
     public Vector3 startPosition;
-    public async void Start()
+    public IEnumerator Start()
     {
         titleImage.gameObject.SetActive(true);
         gradientImage.gameObject.SetActive(true);
         titleImage.transform.localPosition = Vector3.zero;
         gradientImage.transform.localScale = Vector3.one*0.5f;
-        await Task.Delay(1);
+        yield return new WaitUntil(() => SaveManager.instance != null);
         SaveManager.instance.Load();
         Player.instance.SetMetaStats(SaveManager.instance.GetMetaStats());
         startPosition = Player.instance.transform.position;

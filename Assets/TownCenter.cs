@@ -20,9 +20,9 @@ public class TownCenter : MenuTrigger
     [SerializeField] protected Sprite[] sprites;
     
     [SerializeField] public float experienceScale = 2.5f;
-    public async void Start()
+    public IEnumerator Start()
     {
-        await Task.Delay(1);
+        yield return new WaitUntil(() => SaveManager.instance != null);
         SetStats();
         UpdateVisuals();
     }

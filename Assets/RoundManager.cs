@@ -27,10 +27,10 @@ public class RoundManager : MonoBehaviour
         EnemyManager.instance.StartRound(round, currentRound);
     }
 
-    private async void Awake()
+    private IEnumerator Start()
     {
         StartRound();
-        await Task.Delay(1);
+        yield return new WaitUntil(() => TimerManager.instance != null);
         TimerManager.instance.onOneMinute += NextRound;
     }
 

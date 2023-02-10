@@ -50,10 +50,10 @@ public class SwingingTool : Tool
             }
         );
 
-        Fire();
+        StartCoroutine(Fire());
     }
 
-    public override async void Fire()
+    public override IEnumerator Fire()
     {
         List<Projectile> swingablesToDestroy = new List<Projectile>();
         int projectiles = this.swingableCount + Player.instance.GetExtraProjectiles();
@@ -94,7 +94,7 @@ public class SwingingTool : Tool
             }
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(swingTime));
+        yield return new WaitForSeconds(swingTime);
 
         foreach (Projectile swingable in swingablesToDestroy)
         {
@@ -102,10 +102,10 @@ public class SwingingTool : Tool
                 swingables.Release(swingable);
         }
 
-        base.Fire();
+        yield return base.Fire();
     }
 
-    public new void FixedUpdate()
+    protected override void FixedUpdate()
     {
         transform.position = Player.instance.transform.position;
         foreach (var swingable in activeSwingables)

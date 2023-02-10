@@ -38,13 +38,14 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
         Gizmos.DrawCube(thirdDebugPos + new Vector3(0.5f, 0.5f), Vector3.one);
     }
 
-    private async void Start()
+    private IEnumerator Start()
     {
-        await GatherPossibleTiles();
-        await Solve();
+        yield return GatherPossibleTiles();
+        yield return Solve();
+        yield return null;
     }
 
-    public async Task GatherPossibleTiles()
+    public IEnumerator GatherPossibleTiles()
     {
         var bounds = inputTilemap.cellBounds;
         for (int x = bounds.xMin; x < bounds.xMax; x++)
@@ -63,7 +64,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                 if (debug)
                 {
                     debugPos = new Vector3Int(x, y, 0);
-                    await Task.Delay(debugDelay);
+                    yield return new WaitForSeconds(debugDelay);
                 }
 
                 for (int i = 0; i < 4; i++)
@@ -97,7 +98,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                     if (debug)
                     {
                         secondDebugPos = pos + offset;
-                        await Task.Delay(debugDelay);
+                        yield return new WaitForSeconds(debugDelay);
                     }
 
                     possibleNeighbors[i].Add(tile2);
@@ -162,7 +163,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
         }
     }
 
-    public async Task Solve()
+    public IEnumerator Solve()
     {
         output.gameObject.SetActive(true);
         output.ClearAllTiles();
@@ -184,7 +185,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
             if (debug)
             {
                 debugPos = pos;
-                await Task.Delay(debugDelay);
+                yield return new WaitForSeconds(debugDelay);
             }
 
             if (currentTile == null)
@@ -224,7 +225,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                 if (debug)
                 {
                     secondDebugPos = pos + direction;
-                    await Task.Delay(debugDelay);
+                    yield return new WaitForSeconds(debugDelay);
                 }
 
                 for (int j = 3; j >= 0; j--)
@@ -256,7 +257,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
                     if (debug)
                     {
                         thirdDebugPos = pos + direction - offset;
-                        await Task.Delay(debugDelay);
+                        yield return new WaitForSeconds(debugDelay);
                     }
 
                     int index = allTiles.IndexOf(tempTile);
@@ -277,7 +278,7 @@ public class TileMapWaveFunctionSolver : MonoBehaviour
 
                     if (debug)
                     {
-                        await Task.Delay(debugDelay);
+                        yield return new WaitForSeconds(debugDelay);
                     }
                 }
                 else

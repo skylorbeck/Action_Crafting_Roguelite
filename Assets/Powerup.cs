@@ -15,14 +15,10 @@ public class Powerup : Entity
                 ResourceManager.instance.PlayHit(hitSound);
                 ResourceManager.instance.VacuumAll();
                 break;
-            case PowerupType.Shield:
-                break;
-            case PowerupType.Speed:
-                break;
-            case PowerupType.Health:
-                break;
-            case PowerupType.Damage:
-                break;
+            case PowerupType.Shield://TODO
+            case PowerupType.Speed://TODO
+            case PowerupType.Health://TODO
+            case PowerupType.Damage://TODO
             default:
                 throw new ArgumentOutOfRangeException();
         }

@@ -52,7 +52,7 @@ public class ResourceManager : MonoBehaviour
     public Powerup powerupPrefab;
     public Transform powerupParent;
     public Sprite[] powerupSprites;
-    private async void Awake()
+    private IEnumerator Start()
     {
         instance = this;
         resourceNodes = new ObjectPool<ResourceNode>(
@@ -132,6 +132,7 @@ public class ResourceManager : MonoBehaviour
             {
                 coin.collider.enabled = false;
                 coin.gameObject.SetActive(true);
+                coin.SetAmount(1);
                 coin.transform.localScale = Vector3.one;
                 activeCoins.Add(coin);
             },
@@ -165,8 +166,10 @@ public class ResourceManager : MonoBehaviour
             }
         );
 
-        await Task.Delay(1);
+        
         audioSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
+        
+        yield return new WaitUntil(() => TimerManager.instance != null);
         TimerManager.instance.onOneSecond += CheckForRoomAndSpawnResourceNode;
     }
 
