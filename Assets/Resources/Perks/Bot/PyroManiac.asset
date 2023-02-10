@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkName: Pyro
   perkDescription: Trees burn when chopped down
-  perkIcon: {fileID: -1395573369, guid: 7bb57964f045bcd4798772485ccf6436, type: 3}
+  perkIcon: {fileID: -974738017, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
-  perkLevel: 0
+  perkLevel: 4
   nextPerk: {fileID: 0}
   newTool: {fileID: 0}
   perkStatModifiers:

@@ -21,6 +21,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3c76b7b2e8283948b0023e10baedb25, type: 2}
   - {fileID: 11400000, guid: cededefe00293cf44b70969de9f72bd4, type: 2}
   - {fileID: 11400000, guid: 01ce10938c256a44b807de2bfa9eef61, type: 2}
+  - {fileID: 11400000, guid: f8a65cb7b2acace4e9cedd65e7a6ff39, type: 2}
+  - {fileID: 11400000, guid: f772e75ca5766c942bfdf01ec320f6fc, type: 2}
+  - {fileID: 11400000, guid: d719d1291b28a44438b5f3a43644dde0, type: 2}
   className: Stone Shaper
   classDescription: Likes Rocks, a lot. Throws Pickaxes at nearby Resource Nodes.
   classSprites:

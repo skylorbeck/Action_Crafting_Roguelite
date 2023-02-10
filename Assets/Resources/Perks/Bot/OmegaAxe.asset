@@ -15,9 +15,9 @@ MonoBehaviour:
   perkName: Omega Axe
   perkDescription: Combines all axes into one. Damage and Size are multiplied by
     0.75 x the total axes combined.
-  perkIcon: {fileID: -1526548267, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
+  perkIcon: {fileID: -974738017, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
   perkCost: 0
-  perkLevel: 0
+  perkLevel: 4
   nextPerk: {fileID: 0}
   newTool: {fileID: 0}
   perkStatModifiers:

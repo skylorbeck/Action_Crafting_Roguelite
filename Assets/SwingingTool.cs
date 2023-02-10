@@ -111,9 +111,9 @@ public class SwingingTool : Tool
         foreach (var swingable in activeSwingables)
         {
             var position = transform.position;
-            swingable.transform.position = position + (swingable.position - position).normalized * (swingDistance * Player.instance.GetAoERadius());
+            swingable.transform.position = position + (swingable.position - position).normalized * (swingDistance * Player.instance.GetAoERadius() *(Player.instance.CombineAxes()?Player.instance.GetProjectileSizeBonus():1));
             swingable.transform.RotateAround(position, Vector3.forward, swingSpeed * Time.fixedDeltaTime * Player.instance.GetProjectileSpeedBonus());
-            swingable.transform.Rotate(Vector3.forward, swingSpeed * 2.5f * Time.fixedDeltaTime);
+            swingable.transform.Rotate(Vector3.forward, swingSpeed * 2.5f * Time.fixedDeltaTime* Player.instance.GetProjectileSpeedBonus());
         }
 
         base.FixedUpdate();

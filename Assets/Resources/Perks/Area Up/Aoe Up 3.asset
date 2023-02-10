@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf96b8bb33e025458f5a90bb743c852, type: 3}
+  m_Name: Aoe Up 3
+  m_EditorClassIdentifier: 
+  perkName: Area Up 3
+  perkDescription: Area +10%
+  perkIcon: {fileID: -974738017, guid: 4c6b18be66ffafb44add002e0091376a, type: 3}
+  perkCost: 0
+  perkLevel: 1
+  nextPerk: {fileID: 11400000, guid: 9afaa22470b0f254cabba71b8a9376f6, type: 2}
+  newTool: {fileID: 0}
+  perkStatModifiers:
+    healthFlatBonus: 0
+    damageFlatBonus: 0
+    damageMultiplierBonus: 0
+    attackSpeedMultiplierBonus: 0
+    movementSpeedMultiplierBonus: 0
+    critChanceFlatBonus: 0
+    critDamageMultiplierBonus: 0
+    projectileSpeedMultiplierBonus: 0
+    projectileSizeMultiplierBonus: 0
+    projectileCountFlatBonus: 0
+    areaOfEffectMultiplierBonus: 0.1
+    experienceValueMultiplierBonus: 0
+    goldValueMultiplierBonus: 0
+    resourceDropFlatBonus: 0
+    enemyHealthMultiplier: 0
+    enemySpeedMultiplier: 0
+    enemiesSpawnPick: 0
+    stoneNodesExplode: 0
+    splitPicks: 0
+    splitAxes: 0
+    combineAxes: 0
+    treesBurn: 0
