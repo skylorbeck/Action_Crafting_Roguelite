@@ -46,7 +46,12 @@ public class ResourceManager : MonoBehaviour
     public uint coinCap = 10;
     public GoldCoin coinPrefab;
     public Transform coinParent;
-
+    
+    public ObjectPool<Powerup> powerups;
+    public List<Powerup> activePowerups = new List<Powerup>();
+    public Powerup powerupPrefab;
+    public Transform powerupParent;
+    public Sprite[] powerupSprites;
     private async void Awake()
     {
         instance = this;
@@ -138,6 +143,27 @@ public class ResourceManager : MonoBehaviour
                 coin.gameObject.SetActive(false);
             }
         );
+        powerups = new ObjectPool<Powerup>(
+            () =>
+            {
+                Powerup powerup = Instantiate(powerupPrefab, powerupParent);
+                return powerup;
+            },
+            powerup =>
+            {
+                powerup.collider.enabled = false;
+                powerup.gameObject.SetActive(true);
+                powerup.transform.localScale = Vector3.one;
+                activePowerups.Add(powerup);
+            },
+            powerup =>
+            {
+                powerup.transform.DOKill();
+                powerup.collider.enabled = false;
+                activePowerups.Remove(powerup);
+                powerup.gameObject.SetActive(false);
+            }
+        );
 
         await Task.Delay(1);
         audioSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
@@ -216,6 +242,8 @@ public class ResourceManager : MonoBehaviour
         {
             CleanupDrops();
         }
+
+        
     }
     
     public void ReleaseResourceDrop(ResourceDrop resourceDrop)
@@ -418,12 +446,49 @@ public class ResourceManager : MonoBehaviour
 
     #endregion
 
+    #region powerups
+
+    public void SpawnPowerup(Vector2 position, Powerup.PowerupType powerup)
+    {
+        Powerup powerupDrop = powerups.Get();
+        powerupDrop.transform.position = position;
+        powerupDrop.SetPowerup(powerup);
+        Vector3 targetPosition = position + (Random.insideUnitCircle * resourceNodeSpawnRadius);
+        targetPosition = new Vector2(Mathf.Clamp(targetPosition.x, -spawnRange.x+1.5f, spawnRange.x-1.5f), Mathf.Clamp(targetPosition.y, -spawnRange.y+1.5f, spawnRange.y-1.5f));
+        powerupDrop.transform
+            .DOJump(targetPosition, 0.5f, 2, 0.5f).onComplete +=
+            () =>
+            {
+                powerupDrop.collider.enabled = true;
+                powerupDrop.transform.DOScale(pulseSize*2, pulseSpeed).SetLoops(-1, LoopType.Yoyo);
+            };
+    }
+    
+    public void ReleasePowerup(Powerup powerup)
+    {
+        if (!powerup.gameObject.activeSelf) return;
+        powerups.Release(powerup);
+    }
+    
+    public void ReleaseAllPowerups()
+    {
+        List<Powerup> activePowerups = new List<Powerup>(this.activePowerups);
+        foreach (var powerup in activePowerups)
+        {
+            ReleasePowerup(powerup);
+        }
+    }
+    
+    #endregion
+    
+    
     public void ReleaseAllAll()
     {
         ReleaseAllCoins();
         ReleaseAllExperienceOrbs();
         ReleaseAllResourceDrops();
         ReleaseAllResourceNodes();
+        ReleaseAllPowerups();
     }
 
     public void SetSpawnResources(bool b)
@@ -433,5 +498,27 @@ public class ResourceManager : MonoBehaviour
     public void PlayHit(AudioClip hitSound)
     {
         audioSource.PlayOneShot(hitSound);
+    }
+
+    public void VacuumResources()
+    {
+        activeDrops.ForEach(drop => drop.Vacuum());
+    }
+    
+    public void VacuumExperience()
+    {
+        activeExperienceOrbs.ForEach(exp => exp.Vacuum());
+    }
+    
+    public void VacuumCoins()
+    {
+        activeCoins.ForEach(coin => coin.Vacuum());
+    }
+    
+    public void VacuumAll()
+    {
+        VacuumResources();
+        VacuumExperience();
+        VacuumCoins();
     }
 }

@@ -45,6 +45,7 @@ public class ResourceDrop : Entity
         {
             Player.instance.AddResource(resource, amount);
             ResourceManager.instance.PlayHit(hitSound);
+            magnetToPlayer = false;
             ResourceManager.instance.ReleaseResourceDrop(this);
         }
         base.OnTriggerEnter2D(col);
@@ -64,4 +65,6 @@ public class ResourceDrop : Entity
         Gold,
         Diamond
     }
+
+    
 }

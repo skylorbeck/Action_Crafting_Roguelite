@@ -20,6 +20,7 @@ public class ExperienceOrb : Entity
       {
          Player.instance.AddExperience(experienceValue);
          ResourceManager.instance.PlayHit(hitSound);
+         magnetToPlayer = false;
          ResourceManager.instance.ReleaseExperienceOrb(this);
       }
    }

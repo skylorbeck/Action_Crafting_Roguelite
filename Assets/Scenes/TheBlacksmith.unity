@@ -4773,6 +4773,10 @@ MonoBehaviour:
   coinCap: 100
   coinPrefab: {fileID: 680674065685295588, guid: 8d056b375da78bd4ca62d2773fe13e47, type: 3}
   coinParent: {fileID: 615134959}
+  activePowerups: []
+  powerupPrefab: {fileID: 0}
+  powerupParent: {fileID: 0}
+  powerupSprites: []
 --- !u!82 &1237981930
 AudioSource:
   m_ObjectHideFlags: 0

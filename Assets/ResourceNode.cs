@@ -92,6 +92,11 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
             ResourceDrop.Resource resource = resourcePool[Random.Range(0, resourcePool.Length)];
             ResourceManager.instance.SpawnResourceDrop(position, resource);
         }
+        
+        if (Random.value < 0.01f)
+        {
+            ResourceManager.instance.SpawnPowerup(position,Powerup.PowerupType.Magnet);
+        }
 
         if (Player.instance.NodesExplode() && resourceNode == Resource.Stone)
         {

@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public Rigidbody2D Rb;
     [SerializeField] protected AudioClip hitSound;
     [SerializeField] protected int health = 1;
+    [SerializeField] protected bool magnetToPlayer = false;
 
     protected virtual void Start()
     {
@@ -30,6 +31,10 @@ public class Entity : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        if (magnetToPlayer)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Player.instance.transform.position, Time.fixedDeltaTime * 10);
+        }
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D col)
@@ -56,5 +61,8 @@ public class Entity : MonoBehaviour
     {
     }
 
-    
+    public void Vacuum()
+    {
+        magnetToPlayer = true;
+    }
 }

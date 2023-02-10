@@ -12,6 +12,7 @@ public class GoldCoin:Entity
         {
             Player.instance.AddCoin(goldValue);
             ResourceManager.instance.PlayHit(hitSound);
+            magnetToPlayer = false;
             ResourceManager.instance.ReleaseCoin(this);
         }
     }
