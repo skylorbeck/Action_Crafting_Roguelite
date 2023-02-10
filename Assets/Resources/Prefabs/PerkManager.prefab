@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3147028891657851481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3147028891657851462}
+  - component: {fileID: 3147028891657851463}
+  m_Layer: 0
+  m_Name: PerkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3147028891657851462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147028891657851481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3147028891657851463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147028891657851481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c11a2ca19d1e74fa53eb26ddbaa664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allClassPerks:
+  - {fileID: 11400000, guid: 9c8c5f038d6db91488589049bab1c67e, type: 2}
+  - {fileID: 11400000, guid: acc204fcd259ed546afb71f7393f5485, type: 2}
+  - {fileID: 11400000, guid: 637d5a7b3e8210d41910c39224cfa766, type: 2}
+  - {fileID: 11400000, guid: 5e5b1650e895b2f4c8b372a7c7b30a28, type: 2}
+  - {fileID: 11400000, guid: 0c32bc8d152c7014086e5c770f1c178c, type: 2}
+  - {fileID: 11400000, guid: aca8ffa132219de4e9b0d293f7ce36f7, type: 2}
+  - {fileID: 11400000, guid: 550a17e08a1c53746b0d1d83d6a476d6, type: 2}
+  - {fileID: 11400000, guid: b945263ab0d41fe4c9d093389d042e46, type: 2}
+  - {fileID: 11400000, guid: 3db2ede5261875b43a61f4a82db6cedd, type: 2}
+  - {fileID: 11400000, guid: a2623429e52de3540b73138ab1cf066a, type: 2}
+  - {fileID: 11400000, guid: 22bd920f16542f443b05e85f32b6afb1, type: 2}
+  - {fileID: 11400000, guid: 1bad23da1b8321546a85419274b97e36, type: 2}
+  - {fileID: 11400000, guid: eda82be08f03dd34e91d93ce40b482e5, type: 2}
+  - {fileID: 11400000, guid: 6f2b20ffea100e8418f7c51797364bf2, type: 2}
+  - {fileID: 11400000, guid: 570817d81944c46488be45b348d83bab, type: 2}
+  preferredPerkPool: []
+  bonusPerkPool: []
+  perkMenu: {fileID: 0}
+  PerkButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  perkDisplays:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  closePerkMenuButton: {fileID: 0}

@@ -23,6 +23,7 @@ public class PerkManager : MonoBehaviour
 //TODO value owned perks more than new perks
     public void ShowPerkMenu()
     {
+        MenuSoundManager.instance.PlayOpen();
         perkMenu.SetActive(true);
         perkMenu.transform.DOKill();
         perkMenu.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
@@ -77,6 +78,7 @@ public class PerkManager : MonoBehaviour
     
     public void ClosePerkMenu()
     {
+        MenuSoundManager.instance.PlayAccept(); 
         Time.timeScale = 1f;
         perkMenu.transform.DOLocalMove(new Vector3(0, 1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).OnComplete(() => perkMenu.SetActive(false));
         foreach (Button button in PerkButtons)

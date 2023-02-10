@@ -70,6 +70,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
 
     public bool TakeDamage(int damage)
     {
+        ResourceManager.instance.PlayHit(hitSound);
         health -= damage;
         this.spriteRenderer.DOColor(Color.blue, 0.1f).OnComplete(() => this.spriteRenderer.DOColor(Color.white, 0.1f));
         this.transform.DOShakePosition(0.1f, 0.1f);

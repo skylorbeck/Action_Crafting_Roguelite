@@ -11,6 +11,7 @@ public class GoldCoin:Entity
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Player.instance.AddCoin(goldValue);
+            ResourceManager.instance.PlayHit(hitSound);
             ResourceManager.instance.ReleaseCoin(this);
         }
     }

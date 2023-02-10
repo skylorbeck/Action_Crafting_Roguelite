@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
 {
     private Camera mainCamera;
     public static EnemyManager instance;
+    [SerializeField] protected AudioSource audioSource;
+
     private ObjectPool<Enemy> enemies;
     public List<Enemy> activeEnemies = new List<Enemy>();
     public List<Enemy> visibleEnemies = new List<Enemy>();
@@ -20,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float enemySpawnRate = 1;
     private float enemySpawnTimer = 0;
     private int roundNumber = 0;
-    
+    [SerializeField] private float roundScale = 0.1f;
     
     [SerializeField] private Vector2Int enemySpawnRange = new Vector2Int(30, 30);//TODO Move this to a global settings class
     void Awake()
@@ -44,6 +46,8 @@ public class EnemyManager : MonoBehaviour
                 enemy.gameObject.SetActive(false);
             }
         );
+        audioSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
+
     }
 
     private void FixedUpdate()
@@ -96,7 +100,7 @@ public class EnemyManager : MonoBehaviour
                     break;
             }
         } while (position.x<-enemySpawnRange.x || position.x>enemySpawnRange.x-1.5f || position.y<-enemySpawnRange.y || position.y>enemySpawnRange.y-1.5f);
-        enemy.ApplyMaxHealth(round.healthMultiplier+(roundNumber*0.05f));
+        enemy.ApplyMaxHealth(round.healthMultiplier+(roundNumber*roundScale));
         enemy.transform.position = position;
     }
 
@@ -132,5 +136,10 @@ public class EnemyManager : MonoBehaviour
     public void SetSpawnEnemies(bool b)
     {
         spawnEnemies = b;
+    }
+    
+    public void PlayHit(AudioClip hitSound)
+    {
+        audioSource.PlayOneShot(hitSound);
     }
 }

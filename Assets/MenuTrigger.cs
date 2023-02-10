@@ -19,6 +19,7 @@ public class MenuTrigger : MonoBehaviour
 
     public virtual void Open()
     {
+        MenuSoundManager.instance.PlayOpen();
         menuPanel.transform.DOComplete(); 
         menuPanel.SetActive(true);
         menuPanel.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);

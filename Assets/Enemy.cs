@@ -65,6 +65,7 @@ public class Enemy : Entity, IDamageable
     
     public bool TakeDamage(int damage)
     {
+        EnemyManager.instance.PlayHit(hitSound);
         health -= damage;
         this.spriteRenderer.DOColor(Color.red, 0.1f).OnComplete(() => this.spriteRenderer.DOColor(Color.white, 0.1f));
         if (health <= 0)

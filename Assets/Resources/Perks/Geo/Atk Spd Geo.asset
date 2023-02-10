@@ -23,7 +23,7 @@ MonoBehaviour:
     healthFlatBonus: 0
     damageFlatBonus: 0
     damageMultiplierBonus: 0
-    attackSpeedMultiplierBonus: 50
+    attackSpeedMultiplierBonus: 0.5
     movementSpeedMultiplierBonus: 0
     critChanceFlatBonus: 0
     critDamageMultiplierBonus: 0

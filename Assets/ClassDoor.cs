@@ -28,6 +28,7 @@ public class ClassDoor : MenuTrigger
     public override void Close()
     {
         base.Close();
+        MenuSoundManager.instance.PlayAccept();
         nextClassButton.interactable = false;
         previousClassButton.interactable = false;
         PlayerPrefs.SetInt("classIndex", Player.instance.classIndex);
@@ -53,6 +54,7 @@ public class ClassDoor : MenuTrigger
             Player.instance.classIndex = 0;
         }
         SetPreview();
+        MenuSoundManager.instance.PlayAccept();
     }
     
     public void PreviousClass()
@@ -63,5 +65,6 @@ public class ClassDoor : MenuTrigger
             Player.instance.classIndex = Player.instance.classRegistry.classList.Count - 1;
         }
         SetPreview();
+        MenuSoundManager.instance.PlayAccept();
     }
 }

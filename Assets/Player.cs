@@ -19,6 +19,7 @@ public class Player : Entity, IDamageable
     [SerializeField] public int weaponIndex = 0;
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
+    [SerializeField] protected AudioSource audioSource;
     [SerializeField] RunStats runStats;
     
     [SerializeField] PerkStatModifiers perkStatModifiers;
@@ -47,6 +48,8 @@ public class Player : Entity, IDamageable
         instance = this;
         classIndex = PlayerPrefs.GetInt("classIndex", 0);
         weaponIndex = PlayerPrefs.GetInt("weaponIndex", 0);
+        audioSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
+
         SetClass(classRegistry.GetClass(classIndex));
         if (spawnWithWeapons)
         {
@@ -106,6 +109,7 @@ public class Player : Entity, IDamageable
 
     public bool TakeDamage(int damage)
     {
+        PlayHit();
         spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(8, LoopType.Yoyo).onComplete += () => spriteRenderer.DOColor(Color.white, 0.1f);
         // transform.DOShakeScale(1f, 0.5f);
         health -= damage;
@@ -126,7 +130,6 @@ public class Player : Entity, IDamageable
         EnemyManager.instance.SetSpawnEnemies(false);
         ResourceManager.instance.ReleaseAllAll();
         ResourceManager.instance.SetSpawnResources(false);
-        // gameObject.SetActive(false); 
         spriteRenderer.color = Color.clear;
         SetCanMove(false);
         weaponHolder.gameObject.SetActive(false);
@@ -442,6 +445,11 @@ public class Player : Entity, IDamageable
     {
         stoneText.text = "x" + runStats.stoneCollected;
         woodText.text = "x" + runStats.woodCollected;
+    }
+    
+    protected virtual void PlayHit()
+    {
+        audioSource.PlayOneShot(hitSound);
     }
 }
 

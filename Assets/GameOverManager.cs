@@ -50,16 +50,10 @@ public class GameOverManager : MonoBehaviour
         canvasPanel.gameObject.SetActive(true);
         background.DOFade(0.5f, 1f);
         canvasPanel.DOLocalMoveY(0,1f).SetEase(Ease.InBounce);
-        await Task.Delay(1500);
-        
         continueButton.gameObject.SetActive(true);
         continueButton.interactable = false;
-        DOTween.To(() => timerText.text, x => timerText.text = x, TimerManager.instance.GetElapsedTime(), 0.25f).onComplete += () =>
-        {
-            continueButton.interactable = true;
-            EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
-        };
-        
+        await Task.Delay(1500);
+        DOTween.To(() => timerText.text, x => timerText.text = x, TimerManager.instance.GetElapsedTime(), 0.25f);
         await Task.Delay(100);
         DOTween.To(() => woodText.text, x => woodText.text = x, runStats.woodCollected.ToString(), 0.25f);
         await Task.Delay(100);
@@ -68,7 +62,8 @@ public class GameOverManager : MonoBehaviour
         DOTween.To(() => enemiesKilledText.text, x => enemiesKilledText.text = x, runStats.enemiesKilled.ToString(), 0.25f);
         await Task.Delay(100);
         DOTween.To(() => goldText.text, x => goldText.text = x, Player.instance.GetGold().ToString(), 0.25f);
-        
-        Debug.Log("Game Over!");
+        continueButton.interactable = true;
+        continueButton.Select();
+        // Debug.Log("Game Over!");
     }
 }

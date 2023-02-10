@@ -42,6 +42,7 @@ public class TownCenter : MenuTrigger
     public override void Close()
     {
         base.Close();
+        MenuSoundManager.instance.PlayCancel();
         upgradeTownButton.interactable = false;
     }
 
@@ -60,6 +61,7 @@ public class TownCenter : MenuTrigger
             runStats.woodCollected -= 100;
             runStats.stoneCollected -= 100;
             AddExperience(expPerDonate);
+            MenuSoundManager.instance.PlayAccept();
         }
         else
         {

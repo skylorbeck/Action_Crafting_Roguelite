@@ -286,6 +286,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Slider Fill
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ac357c79ac5e84087796341a69abf3
+      internalID: -1333067805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Empty
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a9d1adb11bbcd49ba7abd7b96405ae
+      internalID: 1534873365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -301,8 +343,10 @@ TextureImporter:
       White Text Box: -2016414560
       No Button: 1568736383
       Text Box: -122449927
+      Slider Fill: -1333067805
       Yes Button: -406098869
       Text Title: 965233904
+      Slider Empty: 1534873365
       Blue Text Box: -317734578
   spritePackingTag: 
   pSDRemoveMatte: 0

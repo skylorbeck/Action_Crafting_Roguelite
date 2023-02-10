@@ -30,7 +30,7 @@ MonoBehaviour:
     projectileSpeedMultiplierBonus: 0
     projectileSizeMultiplierBonus: 0
     projectileCountFlatBonus: 0
-    areaOfEffectMultiplierBonus: 1
+    areaOfEffectMultiplierBonus: 0
     experienceValueMultiplierBonus: 0
     goldValueMultiplierBonus: 0
     resourceDropFlatBonus: 0

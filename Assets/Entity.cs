@@ -8,7 +8,8 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Sprite[] sprites;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     public Rigidbody2D Rb;
-    [SerializeField]protected int health = 1;
+    [SerializeField] protected AudioClip hitSound;
+    [SerializeField] protected int health = 1;
 
     protected virtual void Start()
     {
@@ -20,18 +21,17 @@ public class Entity : MonoBehaviour
     protected virtual void Awake()
     {
         Rb.freezeRotation = PlayerPrefs.GetInt("sillyMode", 0) == 0;
+        
     }
 
     protected virtual void Update()
     {
-        
     }
 
     protected virtual void FixedUpdate()
     {
-        
     }
-    
+
     protected virtual void OnCollisionEnter2D(Collision2D col)
     {
     }
@@ -55,4 +55,6 @@ public class Entity : MonoBehaviour
     protected virtual void OnTriggerStay2D(Collider2D other)
     {
     }
+
+    
 }

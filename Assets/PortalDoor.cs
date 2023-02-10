@@ -21,11 +21,13 @@ public class PortalDoor : MenuTrigger
     public override void Close()
     {
         base.Close();
+        MenuSoundManager.instance.PlayCancel();
         playButton.interactable = false;
     }
     
     public void LoadScene()
     {
+        MenuSoundManager.instance.PlayAccept();
         SaveManager.instance.SetMetaStats(Player.instance.GetRunStats());
         SaveManager.instance.Save();
         Time.timeScale = 1f;

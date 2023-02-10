@@ -44,6 +44,7 @@ public class ResourceDrop : Entity
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Player.instance.AddResource(resource, amount);
+            ResourceManager.instance.PlayHit(hitSound);
             ResourceManager.instance.ReleaseResourceDrop(this);
         }
         base.OnTriggerEnter2D(col);

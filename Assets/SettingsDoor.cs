@@ -10,11 +10,15 @@ public class SettingsDoor : MenuTrigger
     [SerializeField] private Button areYouSureButton;
     [SerializeField] private Button deleteSaveButton;
     [SerializeField] private GameObject areYouSurePanel;
+    [SerializeField] private Slider effectVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;
 
     public override void Open()
     {
         base.Open();
         sillyToggle.isOn = PlayerPrefs.GetInt("sillyMode", 0) == 1;
+        effectVolumeSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("effectVolume", 1));
+        musicVolumeSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("musicVolume", 1));
         deleteSaveButton.interactable = false;
         areYouSurePanel.SetActive(false);
         areYouSureButton.interactable = true;
@@ -23,6 +27,8 @@ public class SettingsDoor : MenuTrigger
     public override void Close()
     {
         base.Close();
+        MenuSoundManager.instance.PlayAccept();
+        PlayerPrefs.Save();
         deleteSaveButton.interactable = false;
         areYouSureButton.interactable = false;
         areYouSurePanel.SetActive(false);
@@ -30,12 +36,14 @@ public class SettingsDoor : MenuTrigger
 
     public void AreYouSure()
     {
+        MenuSoundManager.instance.PlayCancel();
         deleteSaveButton.interactable = true;
         areYouSurePanel.SetActive(true);
     }
     
     public void DeleteSave()
     {
+        
         SaveManager.instance.ResetTownStats();
         SaveManager.instance.ResetMetaStats();
         SaveManager.instance.Save();
@@ -45,8 +53,19 @@ public class SettingsDoor : MenuTrigger
 
     public void SetSillyMode(bool sillyMode)
     {
+        MenuSoundManager.instance.PlayAccept();
         PlayerPrefs.SetInt("sillyMode", sillyMode ? 1 : 0);
         PlayerPrefs.Save();
+    }
+    
+    public void SetEffectVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("effectVolume", volume);
+    }
+    
+    public void SetMusicVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("musicVolume", volume);
     }
     
 }

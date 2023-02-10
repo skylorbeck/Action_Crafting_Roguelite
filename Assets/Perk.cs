@@ -32,6 +32,7 @@ public class Perk :ScriptableObject
             PerkManager.instance.bonusPerkPool.Add(nextPerk);
         }
         Player.instance.AddPerk(this);
+        
         if (perkStatModifiers.healthFlatBonus!=0)
         {
             Player.instance.AddHealth(perkStatModifiers.healthFlatBonus);

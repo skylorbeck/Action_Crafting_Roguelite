@@ -16,12 +16,14 @@ public class ExitGameDoor : MenuTrigger
 
     public override void Close()
     {
+        MenuSoundManager.instance.PlayCancel();
         base.Close();
         quitButton.interactable = false;
     }
 
     public void Quit()
     {
+        MenuSoundManager.instance.PlayAccept();
         Application.Quit();
     }
     

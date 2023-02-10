@@ -103,6 +103,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e334c130778ebe442be237345d1d0afb, type: 3}
   spriteRenderer: {fileID: 689346706200705862}
   Rb: {fileID: 9064460375482689377}
+  hitSound: {fileID: 8300000, guid: 2272f1a072dc284498b8457f196f6e3a, type: 3}
   health: 1
   resource: 1
   collider: {fileID: 399212921313119045}

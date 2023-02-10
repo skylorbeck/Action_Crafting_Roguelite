@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7791277634129322937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7791277634129322936}
+  - component: {fileID: 7791277634129322939}
+  m_Layer: 0
+  m_Name: RoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7791277634129322936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791277634129322937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7791277634129322939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791277634129322937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518259109b77d294493dd2c7dfde11d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rounds:
+  - {fileID: 11400000, guid: d67a9352d4ab9af4891272c5ee9098a6, type: 2}
+  - {fileID: 11400000, guid: 91f255437a6d0884ca7b28a12298b4de, type: 2}
+  - {fileID: 11400000, guid: 731947b5bd82cc545b80c73b42ff4484, type: 2}
+  - {fileID: 11400000, guid: d2b15cd171fd9934fa4634394bcb3a60, type: 2}
+  - {fileID: 11400000, guid: ee4a99d399227104bb379cc8eaa25653, type: 2}
+  - {fileID: 11400000, guid: efc9736e12da19545b496966706fa099, type: 2}
+  - {fileID: 11400000, guid: e7b562ffcef41484796d687d6346a8ef, type: 2}
+  - {fileID: 11400000, guid: 1b713824f65270447be54ec17e6fbe84, type: 2}
+  - {fileID: 11400000, guid: 488203210b3e15a41a0c7ddf4d05ddfc, type: 2}
+  - {fileID: 11400000, guid: 02d986db3f7edab4d8b38608b326e352, type: 2}
+  currentRound: 0

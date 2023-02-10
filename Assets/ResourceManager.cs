@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager instance;
-    
+    [SerializeField] private AudioSource audioSource;
     public bool spawnResourceNodes = true;
     
     public ResourceDropRegistry resourceDropRegistry;
@@ -140,6 +140,7 @@ public class ResourceManager : MonoBehaviour
         );
 
         await Task.Delay(1);
+        audioSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
         TimerManager.instance.onOneSecond += CheckForRoomAndSpawnResourceNode;
     }
 
@@ -428,5 +429,9 @@ public class ResourceManager : MonoBehaviour
     public void SetSpawnResources(bool b)
     {
         spawnResourceNodes = b;
+    }
+    public void PlayHit(AudioClip hitSound)
+    {
+        audioSource.PlayOneShot(hitSound);
     }
 }

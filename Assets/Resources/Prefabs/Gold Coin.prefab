@@ -102,6 +102,7 @@ MonoBehaviour:
   sprites: []
   spriteRenderer: {fileID: 680674065685295584}
   Rb: {fileID: 680674065685295589}
+  hitSound: {fileID: 8300000, guid: 2272f1a072dc284498b8457f196f6e3a, type: 3}
   health: 1
   goldValue: 1
   collider: {fileID: 680674065685295590}

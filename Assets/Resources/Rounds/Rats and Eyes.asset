@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rats and Eyes
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 4903241735585855597, guid: 1e79c2d4c4436084da90a7d511cf70da, type: 3}
-  - {fileID: 4903241735585855597, guid: 2807a4791a704fa4a8843c4545e9f8f2, type: 3}
+  - {fileID: 8732164952756516582, guid: e5a45f8985247084ea2983ee5ba9f4b4, type: 3}
+  - {fileID: 4762346581473824973, guid: 5a4cfac8e1080064685235a0c82b7fba, type: 3}
   spawnRate: 0.1
   healthMultiplier: 1

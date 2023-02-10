@@ -111,6 +111,7 @@ MonoBehaviour:
   - {fileID: 846333416, guid: 60143fa534e879849bf21322a3587e34, type: 3}
   spriteRenderer: {fileID: 3688525277379565147}
   Rb: {fileID: 4519846912891868955}
+  hitSound: {fileID: 8300000, guid: 5ed06ebe03e9285409a52018303bf369, type: 3}
   health: 1
   experienceValue: 1
   collider: {fileID: 5412369282583831896}

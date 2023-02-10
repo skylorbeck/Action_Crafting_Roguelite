@@ -19,6 +19,7 @@ public class ExperienceOrb : Entity
       if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
       {
          Player.instance.AddExperience(experienceValue);
+         ResourceManager.instance.PlayHit(hitSound);
          ResourceManager.instance.ReleaseExperienceOrb(this);
       }
    }

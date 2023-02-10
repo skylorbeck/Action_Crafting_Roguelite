@@ -19,6 +19,7 @@ public class Blacksmith : MenuTrigger
     public override void Close()
     {
         base.Close();
+        MenuSoundManager.instance.PlayCancel();
         buyNewToolButton.interactable = false;
     }
 }

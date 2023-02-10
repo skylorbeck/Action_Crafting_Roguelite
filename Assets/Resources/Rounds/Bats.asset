@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bats
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 4903241735585855597, guid: 8574ea936e6331e47b162f7aab7e0e4e, type: 3}
-  spawnRate: 0.75
+  - {fileID: 5076514916828216827, guid: 3d5c44f9f5701d2438aba393ffb27f9f, type: 3}
+  spawnRate: 0.5
   healthMultiplier: 1
