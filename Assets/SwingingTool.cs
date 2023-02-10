@@ -70,13 +70,13 @@ public class SwingingTool : Tool
 
             if (Player.instance.SplitAxes())
             {
-                swingable.damageScale =splitAxesSizeBonus;
-                swingable.transform.localScale = Vector3.one * splitAxesSizeBonus;
+                swingable.damageScale *= splitAxesSizeBonus;
+                swingable.transform.localScale *= splitAxesSizeBonus;
             }
             if (Player.instance.CombineAxes())
             {
-                swingable.damageScale = swingable.damageScale * projectiles * combineAxesSizeBonus;
-                swingable.transform.localScale = Vector3.one * (projectiles * combineAxesSizeBonus);
+                swingable.damageScale *= projectiles * combineAxesSizeBonus;
+                swingable.transform.localScale *= (projectiles * combineAxesSizeBonus);
             }
             float angle = i / (float)(projectiles);
             float x = Mathf.Cos(angle * Mathf.PI * 2f) * swingDistance * Player.instance.GetAoERadius();

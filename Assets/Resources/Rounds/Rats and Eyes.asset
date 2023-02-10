@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd5f2876d55fb04c9b1523a22fc1e19, type: 3}
+  m_Name: Rats and Eyes
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 4903241735585855597, guid: 1e79c2d4c4436084da90a7d511cf70da, type: 3}
+  - {fileID: 4903241735585855597, guid: 2807a4791a704fa4a8843c4545e9f8f2, type: 3}
+  spawnRate: 0.1
+  healthMultiplier: 1

@@ -106,11 +106,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6440035285943207893}
   Rb: {fileID: 6440035285943207891}
   health: 1
-  speed: 2.5
+  speed: 2
   power: 1
-  goldReward: 1
+  goldReward: 3
   spriteAnimator: {fileID: 6440035285943207889}
   maxHealth: 30
+  collider: {fileID: 6440035285943207888}
 --- !u!58 &6440035285943207888
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.375
+  m_Radius: 0.5
 --- !u!50 &6440035285943207891
 Rigidbody2D:
   serializedVersion: 4

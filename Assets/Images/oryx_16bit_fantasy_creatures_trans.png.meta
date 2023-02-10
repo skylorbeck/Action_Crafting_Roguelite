@@ -4718,7 +4718,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_218
+      name: Bat A
       rect:
         serializedVersion: 2
         x: 72
@@ -5096,7 +5096,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: oryx_16bit_fantasy_creatures_trans_236
+      name: Bat B
       rect:
         serializedVersion: 2
         x: 72
@@ -8685,6 +8685,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_69: -1056409212
       oryx_16bit_fantasy_creatures_trans_59: -98545825
       oryx_16bit_fantasy_creatures_trans_1: -1907268031
+      Bat A: 351841764
       oryx_16bit_fantasy_creatures_trans_378: -1831199720
       oryx_16bit_fantasy_creatures_trans_78: -1778236358
       oryx_16bit_fantasy_creatures_trans_104: 141742980
@@ -8693,6 +8694,7 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_239: -1610778618
       oryx_16bit_fantasy_creatures_trans_185: 11817273
       oryx_16bit_fantasy_creatures_trans_315: -215179637
+      Bat B: -1417480862
       oryx_16bit_fantasy_creatures_trans_145: 570833183
       oryx_16bit_fantasy_creatures_trans_151: 1202994350
       oryx_16bit_fantasy_creatures_trans_409: -1893249805
@@ -8945,7 +8947,6 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_141: -1895396251
       oryx_16bit_fantasy_creatures_trans_65: 1739008572
       oryx_16bit_fantasy_creatures_trans_17: 351841764
-      oryx_16bit_fantasy_creatures_trans_218: 52525062
       oryx_16bit_fantasy_creatures_trans_204: 1074946707
       oryx_16bit_fantasy_creatures_trans_304: -1203238716
       oryx_16bit_fantasy_creatures_trans_362: -984245000
@@ -8967,7 +8968,6 @@ TextureImporter:
       oryx_16bit_fantasy_creatures_trans_208: -1350136885
       oryx_16bit_fantasy_creatures_trans_285: -1541652566
       oryx_16bit_fantasy_creatures_trans_50: -1417480862
-      oryx_16bit_fantasy_creatures_trans_236: 354522472
       oryx_16bit_fantasy_creatures_trans_270: -1270416964
       oryx_16bit_fantasy_creatures_trans_229: -1813994171
       oryx_16bit_fantasy_creatures_trans_37: -501498009

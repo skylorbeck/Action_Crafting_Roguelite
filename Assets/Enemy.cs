@@ -11,6 +11,7 @@ public class Enemy : Entity, IDamageable
     [SerializeField]protected uint goldReward = 1;
     [SerializeField]protected SpriteAnimator spriteAnimator;
     [SerializeField]protected int maxHealth = 2;
+    [SerializeField]protected CircleCollider2D collider;
     protected override void Start()
     {
         base.Start();
@@ -105,11 +106,14 @@ public class Enemy : Entity, IDamageable
     public void SetPrefab(Enemy getRandomEnemy)
     {
         health = getRandomEnemy.health;
+        maxHealth = getRandomEnemy.maxHealth;
         speed = getRandomEnemy.speed;
         power = getRandomEnemy.power;
         goldReward = getRandomEnemy.goldReward;
         sprites = getRandomEnemy.sprites;
         spriteAnimator.SetSprites(sprites);
         spriteRenderer.sprite = sprites[0];
+        collider.offset = getRandomEnemy.collider.offset;
+        collider.radius = getRandomEnemy.collider.radius;
     }
 }
