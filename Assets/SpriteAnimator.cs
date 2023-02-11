@@ -22,8 +22,13 @@ public class SpriteAnimator : MonoBehaviour
     protected virtual void OnEnable()
     {
         if (localTime) return;
-        TimerManager.instance.onOneSecond += NextSprite;
+        StartCoroutine(Enable());
+    }
 
+    private IEnumerator Enable()
+    {
+        yield return new WaitUntil(() => TimerManager.instance != null);
+        TimerManager.instance.onOneSecond += NextSprite;
     }
 
     private void FixedUpdate()

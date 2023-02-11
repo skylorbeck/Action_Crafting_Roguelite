@@ -58,33 +58,39 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
-        string json = JsonUtility.ToJson(metaStats);
-        File.WriteAllText(Application.persistentDataPath + "/metaStats.json", json);
-        json = JsonUtility.ToJson(townStats);
-        File.WriteAllText(Application.persistentDataPath + "/townStats.json", json);
+        Save("metaStats", metaStats);
+        Save("townStats", townStats);
     }
     
     public void Load()
     {
-        metaStats = new RunStats();
-        if (!File.Exists(Application.persistentDataPath + "/metaStats.json"))
+        Load("metaStats", out metaStats);
+        Load("townStats", out townStats);
+    }
+    
+    public void Load<T>(string path, out T data)
+    {
+        path = Application.persistentDataPath + "/" + path + ".json";
+        if (!File.Exists(path))
         {
-            File.Create(Application.persistentDataPath + "/metaStats.json").Dispose();
-        } 
-        else
-        {
-            string metaStatsJson = File.ReadAllText(Application.persistentDataPath + "/metaStats.json");
-            metaStats = JsonUtility.FromJson<RunStats>(metaStatsJson);
-        }
-
-        if (!File.Exists(Application.persistentDataPath + "/townStats.json"))
-        {
-            File.Create(Application.persistentDataPath + "/townStats.json").Dispose();
+            File.Create(path).Dispose();
+            data = default;
         }
         else
         {
-            string townStatsJson = File.ReadAllText(Application.persistentDataPath + "/townStats.json");
-            townStats = JsonUtility.FromJson<TownStats>(townStatsJson);
+            string json = File.ReadAllText(path);
+            data = JsonUtility.FromJson<T>(json);
         }
+    }
+    
+    public void Save<T>(string path, T data)
+    {
+        path = Application.persistentDataPath + "/" + path + ".json";
+        if (!File.Exists(path))
+        {
+            File.Create(path).Dispose();
+        }
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(path, json);
     }
 }
