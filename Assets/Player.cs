@@ -429,6 +429,11 @@ public class Player : Entity, IDamageable
         return success;
     }
     
+    public bool CanAfford(uint amount)
+    {
+        return runStats.goldCollected >= amount;
+    }
+    
     public bool SpendGold(uint amount)
     {
         if (runStats.goldCollected >= amount)

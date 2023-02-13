@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
     [SerializeField] private RunStats metaStats; 
     [SerializeField] private TownStats townStats; 
+    [SerializeField] private MetaUpgrades metaUpgrades;
     public void Awake()
     {
         if (instance == null)
@@ -56,16 +57,23 @@ public class SaveManager : MonoBehaviour
         townStats.Reset();
     }
 
+    public MetaUpgrades GetMetaUpgrades()
+    {
+        return metaUpgrades;
+    }
+    
     public void Save()
     {
         Save("metaStats", metaStats);
         Save("townStats", townStats);
+        Save("metaUpgrades", metaUpgrades);
     }
     
     public void Load()
     {
         Load("metaStats", out metaStats);
         Load("townStats", out townStats);
+        Load("metaUpgrades", out metaUpgrades);
     }
     
     public void Load<T>(string path, out T data)
