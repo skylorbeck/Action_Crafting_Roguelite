@@ -102,7 +102,7 @@ public class ThrowingTool : Tool
             for (int j = 0; j < amountOfPicks; j++)
             {
                 Projectile throwable = throwables.Get();
-                throwable.damageScale = damageScale;
+                throwable.damageScale = toolStats.damageScale;
                 Vector3 direction = (target - playerTransform.position).normalized;
                 if (j>0)
                 {
@@ -124,7 +124,7 @@ public class ThrowingTool : Tool
             yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f +toolStats.projectileLifeTimeBonus);
 
         foreach (var t in throwablesToRelease)
         {

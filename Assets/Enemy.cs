@@ -12,15 +12,7 @@ public class Enemy : Entity, IDamageable
     [SerializeField]protected SpriteAnimator spriteAnimator;
     [SerializeField]protected int maxHealth = 2;
     [SerializeField]protected CircleCollider2D collider;
-    protected override void Start()
-    {
-        base.Start();
-    }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
 
     public void SetMaxHealth(int maxHealth)
     {

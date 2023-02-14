@@ -13,6 +13,11 @@ public class RunStats
     public uint woodNodesHarvested;
     public uint goldCollected;
     //version 1 end
+    
+    public RunStats()
+    {
+        Reset();
+    }
     public void AddRunStats(RunStats runStats)
     {
         enemiesKilled += runStats.enemiesKilled;
@@ -35,19 +40,5 @@ public class RunStats
         goldCollected = 0;
     }
     
-    public bool InsertSaveData(RunStats saveFile)
-    {
-        if (saveFile.version < 1)
-        {
-            return false;
-        }
-        enemiesKilled = saveFile.enemiesKilled;
-        resourcesCollected = saveFile.resourcesCollected;
-        stoneCollected = saveFile.stoneCollected;
-        stoneNodesHarvested = saveFile.stoneNodesHarvested;
-        woodCollected = saveFile.woodCollected;
-        woodNodesHarvested = saveFile.woodNodesHarvested;
-        goldCollected = saveFile.goldCollected;
-        return true;
-    }
+  
 }

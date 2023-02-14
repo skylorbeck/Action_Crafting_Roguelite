@@ -66,7 +66,7 @@ public class SwingingTool : Tool
         {
             var swingable = swingables.Get();
             swingable.transform.parent = transform;
-            swingable.damageScale = damageScale;
+            swingable.damageScale = toolStats.damageScale;
 
             if (Player.instance.SplitAxes())
             {
@@ -94,7 +94,7 @@ public class SwingingTool : Tool
             }
         }
 
-        yield return new WaitForSeconds(swingTime);
+        yield return new WaitForSeconds(swingTime+toolStats.projectileLifeTimeBonus);
 
         foreach (Projectile swingable in swingablesToDestroy)
         {

@@ -22,7 +22,7 @@ public class TitleScreenHandler : MonoBehaviour
         titleImage.transform.localPosition = Vector3.zero;
         gradientImage.transform.localScale = Vector3.one*0.5f;
         yield return new WaitUntil(() => SaveManager.instance != null);
-        SaveManager.instance.Load();
+        yield return new WaitUntil(() => SaveManager.instance.loaded);
         Player.instance.SetMetaStats(SaveManager.instance.GetMetaStats());
         startPosition = Player.instance.transform.position;
     }

@@ -7,10 +7,13 @@ public class TownStats
     public uint version = 1;
 
     public uint experience = 0;
-    public uint experienceToNextLevel = 100;
+    public uint experienceToNextLevel = 20;
     public uint level = 0;
 
-    
+    public TownStats()
+    {
+        Reset();
+    }
 
     //version 1 end
     public void AddTownStats(TownStats townStats)
@@ -41,14 +44,5 @@ public class TownStats
         experienceToNextLevel = 20;
         level = 0;
     }
-    
-    public bool InsertSaveData(TownStats saveFile)
-    {
-        if (saveFile.version < 1)
-        {
-            return false;
-        }
-        experience = saveFile.experience;
-        return true;
-    }
+
 }

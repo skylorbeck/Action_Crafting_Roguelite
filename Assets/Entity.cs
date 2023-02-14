@@ -12,11 +12,12 @@ public class Entity : MonoBehaviour
     [SerializeField] protected int health = 1;
     [SerializeField] protected bool magnetToPlayer = false;
 
-    protected virtual void Start()
+    protected virtual IEnumerator Start()
     {
         Rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponent<SpriteAnimator>()?.SetSprites(sprites);
+        yield return null;
     }
 
     protected virtual void Awake()

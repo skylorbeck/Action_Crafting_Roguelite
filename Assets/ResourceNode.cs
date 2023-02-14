@@ -17,10 +17,10 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     
     [SerializeField] float knockbackPlayer = 0.5f;
     [SerializeField] float knockbackWeapon = 0.5f;
-    protected override void Start()
+    protected override IEnumerator Start()
     {
         collider = GetComponent<Collider2D>();
-        base.Start();
+        yield return base.Start();
     }
 
     public void SetResourcePool(ResourceDrop.Resource[] resourcePool)

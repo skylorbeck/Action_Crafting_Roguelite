@@ -15,12 +15,14 @@ public class PerkManager : MonoBehaviour
     [SerializeField] private Button[] PerkButtons;
     [SerializeField] private PerkDisplay[] perkDisplays;
     [SerializeField] private Button closePerkMenuButton;
+
     void Start()
     {
-         instance = this;
-        
+        instance = this;
+
     }
-//TODO value owned perks more than new perks
+
+    //TODO value owned perks more than new perks
     public void ShowPerkMenu()
     {
         MenuSoundManager.instance.PlayOpen();
@@ -28,7 +30,8 @@ public class PerkManager : MonoBehaviour
         perkMenu.transform.DOKill();
         perkMenu.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true).SetEase(Ease.OutBack);
         Time.timeScale = 0;
-        List<Perk> perks = new List<Perk>(Player.instance.classRegistry.GetClass(Player.instance.classIndex).perkList);
+        List<Perk> perks = new List<Perk>(Player.instance.classRegistry
+            .GetClass((int)SaveManager.instance.GetPlayerToolData().GetEquippedType()).perkList);
         perks.AddRange(allClassPerks);
         perks.AddRange(bonusPerkPool);
         perks.RemoveAll(perk => Player.instance.equippedPerks.Contains(perk));
@@ -36,7 +39,7 @@ public class PerkManager : MonoBehaviour
         {
             perkDisplay.gameObject.SetActive(false);
         }
-        
+
 
         if (perks.Count == 0)
         {
@@ -47,7 +50,7 @@ public class PerkManager : MonoBehaviour
         {
             closePerkMenuButton.gameObject.SetActive(false);
         }
-        
+
         if (perks.Count < PerkButtons.Length)
         {
             for (int i = 0; i < perks.Count; i++)
@@ -56,46 +59,50 @@ public class PerkManager : MonoBehaviour
                 PerkButtons[i].interactable = true;
                 perkDisplays[i].SetPerk(perks[i]);
             }
+
             return;
         }
-        
+
         List<int> randomPerkIndexes = new List<int>();
 
         for (int i = 0; i < PerkButtons.Length; i++)
         {
             PerkButtons[i].interactable = false;
-            int randomPerkIndex =Random.Range(0, perks.Count);
+            int randomPerkIndex = Random.Range(0, perks.Count);
             while (randomPerkIndexes.Contains(randomPerkIndex))
             {
                 randomPerkIndex = Random.Range(0, perks.Count);
             }
+
             perkDisplays[i].gameObject.SetActive(true);
             PerkButtons[i].interactable = true;
             perkDisplays[i].SetPerk(perks[randomPerkIndex]);
             randomPerkIndexes.Add(randomPerkIndex);
         }
     }
-    
+
     public void ClosePerkMenu()
     {
-        MenuSoundManager.instance.PlayAccept(); 
+        MenuSoundManager.instance.PlayAccept();
         Time.timeScale = 1f;
-        perkMenu.transform.DOLocalMove(new Vector3(0, 1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack).OnComplete(() => perkMenu.SetActive(false));
+        perkMenu.transform.DOLocalMove(new Vector3(0, 1000, 0), 0.5f).SetUpdate(true).SetEase(Ease.InBack)
+            .OnComplete(() => perkMenu.SetActive(false));
         foreach (Button button in PerkButtons)
         {
             button.interactable = false;
         }
+
         closePerkMenuButton.interactable = false;
         Player.instance.CheckForLevelUp();
     }
-    
+
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
     {
-        
+
     }
 }

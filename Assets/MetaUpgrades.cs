@@ -12,6 +12,10 @@ public class MetaUpgrades
 
     //version 1 end
 
+    public MetaUpgrades()
+    {
+        Reset();
+    }
 
     public void Reset()
     {
@@ -72,5 +76,5 @@ public class MetaUpgrades
                 break;
         }
     }
-    
+
 }

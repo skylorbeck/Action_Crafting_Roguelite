@@ -15,7 +15,6 @@ public class ClassDoor : MenuTrigger
     [SerializeField] private TextMeshProUGUI classDescriptionText;
     [SerializeField] private Image classRenderer;
     [SerializeField] private ImageAnimator classAnimator;
-//TODO weapon swapping
     public override void Open()
     {
         base.Open();
@@ -31,15 +30,12 @@ public class ClassDoor : MenuTrigger
         MenuSoundManager.instance.PlayAccept();
         nextClassButton.interactable = false;
         previousClassButton.interactable = false;
-        PlayerPrefs.SetInt("classIndex", Player.instance.classIndex);
-        PlayerPrefs.SetInt("weaponIndex", Player.instance.weaponIndex);
-        PlayerPrefs.Save();
         Player.instance.UpdateClass();
     }
   
     private void SetPreview()
     {
-        ClassObject classObject = Player.instance.classRegistry.GetClass(Player.instance.classIndex);
+        ClassObject classObject = Player.instance.classRegistry.GetClass((int)SaveManager.instance.GetPlayerToolData().GetEquippedType());
         classNameText.text = classObject.className;
         classDescriptionText.text = classObject.classDescription;
         classRenderer.sprite = classObject.classSprites[0];
@@ -48,22 +44,14 @@ public class ClassDoor : MenuTrigger
 
     public void NextClass()
     {
-        Player.instance.classIndex++;
-        if (Player.instance.classIndex >= Player.instance.classRegistry.classList.Count)//TODO this won't work with locked classes
-        {
-            Player.instance.classIndex = 0;
-        }
+        SaveManager.instance.GetPlayerToolData().NextClass();
         SetPreview();
         MenuSoundManager.instance.PlayAccept();
     }
     
     public void PreviousClass()
     {
-        Player.instance.classIndex--;
-        if (Player.instance.classIndex < 0)
-        {
-            Player.instance.classIndex = Player.instance.classRegistry.classList.Count - 1;
-        }
+        SaveManager.instance.GetPlayerToolData().PreviousClass();
         SetPreview();
         MenuSoundManager.instance.PlayAccept();
     }

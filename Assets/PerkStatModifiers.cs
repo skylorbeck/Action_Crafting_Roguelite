@@ -12,8 +12,8 @@ namespace PerkSystem
         public float damageMultiplierBonus;
         public float attackSpeedMultiplierBonus;
         public float movementSpeedMultiplierBonus;
-        public float critChanceFlatBonus;//TODO
-        public float critDamageMultiplierBonus;//TODO
+        public float critChanceFlatBonus;
+        public float critDamageMultiplierBonus;
         public float projectileSpeedMultiplierBonus;
         public float projectileSizeMultiplierBonus;
         public int projectileCountFlatBonus;

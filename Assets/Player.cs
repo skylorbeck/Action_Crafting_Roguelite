@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using PerkSystem;
 using TMPro;
@@ -15,8 +16,9 @@ public class Player : Entity, IDamageable
 {
     public static Player instance;
     [SerializeField] public ClassRegistry classRegistry;
-    [SerializeField] public int classIndex = 0;
-    [SerializeField] public int weaponIndex = 0;
+    [SerializeField] public ToolRegistry toolRegistry;
+    // [SerializeField] public int classIndex = 0;
+    // [SerializeField] public int weaponIndex = 0;//unused
     [SerializeField] protected bool spawnWithWeapons = true;
     [SerializeField] protected Transform weaponHolder;
     [SerializeField] protected AudioSource audioSource;
@@ -24,6 +26,7 @@ public class Player : Entity, IDamageable
     
     [SerializeField] PerkStatModifiers perkStatModifiers;
     [SerializeField] public List<Perk> equippedPerks = new List<Perk>();
+    [SerializeField] public List<Tool> equippedTools = new List<Tool>();
     [SerializeField] protected int maxHealth = 6;
     [SerializeField] protected uint experience = 0;
     [SerializeField] protected float experienceScale = 1.1f;
@@ -43,19 +46,18 @@ public class Player : Entity, IDamageable
 
     [SerializeField] protected PlayerInput playerInput;
     
-    protected override void Start()
+    protected override IEnumerator Start()
     {
         instance = this;
-        classIndex = PlayerPrefs.GetInt("classIndex", 0);
-        weaponIndex = PlayerPrefs.GetInt("weaponIndex", 0);
         audioSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
-
-        SetClass(classRegistry.GetClass(classIndex));
+        yield return new WaitUntil(() => SaveManager.instance != null);
+        yield return new WaitUntil(() => SaveManager.instance.loaded);
+        SetClass(classRegistry.GetClass((int)SaveManager.instance.GetPlayerToolData().GetEquippedType()));
         if (spawnWithWeapons)
         {
             EquipTool();
         }
-        base.Start();
+        yield return base.Start();
     }
 
     public uint GetGold()
@@ -67,11 +69,14 @@ public class Player : Entity, IDamageable
     {
         if (tool == null)
         {
-            tool = classRegistry.GetToolsOfClass(classIndex)[weaponIndex];
+            tool = classRegistry.GetToolsOfClass((int)SaveManager.instance.GetPlayerToolData().GetEquippedType())[0];
         }
+        
         if (tool != null)
         {
-            Instantiate(tool, weaponHolder);
+            Tool newTool;
+            equippedTools.Add(newTool = Instantiate(tool, weaponHolder));
+            newTool.toolStats = SaveManager.instance.GetPlayerToolData().GetEquipped();
         }
     }
 
@@ -212,7 +217,7 @@ public class Player : Entity, IDamageable
             experience -= experienceToNextLevel;
             level++;
             experienceToNextLevel = (uint)Mathf.RoundToInt(experienceToNextLevel * experienceScale);
-
+            invincibleTimer = invincibleTime;
             levelText.text = "Lv. " + level;
             
             PerkManager.instance.ShowPerkMenu();
@@ -242,13 +247,7 @@ public class Player : Entity, IDamageable
 
     public void UpdateClass()
     {
-        classIndex = PlayerPrefs.GetInt("classIndex", 0);
-        weaponIndex = PlayerPrefs.GetInt("weaponIndex", 0);
-        SetClass(classRegistry.GetClass(classIndex));
-        if (spawnWithWeapons)
-        {
-            Instantiate(classRegistry.GetToolsOfClass(classIndex)[weaponIndex], weaponHolder);
-        }
+        SetClass(classRegistry.GetClass((int)SaveManager.instance.GetPlayerToolData().GetEquippedType()));
     }
     
     public void AddPerk(Perk perk)
@@ -293,42 +292,43 @@ public class Player : Entity, IDamageable
 
     public float GetAttackSpeedBonus()
     {
-        return 1 + perkStatModifiers.attackSpeedMultiplierBonus;
+        return 1 + perkStatModifiers.attackSpeedMultiplierBonus + equippedTools.Sum(tool => tool.toolStats.attackSpeedBonus);
     }
     
     public float GetMoveSpeedBonus()
     {
-        return 1 + perkStatModifiers.movementSpeedMultiplierBonus;
+        return 1 + perkStatModifiers.movementSpeedMultiplierBonus + equippedTools.Sum(tool => tool.toolStats.movementSpeedBonus);
     }
     
     public float GetCritChance()
     {
-        return 0.1f + perkStatModifiers.critChanceFlatBonus;
+        return 0.1f + perkStatModifiers.critChanceFlatBonus + equippedTools.Sum(tool => tool.toolStats.critChanceBonus);
     }
     
     public float GetCritDamageBonus()
     {
-        return 1 + perkStatModifiers.critDamageMultiplierBonus;
+        return 1 + perkStatModifiers.critDamageMultiplierBonus +  equippedTools.Sum(tool => tool.toolStats.critDamageBonus);
     }
     
     public float GetProjectileSpeedBonus()
     {
-        return 1 + perkStatModifiers.projectileSpeedMultiplierBonus;
+        return 1 + perkStatModifiers.projectileSpeedMultiplierBonus + equippedTools.Sum(tool => tool.toolStats.projectileSpeedBonus);
     }
     
     public float GetProjectileSizeBonus()
     {
-        return 1 + perkStatModifiers.projectileSizeMultiplierBonus;
+        return 1 + perkStatModifiers.projectileSizeMultiplierBonus + equippedTools.Sum(tool => tool.toolStats.projectileSizeBonus);
     }
     
     public int GetExtraProjectiles()
     {
-        return perkStatModifiers.projectileCountFlatBonus;
+        return perkStatModifiers.projectileCountFlatBonus + equippedTools.Sum(tool => tool.toolStats.projectileCountBonus);
     }
     
     public float GetAoERadius()
     {
-        return (1 + perkStatModifiers.areaOfEffectMultiplierBonus);
+        return (1 + perkStatModifiers.areaOfEffectMultiplierBonus +
+                equippedTools.Sum(tool => tool.toolStats.areaOfEffectBonus));
     }
 
     public float GetExperienceBonus()

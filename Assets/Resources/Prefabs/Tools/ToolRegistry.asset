@@ -15,3 +15,15 @@ MonoBehaviour:
   toolList:
   - {fileID: 4213555600138669609, guid: 0f677289b1dbe944b9b379bb5a4f5fab, type: 3}
   - {fileID: 1156798075521856230, guid: b86ee10ada6c7d94c921b7815a8dc292, type: 3}
+  pickaxeImages:
+  - {fileID: 21300000, guid: 2becd0926c9053e4894f1a212119d520, type: 3}
+  - {fileID: 21300000, guid: 3c8253394d18c2f4b9344ecd7d9bbd35, type: 3}
+  - {fileID: 21300000, guid: da26519ddb426914cbf8202a7d84a969, type: 3}
+  - {fileID: 21300000, guid: c58199a5695965f48afb916bf93208e2, type: 3}
+  - {fileID: 21300000, guid: b575acbb60766b447afbf4ee5488624f, type: 3}
+  axeImages:
+  - {fileID: 21300000, guid: 81d8406aa564ade48b6a9698d3045f8e, type: 3}
+  - {fileID: 21300000, guid: 90258f498568a01459a7494ebd941a81, type: 3}
+  - {fileID: 21300000, guid: e5a89db18f522514093cb4dd38aa7134, type: 3}
+  - {fileID: 21300000, guid: 6f2e4d0bdae39904490d0c725d86981d, type: 3}
+  - {fileID: 21300000, guid: 35b0e2793a6a724499870c7889ba5780, type: 3}

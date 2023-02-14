@@ -6,9 +6,11 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
+    public bool loaded = false;
     [SerializeField] private RunStats metaStats; 
     [SerializeField] private TownStats townStats; 
     [SerializeField] private MetaUpgrades metaUpgrades;
+    [SerializeField] private PlayerToolData playerToolData;
     public void Awake()
     {
         if (instance == null)
@@ -20,6 +22,11 @@ public class SaveManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    
+    public PlayerToolData GetPlayerToolData()
+    {
+        return playerToolData;
     }
     
     public void AddRunToMetaStats(RunStats runStats)
@@ -67,6 +74,7 @@ public class SaveManager : MonoBehaviour
         Save("metaStats", metaStats);
         Save("townStats", townStats);
         Save("metaUpgrades", metaUpgrades);
+        Save("playerToolData", playerToolData);
     }
     
     public void Load()
@@ -74,20 +82,34 @@ public class SaveManager : MonoBehaviour
         Load("metaStats", out metaStats);
         Load("townStats", out townStats);
         Load("metaUpgrades", out metaUpgrades);
+        Load("playerToolData", out playerToolData);
+        loaded = true;
     }
     
-    public void Load<T>(string path, out T data)
+    public void Load<T>(string path, out T data) where T : new()
     {
         path = Application.persistentDataPath + "/" + path + ".json";
         if (!File.Exists(path))
         {
             File.Create(path).Dispose();
-            data = default;
+            data = new T();
+            string json = JsonUtility.ToJson(data);
+            File.WriteAllText(path, json);
         }
         else
         {
             string json = File.ReadAllText(path);
-            data = JsonUtility.FromJson<T>(json);
+            if (json == "")
+            {
+                Debug.Log("File" + path + " is empty");
+                data = new T();
+                json = JsonUtility.ToJson(data);
+                File.WriteAllText(path, json);
+            }
+            else
+            {
+                data = JsonUtility.FromJson<T>(json);
+            }
         }
     }
     

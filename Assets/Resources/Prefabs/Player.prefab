@@ -313,14 +313,14 @@ MonoBehaviour:
   - {fileID: -47052592, guid: 00c26d4656f213d44adc06341960394c, type: 3}
   spriteRenderer: {fileID: 4777040365876319631}
   Rb: {fileID: 4777040365876319634}
-  audioSource: {fileID: 3390165682969519097}
   hitSound: {fileID: 8300000, guid: 0337318506ef91d46add967bdc4fc65f, type: 3}
   health: 1
+  magnetToPlayer: 0
   classRegistry: {fileID: 11400000, guid: eb3c888df1dcb5643839337541b4b08a, type: 2}
-  classIndex: 0
-  weaponIndex: 0
+  toolRegistry: {fileID: 11400000, guid: f4efce268b967864593e8b07204604e3, type: 2}
   spawnWithWeapons: 1
   weaponHolder: {fileID: 0}
+  audioSource: {fileID: 3390165682969519097}
   runStats:
     version: 1
     enemiesKilled: 0
@@ -354,6 +354,7 @@ MonoBehaviour:
     combineAxes: 0
     treesBurn: 0
   equippedPerks: []
+  equippedTools: []
   maxHealth: 6
   experience: 0
   experienceScale: 1.1
