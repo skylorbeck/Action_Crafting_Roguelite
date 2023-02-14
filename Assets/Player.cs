@@ -76,7 +76,7 @@ public class Player : Entity, IDamageable
         {
             Tool newTool;
             equippedTools.Add(newTool = Instantiate(tool, weaponHolder));
-            newTool.toolStats = SaveManager.instance.GetPlayerToolData().GetEquipped();
+            newTool.toolStats = SaveManager.instance.GetPlayerToolData().GetEquippedTool();
         }
     }
 
@@ -456,5 +456,6 @@ public class Player : Entity, IDamageable
     {
         audioSource.PlayOneShot(hitSound);
     }
+
 }
 

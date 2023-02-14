@@ -28,6 +28,7 @@ public class SwingingTool : Tool
             {
                 Projectile swingable = Instantiate(swingablePrefab, transform.position, Quaternion.identity)
                     .GetComponent<Projectile>();
+                swingable.spriteRenderer.sprite = Player.instance.toolRegistry.axeImages[toolStats.toolTier];
                 swingable.spriteRenderer.DOFade(0, 0);
                 swingable.gameObject.SetActive(false);
                 return swingable;
@@ -50,6 +51,12 @@ public class SwingingTool : Tool
             }
         );
 
+        StartCoroutine(DelayFire());
+    }
+
+    public IEnumerator DelayFire()
+    {
+        yield return new WaitForFixedUpdate();
         StartCoroutine(Fire());
     }
 

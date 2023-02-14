@@ -48,9 +48,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetResource: 0
   targetReticule: {fileID: 8259788432333018955}
+  toolName: Pickaxe
+  description: Throw a pick at the nearest Node
   fireTimer: 0
   fireRate: 1
-  damageScale: 1
+  toolStats:
+    version: 1
+    toolType: 0
+    toolTier: 0
+    damageScale: 1
+    attackSpeedBonus: 0
+    movementSpeedBonus: 0
+    critChanceBonus: 0
+    critDamageBonus: 0
+    projectileSpeedBonus: 0
+    projectileSizeBonus: 0
+    projectileCountBonus: 0
+    areaOfEffectBonus: 0
+    projectileLifeTimeBonus: 0
+    Guid: 2b42e3de-4dba-4f30-b51f-8c5592117dec
   throwablePrefab: {fileID: 5563206522260159424, guid: 0f59853fa78ca7d4981e5bc961fd88e7, type: 3}
   throwForce: 10
   throwTorque: 5

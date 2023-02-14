@@ -46,9 +46,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetResource: 1
   targetReticule: {fileID: 0}
+  toolName: Axe
+  description: Summon Axes that whirl around you.
   fireTimer: 0
   fireRate: 6
-  damageScale: 1
+  toolStats:
+    version: 1
+    toolType: 0
+    toolTier: 0
+    damageScale: 1
+    attackSpeedBonus: 0
+    movementSpeedBonus: 0
+    critChanceBonus: 0
+    critDamageBonus: 0
+    projectileSpeedBonus: 0
+    projectileSizeBonus: 0
+    projectileCountBonus: 0
+    areaOfEffectBonus: 0
+    projectileLifeTimeBonus: 0
+    Guid: 74234fec-1d17-4b78-ba93-3c75e2563f01
   swingablePrefab: {fileID: 8999593085323237554, guid: dd957467748c734458169c4e37dabbe0, type: 3}
   swingableCount: 2
   swingSpeed: 150

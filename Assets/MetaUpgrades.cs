@@ -41,19 +41,15 @@ public class MetaUpgrades
 
     public bool HasBoughtUpgrade(UpgradeObject.UpgradeType upgradeType)
     {
-        switch (upgradeType)
+        return upgradeType switch
         {
-            case UpgradeObject.UpgradeType.BiggerNodes:
-                return biggerNodes;
-            case UpgradeObject.UpgradeType.BanishButton:
-                return banishButton;
-            case UpgradeObject.UpgradeType.Minimap:
-                return minimap;
-            case UpgradeObject.UpgradeType.NodeCapacity:
-                return nodeCapacity > 10;
-            default:
-                return false;
-        }
+            UpgradeObject.UpgradeType.BiggerNodes => biggerNodes,
+            UpgradeObject.UpgradeType.BanishButton => banishButton,
+            UpgradeObject.UpgradeType.Minimap => minimap,
+            UpgradeObject.UpgradeType.NodeCapacity => nodeCapacity > 10,
+            UpgradeObject.UpgradeType.ToolTier => SaveManager.instance.GetPlayerToolData().toolTier > 3,
+            _ => false
+        };
     }
 
     public void BuyUpgrade(UpgradeObject.UpgradeType upgradeType)
@@ -71,6 +67,9 @@ public class MetaUpgrades
                 break;
             case UpgradeObject.UpgradeType.NodeCapacity:
                 nodeCapacity++;
+                break;
+            case UpgradeObject.UpgradeType.ToolTier:
+                SaveManager.instance.GetPlayerToolData().toolTier++;
                 break;
             default:
                 break;

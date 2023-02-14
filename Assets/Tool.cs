@@ -6,9 +6,11 @@ using UnityEngine.Serialization;
 public class Tool : MonoBehaviour
 {
     [SerializeField] public ResourceNode.Resource targetResource = ResourceNode.Resource.Stone;
-
     [SerializeField] protected SpriteRenderer targetReticule;
 
+    [SerializeField] private string toolName = "Tool";
+    [SerializeField] private string description = "This is a tool";
+    
     public float fireTimer = 0f;
     public float fireRate = 1f;
     

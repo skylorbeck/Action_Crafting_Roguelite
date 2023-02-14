@@ -7,10 +7,10 @@ using UnityEngine;
 public class PlayerToolData
 {
     public uint version = 1;
-    [SerializeField] public ToolType equippedType = ToolType.Pick;
-    [SerializeField] public string equippedGuid = Guid.Empty.ToString();
-    [SerializeField] public List<ToolStats> tools = new List<ToolStats>();
-    [SerializeField] public int toolTier = 0;
+    public ToolType equippedType = ToolType.Pick;
+    public ToolStats currentPick = new ToolStats(){toolType = ToolType.Pick};
+    public ToolStats currentAxe = new ToolStats() { toolType = ToolType.Axe };
+    [SerializeField] public uint toolTier = 0;
 
     public PlayerToolData()
     {
@@ -19,31 +19,14 @@ public class PlayerToolData
 
     private void Reset()
     {
-        equippedType = ToolType.Pick;
-        equippedGuid = Guid.Empty.ToString();
-        tools = new List<ToolStats>();
         toolTier = 0;
     }
 
-    public int GetToolTier()
+    public uint GetToolTier()
     {
         return toolTier;
     }
     
-    public ToolType GetEquippedType()
-    {
-        return equippedType;
-    }
-    
-    public List<ToolStats> GetOfType(ToolType toolType)
-    {
-        return tools.Where(tool => tool.toolType == toolType).ToList();
-    }
-    
-    public ToolStats GetEquipped()
-    {
-        return tools.FirstOrDefault(tool => tool.Guid.Equals(equippedGuid));
-    }
     
     public void NextClass()
     {
@@ -60,6 +43,24 @@ public class PlayerToolData
         if (equippedType < ToolType.Pick)
         {
             equippedType = ToolType.Axe;
+        }
+    }
+
+    public ToolType GetEquippedType()
+    {
+        return equippedType;
+    }
+
+    public ToolStats GetEquippedTool()
+    {
+        switch (equippedType)
+        {
+            case ToolType.Pick:
+                return currentPick;
+            case ToolType.Axe:
+                return currentAxe;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 }

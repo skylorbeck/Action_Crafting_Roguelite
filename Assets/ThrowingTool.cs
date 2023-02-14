@@ -42,6 +42,7 @@ public class ThrowingTool : Tool
                 Projectile throwable = Instantiate(throwablePrefab, transform.position, transform.rotation)
                     .GetComponent<Projectile>();
                 throwable.GetComponent<Projectile>().parent = this;
+                throwable.spriteRenderer.sprite = Player.instance.toolRegistry.pickaxeImages[toolStats.toolTier];
                 return throwable;
             },
             throwable =>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,11 +18,18 @@ public class UpgradeObject : ScriptableObject
     
     public uint GetUpgradeCost()
     {
-        if (upgradeType == UpgradeType.NodeCapacity)
-        { 
-            return upgradeCost * SaveManager.instance.GetMetaUpgrades().nodeCapacity;
+        switch (upgradeType)
+        {
+            case UpgradeType.NodeCapacity:
+                return upgradeCost * SaveManager.instance.GetMetaUpgrades().nodeCapacity;
+            case UpgradeType.ToolTier:
+                return upgradeCost * (SaveManager.instance.GetPlayerToolData().GetToolTier()+1);
+            case UpgradeType.BiggerNodes:
+            case UpgradeType.BanishButton:
+            case UpgradeType.Minimap:
+            default:
+                return upgradeCost;
         }
-        return upgradeCost;
     }
 
     public void BuyUpgrade()
@@ -36,6 +44,7 @@ public class UpgradeObject : ScriptableObject
         BanishButton,
         Minimap,
         NodeCapacity,
+        ToolTier,
     }
 
     public bool HasBoughtUpgrade()

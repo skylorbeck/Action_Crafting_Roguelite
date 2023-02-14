@@ -179,7 +179,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (activeNodes.Count < resourceNodeCap && spawnResourceNodes)
         {
-            for (int i = 0; i < resourceNodeSpawnCount; i++)
+            for (int i = 0; i < resourceNodeSpawnCount + SaveManager.instance.GetMetaUpgrades().nodeCapacity; i++)
             {
                 SpawnResourceNode(Random.value > 0.5f ? ResourceNode.Resource.Wood : ResourceNode.Resource.Stone);
                 //TODO at some point in the future we will need a way to influence which nodes spawn and when, instead of randomly spawning them. 

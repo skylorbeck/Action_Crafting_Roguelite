@@ -22,6 +22,7 @@ public class UpgradeEntryBrain : MonoBehaviour
         } else {
             MenuSoundManager.instance.PlayCancel();
         }
+        UpdateText();
         //This is handled by the blacksmith
         // UpdateButton();
     }
@@ -34,7 +35,7 @@ public class UpgradeEntryBrain : MonoBehaviour
     public void UpdateText()
     {
         upgradeDescription.text = upgradeObject.upgradeDescription;
-        upgradeCost.text = "x" + upgradeObject.upgradeCost;
+        upgradeCost.text = "x" + upgradeObject.GetUpgradeCost();
         if (upgradeObject.HasBoughtUpgrade())
         {
             buyBoughtText.color =ColorBought;

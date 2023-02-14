@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,11 +15,29 @@ public class ToolCrafter : MonoBehaviour
     [SerializeField] private String[] tierNames;
     [SerializeField] private TextMeshProUGUI toolCostText;
     [SerializeField] private Button craftButton;
-
+    [SerializeField] private List<Button> tierButtons;
     [SerializeField] private int cost;
+    
+    [SerializeField] private RectTransform toolPreviewerParent;
+    [SerializeField] private ToolPreviewer oldToolPreviewer;
+    [SerializeField] private ToolPreviewer newToolPreviewer;
     public void Craft()
     {
-        //TODO item generator
+        toolPreviewerParent.gameObject.SetActive(true);
+        toolPreviewerParent.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.OutBack);
+        Player.instance.SpendGold((uint)cost);
+        Player.instance.UpdateResourceText();
+        ToolStats toolStats = new ToolStats(currentToolType, currentToolTier);
+        toolStats.Randomize();
+        oldToolPreviewer.SetPreview();
+        newToolPreviewer.SetPreview(toolStats);
+        MenuSoundManager.instance.PlayAccept();
+    }
+    
+    public void ClosePreviewer()
+    {
+        toolPreviewerParent.transform.DOLocalMoveY(-1080f, 0.5f).SetEase(Ease.OutBack).onComplete += () =>
+        toolPreviewerParent.gameObject.SetActive(false);
         MenuSoundManager.instance.PlayAccept();
     }
 
@@ -48,10 +67,12 @@ public class ToolCrafter : MonoBehaviour
     {
         cost =  (int)Mathf.Pow(10, currentToolTier+2);
         craftButton.interactable = Player.instance.CanAfford((uint)cost);
+        tierButtons.ForEach(button => button.interactable = SaveManager.instance.GetPlayerToolData().GetToolTier() > 0);
     }
 
     public void UpdateAll()
     {
+        currentToolType = SaveManager.instance.GetPlayerToolData().GetEquippedType();
         UpdateCost();
         UpdateImage();
         UpdateText();
@@ -73,7 +94,7 @@ public class ToolCrafter : MonoBehaviour
         currentToolTier--;
         if (currentToolTier < 0)
         {
-            currentToolTier = SaveManager.instance.GetPlayerToolData().GetToolTier();
+            currentToolTier = (int)SaveManager.instance.GetPlayerToolData().GetToolTier();
         }
         MenuSoundManager.instance.PlayCancel();
         UpdateAll();

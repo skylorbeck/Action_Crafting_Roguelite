@@ -15,13 +15,15 @@ public class ClassDoor : MenuTrigger
     [SerializeField] private TextMeshProUGUI classDescriptionText;
     [SerializeField] private Image classRenderer;
     [SerializeField] private ImageAnimator classAnimator;
+    
+    [SerializeField] private ToolPreviewer toolPreviewer;
     public override void Open()
     {
         base.Open();
         nextClassButton.interactable = true;
         previousClassButton.interactable = true;
         SetPreview();
-
+        toolPreviewer.SetPreview();
     }
     
     public override void Close()
@@ -40,6 +42,7 @@ public class ClassDoor : MenuTrigger
         classDescriptionText.text = classObject.classDescription;
         classRenderer.sprite = classObject.classSprites[0];
         classAnimator.SetSprites(classObject.classSprites);
+        toolPreviewer.SetPreview();
     }
 
     public void NextClass()
