@@ -15,11 +15,11 @@ public class ToolCrafter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI toolCostText;
     [SerializeField] private Button craftButton;
 
+    [SerializeField] private int cost;
     public void Craft()
     {
-        ToolStats toolStats = new ToolStats();//TODO: Get from pool
-        toolStats.toolType = currentToolType;
-        toolStats.toolTier = SaveManager.instance.GetPlayerToolData().GetToolTier();
+        //TODO item generator
+        MenuSoundManager.instance.PlayAccept();
     }
 
     public void UpdateImage()
@@ -39,14 +39,20 @@ public class ToolCrafter : MonoBehaviour
     
     public void UpdateText()
     {
-        craftButton.interactable = Player.instance.CanAfford((uint)(10^currentToolTier));
+        craftButton.interactable = Player.instance.CanAfford((uint)cost);
         toolTierText.text = tierNames[currentToolTier];
-        toolCostText.text = "x" + (10^currentToolTier);
-        
+        toolCostText.text = "x" + cost;
+    }
+
+    public void UpdateCost()
+    {
+        cost =  (int)Mathf.Pow(10, currentToolTier+2);
+        craftButton.interactable = Player.instance.CanAfford((uint)cost);
     }
 
     public void UpdateAll()
     {
+        UpdateCost();
         UpdateImage();
         UpdateText();
     }
@@ -56,8 +62,9 @@ public class ToolCrafter : MonoBehaviour
         currentToolTier++;
         if (currentToolTier > SaveManager.instance.GetPlayerToolData().GetToolTier())
         {
-            currentToolTier = SaveManager.instance.GetPlayerToolData().GetToolTier();
+            currentToolTier = 0;
         }
+        MenuSoundManager.instance.PlayCancel();
         UpdateAll();
     }
     
@@ -66,8 +73,9 @@ public class ToolCrafter : MonoBehaviour
         currentToolTier--;
         if (currentToolTier < 0)
         {
-            currentToolTier = 0;
+            currentToolTier = SaveManager.instance.GetPlayerToolData().GetToolTier();
         }
+        MenuSoundManager.instance.PlayCancel();
         UpdateAll();
     }
     
@@ -78,6 +86,7 @@ public class ToolCrafter : MonoBehaviour
         {
             currentToolType = ToolType.Pick;
         }
+        MenuSoundManager.instance.PlayCancel();
         UpdateAll();
     }
     
@@ -88,6 +97,7 @@ public class ToolCrafter : MonoBehaviour
         {
             currentToolType = ToolType.Axe;
         }
+        MenuSoundManager.instance.PlayCancel();
         UpdateAll();
     }
 }

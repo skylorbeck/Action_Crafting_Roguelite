@@ -4412,6 +4412,7 @@ MonoBehaviour:
     minimap: 0
     nodeCapacity: 1
   playerToolData:
+    version: 1
     equippedType: 0
     equippedGuid: 00000000-0000-0000-0000-000000000000
     tools: []

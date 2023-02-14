@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 public class Blacksmith : MenuTrigger
 {
-    [SerializeField] private Button buyNewToolButton;
-    [SerializeField] private UpgradeEntryBrain[] upgradeEntryBrains;
+    [SerializeField] private UpgradeEntryBrain[] upgradeEntryBrains;//TODO make the upgrades work
+    [SerializeField] private ToolCrafter toolCrafter;
 
     public override void Open()
     {
         base.Open();
-        buyNewToolButton.interactable = true;
         UpdateEntries();
+        toolCrafter.UpdateAll();
     }
 
     public void UpdateEntries()
@@ -31,6 +31,5 @@ public class Blacksmith : MenuTrigger
     {
         base.Close();
         MenuSoundManager.instance.PlayCancel();
-        buyNewToolButton.interactable = false;
     }
 }
