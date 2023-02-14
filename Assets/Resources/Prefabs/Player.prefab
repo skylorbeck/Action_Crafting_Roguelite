@@ -332,7 +332,7 @@ MonoBehaviour:
     goldCollected: 0
   perkStatModifiers:
     healthFlatBonus: 0
-    damageFlatBonus: 9
+    damageFlatBonus: 5
     damageMultiplierBonus: 0
     attackSpeedMultiplierBonus: 0
     movementSpeedMultiplierBonus: 0

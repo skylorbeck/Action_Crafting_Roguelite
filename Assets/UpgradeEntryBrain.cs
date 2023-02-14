@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -43,5 +44,10 @@ public class UpgradeEntryBrain : MonoBehaviour
             upgradeDescription.color = ColorBought;
             buyBoughtText.text = "Bought";
         }
+    }
+
+    public bool IsUnlocked()
+    {
+        return SaveManager.instance.GetTownStats().level >= upgradeObject.unlocksAtLevel;
     }
 }

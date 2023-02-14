@@ -9,7 +9,7 @@ public class UpgradeObject : ScriptableObject
     public string upgradeDescription;
     public uint upgradeCost;
     public UpgradeType upgradeType;
-    
+    public int unlocksAtLevel;
     public bool CanBuyUpgrade()
     {
         return !SaveManager.instance.GetMetaUpgrades().HasBoughtUpgrade(upgradeType) &&

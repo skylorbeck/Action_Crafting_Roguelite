@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Blacksmith : MenuTrigger
 {
-    [SerializeField] private UpgradeEntryBrain[] upgradeEntryBrains;//TODO make the upgrades work
+    [SerializeField] private UpgradeEntryBrain[] upgradeEntryBrains;
     [SerializeField] private ToolCrafter toolCrafter;
 
     public override void Open()
@@ -16,8 +16,15 @@ public class Blacksmith : MenuTrigger
         base.Open();
         UpdateEntries();
         toolCrafter.UpdateAll();
+        CheckForUpgrades();
     }
-
+    void CheckForUpgrades()
+    {
+        foreach (UpgradeEntryBrain upgradeEntryBrain in upgradeEntryBrains)
+        {
+            upgradeEntryBrain.gameObject.SetActive(upgradeEntryBrain.IsUnlocked());
+        }
+    }
     public void UpdateEntries()
     {
         foreach (var upgradeEntryBrain in upgradeEntryBrains)

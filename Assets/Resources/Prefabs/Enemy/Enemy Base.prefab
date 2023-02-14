@@ -107,7 +107,8 @@ MonoBehaviour:
   Rb: {fileID: 4337993680845439050}
   hitSound: {fileID: 8300000, guid: 2b55b821c8fb43540b006190c8681589, type: 3}
   health: 20
-  speed: 2.5
+  magnetToPlayer: 0
+  speed: 2
   power: 1
   goldReward: 3
   spriteAnimator: {fileID: 4337993680845439048}
