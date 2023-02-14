@@ -43,9 +43,8 @@ public class SettingsDoor : MenuTrigger
     
     public void DeleteSave()
     {
-        
-        SaveManager.instance.ResetTownStats();
-        SaveManager.instance.ResetMetaStats();
+
+        SaveManager.instance.Reset();
         SaveManager.instance.Save();
         Close();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

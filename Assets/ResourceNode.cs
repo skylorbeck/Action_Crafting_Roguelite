@@ -13,7 +13,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     public Resource resourceNode;
     public uint resourceAmount = 10;
     public uint experienceReward = 5;
-    //TODO resource node size
+    public bool large = false;
     
     [SerializeField] float knockbackPlayer = 0.5f;
     [SerializeField] float knockbackWeapon = 0.5f;
@@ -40,7 +40,7 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
     
     public void SetHealth(int health)
     {
-        this.health = health;
+        this.health = health * (large ? 2 : 1);
     }
 
     public void SetSprite(Sprite sprite)
@@ -106,6 +106,12 @@ public class ResourceNode : Entity, IDamageable, IExperienceReward
         if (Player.instance.TreesBurn() && resourceNode == Resource.Wood)
         {
             ExplosionManager.instance.SpawnBurningExplosion(position);
+        }
+
+        if (large)
+        {
+            large = false;
+            ResourceManager.instance.SpawnResourceNode(position+new Vector3(Random.Range(-1f,1f),Random.Range(-1f,1f)), this.resourceNode);
         }
         
         Player.instance.AddNodeHarvest(resourceNode);

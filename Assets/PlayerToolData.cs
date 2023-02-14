@@ -17,9 +17,12 @@ public class PlayerToolData
         Reset();
     }
 
-    private void Reset()
+    public void Reset()
     {
         toolTier = 0;
+        equippedType = ToolType.Pick;
+        currentPick = new ToolStats() { toolType = ToolType.Pick };
+        currentAxe = new ToolStats() { toolType = ToolType.Axe };
     }
 
     public uint GetToolTier()

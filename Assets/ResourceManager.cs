@@ -202,6 +202,16 @@ public class ResourceManager : MonoBehaviour
     {
         var resourceNode = resourceNodes.Get();
         ResourceNode newResource = resourceNodeRegistry.GetResourceNodePrefab(resource);
+        if (SaveManager.instance.GetMetaUpgrades().biggerNodes && Random.value < 0.02f)
+        {
+            resourceNode.large = true;
+            resourceNode.transform.localScale = Vector3.one * 2f;
+        }
+        else
+        {
+            resourceNode.large = false;
+            resourceNode.transform.localScale = Vector3.one;
+        }
         resourceNode.SetResource(newResource);
         resourceNode.transform.position = position;
         resourceNode.transform.DOJump(position, 1f, 1, 0.25f);

@@ -44,10 +44,6 @@ public class SaveManager : MonoBehaviour
         return metaStats;
     }
     
-    public void ResetMetaStats()
-    {
-        metaStats.Reset();
-    }
     
     public void SetTownStats(TownStats oldTownStats)
     {
@@ -59,11 +55,6 @@ public class SaveManager : MonoBehaviour
         return townStats;
     }
     
-    public void ResetTownStats()
-    {
-        townStats.Reset();
-    }
-
     public MetaUpgrades GetMetaUpgrades()
     {
         return metaUpgrades;
@@ -122,5 +113,13 @@ public class SaveManager : MonoBehaviour
         }
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(path, json);
+    }
+
+    public void Reset()
+    {
+        townStats.Reset();
+        metaStats.Reset();
+        metaUpgrades.Reset();
+        playerToolData.Reset();
     }
 }

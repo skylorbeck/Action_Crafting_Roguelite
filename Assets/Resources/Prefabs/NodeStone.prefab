@@ -104,14 +104,15 @@ MonoBehaviour:
   - {fileID: 1988456765, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
   spriteRenderer: {fileID: 1053179282637734471}
   Rb: {fileID: 1053179282637734469}
-  audioSource: {fileID: -4973264479124084746}
   hitSound: {fileID: 8300000, guid: d4906b083179f704ab58ebe6437a8b50, type: 3}
-  health: 40
+  health: 100
+  magnetToPlayer: 0
   collider: {fileID: 1053179282637734466}
   resourcePool: 01000000
   resourceNode: 0
   resourceAmount: 2
   experienceReward: 10
+  large: 0
   knockbackPlayer: 0.5
   knockbackWeapon: 0.5
 --- !u!58 &1053179282637734466

@@ -6,8 +6,8 @@ public class MetaUpgrades
     public uint version = 1;
 
     public bool biggerNodes = false;
-    public bool banishButton = false;
-    public bool minimap = false;
+    public bool banishButton = false;//TODO 
+    public bool minimap = false;//TODO
     public uint nodeCapacity = 1;
 
     //version 1 end

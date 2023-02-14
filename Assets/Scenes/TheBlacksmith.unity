@@ -5825,6 +5825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClassContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 8623517495924535326, guid: 33998836927d9ea4da2ffcaefe326f55, type: 3}
+      propertyPath: m_text
+      value: Your Tool
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33998836927d9ea4da2ffcaefe326f55, type: 3}
 --- !u!1001 &5470891035693808158
