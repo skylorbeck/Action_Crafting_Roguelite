@@ -40,6 +40,13 @@ public class SettingsDoor : MenuTrigger
         deleteSaveButton.interactable = true;
         areYouSurePanel.SetActive(true);
     }
+
+    public void ImNotSure()
+    {
+        MenuSoundManager.instance.PlayCancel();
+        deleteSaveButton.interactable = false;
+        areYouSurePanel.SetActive(false);
+    }
     
     public void DeleteSave()
     {

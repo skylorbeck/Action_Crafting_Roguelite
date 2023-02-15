@@ -45,6 +45,7 @@ public class UpgradeObject : ScriptableObject
         Minimap,
         NodeCapacity,
         ToolTier,
+        EnemiesSpawnNodes,
     }
 
     public bool HasBoughtUpgrade()

@@ -93,6 +93,7 @@ public class TownCenter : MenuTrigger
                 (uint)Mathf.RoundToInt(townStats.experienceToNextLevel * experienceScale);
             experienceBarBG.DOColor(Color.yellow, 0.25f).OnComplete(() => experienceBarBG.DOColor(Color.white, 0.5f));
             MenuSoundManager.instance.PlayLevelUp();
+            CheckForLevelUp();
         }
 
         UpdateVisuals();

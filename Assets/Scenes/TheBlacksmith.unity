@@ -5766,9 +5766,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1541040846708173711, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541040846708173711, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010406270169826923, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010406270169826923, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676111220092304265, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676111220092304265, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676111220092304265, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7473493730953575894, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
       propertyPath: m_Name
       value: SettingsContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874152411763395212, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874152411763395212, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874152411763395212, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bee9f1d927dd2814396416e76b61ec7f, type: 3}
@@ -6062,6 +6102,10 @@ PrefabInstance:
       propertyPath: experienceBarBG
       value: 
       objectReference: {fileID: 1777128090}
+    - target: {fileID: 6173754787262640463, guid: 57d427635d2244e489b6598e185936f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d427635d2244e489b6598e185936f6, type: 3}
 --- !u!1001 &7231920088168578990
