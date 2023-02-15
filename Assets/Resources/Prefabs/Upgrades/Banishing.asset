@@ -15,3 +15,4 @@ MonoBehaviour:
   upgradeDescription: Unlocks Banishing
   upgradeCost: 500
   upgradeType: 1
+  unlocksAtLevel: 99

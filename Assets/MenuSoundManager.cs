@@ -12,6 +12,7 @@ public class MenuSoundManager : MonoBehaviour
     public AudioClip menuAccept;
     public AudioClip menuOpen;
     public AudioClip menuCancel;
+    public AudioClip levelUp;
 
     public void Awake()
     {
@@ -47,5 +48,10 @@ public class MenuSoundManager : MonoBehaviour
     {
         effectSource.volume = PlayerPrefs.GetFloat("effectVolume", 1);
         musicSource.volume = PlayerPrefs.GetFloat("musicVolume", 1);
+    }
+
+    public void PlayLevelUp()
+    {
+        effectSource.PlayOneShot(levelUp);
     }
 }

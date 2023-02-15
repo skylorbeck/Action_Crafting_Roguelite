@@ -53,7 +53,7 @@ public class PopupManager : MonoBehaviour
     {
         DamageNumber number = ExpNumberUIPrefab.Spawn(Vector3.zero, "+");
         number.number = exp;
-        number.SetAnchoredPosition(ExpIcon,Vector2.zero);
+        number.SetAnchoredPosition(ExpIcon,new Vector2(50,10));
     }
     
     public void SpawnStoneNumber(int stone)

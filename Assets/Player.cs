@@ -219,7 +219,7 @@ public class Player : Entity, IDamageable
             experienceToNextLevel = (uint)Mathf.RoundToInt(experienceToNextLevel * experienceScale);
             invincibleTimer = invincibleTime;
             levelText.text = "Lv. " + level;
-            
+            MenuSoundManager.instance.PlayLevelUp();
             PerkManager.instance.ShowPerkMenu();
             
         }

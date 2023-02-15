@@ -15,3 +15,4 @@ MonoBehaviour:
   upgradeDescription: Unlocks a minimap
   upgradeCost: 1000
   upgradeType: 2
+  unlocksAtLevel: 99

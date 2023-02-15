@@ -148,6 +148,7 @@ MonoBehaviour:
   menuAccept: {fileID: 8300000, guid: d4987732a32ac604da9bb88c16c7a5e9, type: 3}
   menuOpen: {fileID: 8300000, guid: d4906b083179f704ab58ebe6437a8b50, type: 3}
   menuCancel: {fileID: 8300000, guid: 04d3d12cf594e4341adf9167325628fa, type: 3}
+  levelUp: {fileID: 8300000, guid: 28ec8970ae2bce943bd35a094fc9e01b, type: 3}
 --- !u!82 &5286725938101180605
 AudioSource:
   m_ObjectHideFlags: 0

@@ -15,3 +15,4 @@ MonoBehaviour:
   upgradeDescription: Large Nodes Can Spawn
   upgradeCost: 250
   upgradeType: 0
+  unlocksAtLevel: 1
