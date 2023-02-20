@@ -32,6 +32,7 @@ public class ToolCrafter : MonoBehaviour
         oldToolPreviewer.SetPreview();
         newToolPreviewer.SetPreview(toolStats);
         MenuSoundManager.instance.PlayAccept();
+        UpdateAll();
     }
     
     public void ClosePreviewer()
