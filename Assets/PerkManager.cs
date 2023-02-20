@@ -12,6 +12,7 @@ public class PerkManager : MonoBehaviour
     public List<Perk> preferredPerkPool = new List<Perk>();
     public List<Perk> bonusPerkPool = new List<Perk>();
     [SerializeField] private GameObject perkMenu;
+    public bool perkMenuOpen => perkMenu.activeSelf;
     [SerializeField] private Button[] PerkButtons;
     [SerializeField] private PerkDisplay[] perkDisplays;
     [SerializeField] private Button closePerkMenuButton;
@@ -25,6 +26,7 @@ public class PerkManager : MonoBehaviour
     //TODO value owned perks more than new perks
     public void ShowPerkMenu()
     {
+        PauseMenu.instance.canOpen = false;
         MenuSoundManager.instance.PlayOpen();
         perkMenu.SetActive(true);
         perkMenu.transform.DOKill();
@@ -94,6 +96,7 @@ public class PerkManager : MonoBehaviour
 
         closePerkMenuButton.interactable = false;
         Player.instance.CheckForLevelUp();
+        PauseMenu.instance.canOpen = true;
     }
 
     void Update()

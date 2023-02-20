@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,5 +27,9 @@ public class ExitGameDoor : MenuTrigger
         MenuSoundManager.instance.PlayAccept();
         Application.Quit();
     }
-    
+
+    public void Update()
+    {
+        
+    }
 }

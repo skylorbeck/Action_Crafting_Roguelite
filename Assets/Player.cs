@@ -130,6 +130,7 @@ public class Player : Entity, IDamageable
 
     public void Kill()
     {
+        PauseMenu.instance.canOpen = false;
         ExplosionManager.instance.SpawnExplosion(transform.position);
         EnemyManager.instance.ReleaseAllEnemies();
         EnemyManager.instance.SetSpawnEnemies(false);

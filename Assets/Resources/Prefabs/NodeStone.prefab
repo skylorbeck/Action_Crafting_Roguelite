@@ -104,7 +104,7 @@ MonoBehaviour:
   - {fileID: 1988456765, guid: c73b26955420fbc469ef23a06e6f7e48, type: 3}
   spriteRenderer: {fileID: 1053179282637734471}
   Rb: {fileID: 1053179282637734469}
-  hitSound: {fileID: 8300000, guid: d4906b083179f704ab58ebe6437a8b50, type: 3}
+  hitSound: {fileID: 8300000, guid: f79c9db4ad3785d4684ea6f756323e07, type: 3}
   health: 100
   magnetToPlayer: 0
   collider: {fileID: 1053179282637734466}

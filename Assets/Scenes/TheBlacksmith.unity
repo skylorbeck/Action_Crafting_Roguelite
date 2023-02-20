@@ -1108,6 +1108,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54313129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223021904759906131, guid: 54f2f368ae19ac041ab8f3638bd65961, type: 3}
+  m_PrefabInstance: {fileID: 223021905060420062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542221a9eebddcc45ab03d54d66c878f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &289700815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,7 +4281,19 @@ MonoBehaviour:
     m_ActionId: 7607c7b6-cd76-4816-beef-bd0341cfe950
     m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 54313129}
+        m_TargetAssemblyTypeName: ExitGameDoor, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
     m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
@@ -4282,19 +4305,7 @@ MonoBehaviour:
     m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
     m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraTracker, Assembly-CSharp
-        m_MethodName: OnScrollWheel
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 0489e84a-4833-4c40-bfae-cea84b696689
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:

@@ -11,7 +11,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected AudioClip hitSound;
     [SerializeField] protected int health = 1;
     [SerializeField] protected bool magnetToPlayer = false;
-
+    public bool isAlive => health > 0;
     protected virtual IEnumerator Start()
     {
         Rb = GetComponent<Rigidbody2D>();
